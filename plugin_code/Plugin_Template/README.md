@@ -16,6 +16,8 @@ Remember you have to <a href="http://www.clahub.com/agreements/oneworldmarket/wu
 
 - All images added into the images folder
 
+- All JS files added into the js folder
+
 - Wherever possible use our existing style sheets, however if you do need to add your own styles then store them in the pluginName.css style sheet
 
 - Every folder will contain an EMPTY index.php file for security
