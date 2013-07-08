@@ -1,0 +1,18 @@
+#content{padding: 0 25px 25px; width: 910px;}
+.red-title{ padding-bottom: 24px;float:left;width: 100%;}
+.bronze-info{font-size:17px;}
+.margin-right-70{margin-right:70px;float:left}
+.margin-right-60{margin-right:60px;float:left}
+.margin-right-60 #apikey{width:540px;}
+.wuplugin-title{border: 1px solid #DEDEDE;float: left;margin-bottom: 20px;margin-top: 40px;width: 100%;}
+p .black-title-large {float: left;margin-left: 15%;margin-top: 15px;width: 15%;}
+p .main{width:100%;float:left}
+p .right .bronze-info {float: left;margin: 10px;}
+span.bronze-info {margin-top: 15px !important;}
+p .right{width:70%; overflow:hidden}
+p select{width:420px !important}
+p select option {margin-bottom: 0 !important;margin-left: 10px !important;margin-top: 0 !important;}
+p .right.input{float: left;margin-left: 75px;width: 405px;}
+#mapContentRecords{ float: left;margin-top: 40px;width: 100%;}
+button.ui-multiselect span.value{color:#AA9984 !important}
+.mailchimpError{float: left;margin-left: 128px;margin-top: 9px;}
