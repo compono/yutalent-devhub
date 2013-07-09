@@ -1,4 +1,5 @@
 var categories = '';
+
 window.wuAfterInit = function(wu)
 { 
 	var keyArray = new Array();
