@@ -1,5 +1,5 @@
 <?php
-
+echo "hello";
 /**
  * TextMagic SMS API wrapper
  * 
