@@ -1,5 +1,4 @@
 var categories = '';
-var wuDomain ='wutalent.co.uk';
 window.wuAfterInit = function(wu)
 { 
 	var keyArray = new Array();
