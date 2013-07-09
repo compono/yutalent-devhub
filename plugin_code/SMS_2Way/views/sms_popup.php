@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 </head>
 
 <!--script for getting mobile no from js API-->
@@ -52,6 +52,7 @@ WU.init({
 <body>
 <?php 
 // including required files
+echo SITE_URL.DEV.'config.inc.php';
 require_once('/home/yutalent.com/public_html/d/plugin_dev/plugin_code/SMS_2Way/config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
 require_once('/home/yutalent.com/public_html/d/plugin_dev/plugin_code/SMS_2Way/libraries/textmagicAPI/TextMagicAPI.php');
