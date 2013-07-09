@@ -54,6 +54,7 @@ test texts
 <?php 
 // including required files
 require_once('https://www.yutalent.com/d/plugin_dev/plugin_code/SMS_2Way/config.inc.php');
+echo "hello";
 require_once(DEV.'/SMS_2Way_config.php'); 
 require_once(DEV.'/libraries/textmagicAPI/TextMagicAPI.php'); 
 ?>
