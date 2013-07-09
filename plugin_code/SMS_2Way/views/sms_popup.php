@@ -50,6 +50,7 @@ WU.init({
 <link rel="stylesheet" href="../SMS_2Way.css" type="text/css">
 
 <body>
+test texts
 <?php 
 // including required files
 require_once('../config.inc.php');
