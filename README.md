@@ -1,4 +1,18 @@
 wutalent-devhub
 ===============
 
-For the wu:talent developer community to code and share together
+We try to keep our developer community as open source as possible for the benefit of all our developers and partners - and to make the wu:talent developer framework as useful and flexible as possible.
+
+As we build plugins and extensions to our product we try to keep the code open and re-usable - for use in your own plugins or to improve the ones we already have. Don't forget to <a href="http://www.clahub.com/agreements/oneworldmarket/wutalent-devhub">sign the Contributor License Agreement</a> before getting started.
+
+## Completed plugins
+
+- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/Plugin_Template">Plugin Template</a> - a skeleton plugin for how we like our code to be developed - for developer reference only
+
+## Under development
+
+Current plugins under development. You may browse the code for reference at anytime. 
+
+- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/SMS_2Way">SMS 2Way</a> - allows client to send out SMS messages to contacts, wuth both the outbound and reply messages recorded as notes in the contact database
+
+- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/MailChimp">MailChimp</a> - sync's contacts from the contact database into MailChimp for newsletter management. Different contact record types (prospect, candidate, client etc) can be inserted into different MailChimp lists.
