@@ -1,0 +1,34 @@
+/* CSS Document */
+.msg_submit{
+	float: left;
+	width: 116px;
+	height: 41px;
+	margin: 5px 13px 0 132px;
+	background: url(images/sendsms.png);
+	border: none;
+	cursor: pointer;
+	text-indent: -9999px;
+}
+
+.msg_submit:hover {
+	background: url(images/sendsmshover.png);
+}
+
+#char_count {
+	color: #AA9984;
+	font-size: 12px;
+	float: left;
+	text-align: center;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.err{
+	color:#FF0000;
+	margin: 0px;
+}
+
+.success{
+	color:#549227;
+	margin:0px;
+}
