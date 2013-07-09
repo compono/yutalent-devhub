@@ -54,7 +54,9 @@ WU.init({
 // including required files
 require_once('../config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
-echo "Hello";
+
+echo SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php';
+
 require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 ?>
 
