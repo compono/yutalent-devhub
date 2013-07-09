@@ -52,8 +52,9 @@ WU.init({
 <body>
 <?php 
 // including required files
-require_once('../SMS_2Way_config.php'); 
-require_once('../libraries/textmagicAPI/TextMagicAPI.php'); 
+require_once('../config.inc.php');
+require_once(DEV.'/SMS_2Way_config.php'); 
+require_once(DEV.'/libraries/textmagicAPI/TextMagicAPI.php'); 
 ?>
 
 <!-- text message validation and sending-->
