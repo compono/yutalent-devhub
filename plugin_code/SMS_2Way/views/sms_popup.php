@@ -53,8 +53,8 @@ WU.init({
 <?php 
 // including required files
 require_once('../config.inc.php');
-echo "Hello";
 require_once(DEV.'SMS_2Way_config.php');
+echo "Hello";
 require_once(DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 ?>
 
