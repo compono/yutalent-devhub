@@ -52,13 +52,9 @@ WU.init({
 <body>
 <?php 
 // including required files
-require_once('../config.inc.php');
+require_once('/home/yutalent.com/public_html/d/plugin_dev/plugin_code/SMS_2Way/config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
-
-//echo SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php';
-
 require_once('/home/yutalent.com/public_html/d/plugin_dev/plugin_code/SMS_2Way/libraries/textmagicAPI/TextMagicAPI.php');
-//echo "Hello";
 ?>
 
 <!-- text message validation and sending-->
