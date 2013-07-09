@@ -57,7 +57,7 @@ require_once('/home/developers_sandbox/SMS_2Way_config.php');
 
 //echo SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php';
 
-require_once('../libraries/textmagicAPI/TextMagicAPI.php');
+require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 //echo "Hello";
 ?>
 
