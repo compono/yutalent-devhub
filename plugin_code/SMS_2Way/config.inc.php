@@ -3,5 +3,5 @@
 define("DEV",     "d/plugin_dev/plugin_code/SMS_2Way/");
 define("PROD",     "d/plugin_prod/plugin_code/SMS_2Way/");
 
-echo DEV.'/SMS_2Way_config.php';
+echo DEV.'SMS_2Way_config.php';
 ?>
