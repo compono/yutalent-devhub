@@ -28,7 +28,8 @@
 	margin: 0px;
 }
 
-.success{
+.success_msg{
 	color:#549227;
 	margin:0px;
+	display:none;
 }
