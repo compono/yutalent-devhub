@@ -1,4 +1,4 @@
-<link href="http://www.wutalent.co.uk/static/styles/plugin/plugin.css" rel="stylesheet" />
+<link href="https://www.wutalent.co.uk/static/styles/plugin/plugin.css" rel="stylesheet" />
 <link href="mailchimp.css" rel="stylesheet" />
 <script>var wuDomain ='<?php echo $_SERVER['SERVER_NAME']; ?>';</script>
 <div id="content">

@@ -8,4 +8,4 @@
 <script type="text/javascript" src="jquery.multiselect.js"></script>
 <script type="text/javascript" src="mailchimp.js"></script>
 <link rel="stylesheet" type="text/css" href="https://www.wutalent.co.uk/static/styles/jquery-ui/jquery-ui.css" />
-<link href="http://www.wutalent.co.uk/static/styles/jquery-ui/jquery.multiselect.css" rel="stylesheet" />
+<link href="https://www.wutalent.co.uk/static/styles/jquery-ui/jquery.multiselect.css" rel="stylesheet" />
