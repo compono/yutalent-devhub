@@ -16,12 +16,14 @@ console.log( response );
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
-wu.Messenger.sendMessageToWU('closePopup');
+var success = $('#char_count').text();
+alert(success);
 
-wu.Messenger.sendMessageToWU('showGrowl', {
-'title': 'Growl title',
-'message': 'Growl message'
-});
+//wu.Messenger.sendMessageToWU('closePopup');
+//wu.Messenger.sendMessageToWU('showGrowl', {
+//'title': 'Growl title',
+//'message': 'Growl message'
+//});
 
 
 
