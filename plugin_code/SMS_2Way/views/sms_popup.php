@@ -25,7 +25,7 @@ wu.Messenger.sendMessageToWU('showGrowl', {
 	message: 'Your message is sent successfully'
 });
 
-wu.Messenger.sendMessageToWU('closePopup');
+//wu.Messenger.sendMessageToWU('closePopup');
 }
 
 });
