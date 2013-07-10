@@ -75,7 +75,7 @@ window.wuAfterInit = function(wu)
 				//dropDown.find('option').filter('[webid="'+this.value[0]+'"]').attr('selected','selected');
 				console.log(this.key+'---'+this.value[0]);
 				//dropDown.multiselect({ header:false,multiple: false});
-				dropDown.find('option').value(this.value[0]).attr('selected','selected');
+				dropDown.find('option').val(this.value[0]);
 				if(!dropDown.val())	dropDown.siblings('button').find('span').addClass('value');
 			});
 		});
