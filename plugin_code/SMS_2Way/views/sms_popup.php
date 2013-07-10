@@ -15,6 +15,20 @@ console.log( response );
 /* assigning mobile no to variable from yutalent js API response*/
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
+
+wu.Messenger.sendMessageToWU('closePopup');
+
+wu.Messenger.sendMessageToWU('showGrowl', {
+'title': 'Growl title',
+'message': 'Growl message'
+});
+
+
+
+
+
+
+
 });
 }
 
@@ -45,13 +59,6 @@ WU.init({
         js.src = "//" + wuDomain + "/static/scripts/api/WU.js";
         wjs.parentNode.insertBefore(js, wjs);
 		}(document, 'script', 'wutalent-jssdk'));
-		
-wu.Messenger.sendMessageToWU('closePopup');
-
-wu.Messenger.sendMessageToWU('showGrowl', {
-'title': 'Growl title',
-'message': 'Growl message'
-});
 
 </script>
 
