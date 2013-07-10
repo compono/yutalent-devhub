@@ -54,7 +54,7 @@ window.wuAfterInit = function(wu)
 			var arr = {};
 			$('#mapContentRecords p[id]').each(function()
 			{
-				arr[$(this).attr('id')] = $(this).find('select option:selected').attr('webid');
+				arr[$(this).attr('id')] = $(this).find('select option:selected').val();
 			});
 			//store all the categories record
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: arr});
@@ -75,7 +75,7 @@ window.wuAfterInit = function(wu)
 				//dropDown.find('option').filter('[webid="'+this.value[0]+'"]').attr('selected','selected');
 				console.log(this.key+'---'+this.value[0]);
 				//dropDown.multiselect({ header:false,multiple: false});
-				dropDown.find('option').filter('[webid="'+this.value[0]+'"]').attr('selected','selected');
+				dropDown.find('option').filter('[value="'+this.value[0]+'"]').attr('selected','selected');
 				if(!dropDown.val())	dropDown.siblings('button').find('span').addClass('value');
 			});
 		});
