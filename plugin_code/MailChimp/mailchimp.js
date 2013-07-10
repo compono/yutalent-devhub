@@ -73,6 +73,7 @@ window.wuAfterInit = function(wu)
 			{
 				var dropDown = $('p#'+this.key).find('select');
 				dropDown.find('option').filter('[webid="'+this.value[0]+'"]').attr('selected','selected');
+				console.log(this.key+'---'+this.value[0]);
 				dropDown.multiselect({ header:false,multiple: false,selectedList: 1});
 				if(!dropDown.val())	dropDown.siblings('button').find('span').addClass('value');
 			});
