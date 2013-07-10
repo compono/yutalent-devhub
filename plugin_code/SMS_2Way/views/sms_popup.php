@@ -33,6 +33,7 @@ WU.init({
       });
 };
 
+
 // Load the SDK's source Asynchronously
 (function (d, s, id) {
     var js, wjs = d.getElementsByTagName(s)[0];
@@ -44,6 +45,14 @@ WU.init({
         js.src = "//" + wuDomain + "/static/scripts/api/WU.js";
         wjs.parentNode.insertBefore(js, wjs);
 		}(document, 'script', 'wutalent-jssdk'));
+		
+wu.Messenger.sendMessageToWU('closePopup');
+
+wu.Messenger.sendMessageToWU('showGrowl', {
+'title': 'Growl title',
+'message': 'Growl message'
+});
+
 </script>
 
 <script type="text/javascript" src="../js/SMS_2Way.js"></script>
@@ -94,21 +103,6 @@ if(isset($_POST['msg_hide']))
 		$is_unicode = true;
 		// send message via API
 		$resp = $api->send($message, $phones, $is_unicode);
-		?>
-		<script type="text/javascript">
-		wu.Messenger.sendMessageToWU('closePopup');
-		
-		wu.Messenger.sendMessageToWU('showGrowl', {
-		'title': 'Growl title',
-		'message': 'Growl message'
-		});
-		</script>
-		
-		
-		
-		
-		<?php
-		
 		$feedback = "<p class='success'>Your message is sent!</p>";
 	}
 }?>
