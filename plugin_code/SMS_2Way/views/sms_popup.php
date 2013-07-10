@@ -27,12 +27,6 @@ wu.Messenger.sendMessageToWU('showGrowl', {
 });
 }
 
-
-
-
-
-
-
 });
 }
 
