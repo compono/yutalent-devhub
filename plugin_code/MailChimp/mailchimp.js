@@ -79,13 +79,7 @@ window.wuAfterInit = function(wu)
 		});
 	});
 	
-	wu.Messenger.sendMessageToWU('storage/add', {key: 'mailchimpKey', value: $('#apikey').val()}, function(response){
-        console.log(response);
-
-        wu.Messenger.sendMessageToWU('storage/get', {key: 'mailchimpKey'}, function(response){
-            console.log(response);
-        });
-    });            
+	wu.Messenger.sendMessageToWU('storage/add', {key: 'mailchimpKey', value: $('#apikey').val()});
 }
 
 window.wuAsyncInit = function () {
