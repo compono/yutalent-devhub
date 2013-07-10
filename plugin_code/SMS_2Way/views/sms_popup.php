@@ -94,6 +94,21 @@ if(isset($_POST['msg_hide']))
 		$is_unicode = true;
 		// send message via API
 		$resp = $api->send($message, $phones, $is_unicode);
+		?>
+		<script type="text/javascript">
+		wu.Messenger.sendMessageToWU('closePopup');
+		
+		wu.Messenger.sendMessageToWU('showGrowl', {
+		'title': 'Growl title',
+		'message': 'Growl message'
+		});
+		</script>
+		
+		
+		
+		
+		<?php
+		
 		$feedback = "<p class='success'>Your message is sent!</p>";
 	}
 }?>
