@@ -17,7 +17,7 @@ var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
 var success = $('#char_count').text();
-if(success == 'Your message is sent!')
+if(success == 'success')
 {
 wu.Messenger.sendMessageToWU('showGrowl', {
  title: 'Message sent', message: 'Your message is sent successfully'}, function(){
@@ -106,7 +106,7 @@ if(isset($_POST['msg_hide']))
 		$is_unicode = true;
 		// send message via API
 		$resp = $api->send($message, $phones, $is_unicode);
-		$feedback = "<p class='success_msg'>Your message is sent!</p>";
+		$feedback = "<p class='success_msg'>success</p>";
 	}
 }?>
 
