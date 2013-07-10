@@ -1,6 +1,8 @@
-#content{padding: 0 25px 25px; width: 910px;}
+#content{padding: 0 25px 25px; width: 95%;}
 .red-title{ padding-bottom: 24px;float:left;width: 100%;}
 .bronze-info{font-size:17px;}
+.margin-right-7-per{margin-right:7%;float:left}
+.margin-right-7-per{margin-right:6%;float:left}
 .margin-right-70{margin-right:70px;float:left}
 .margin-right-60{margin-right:60px;float:left}
 .margin-right-60 #apikey{width:540px;}
@@ -16,3 +18,4 @@ p .right.input{float: left;margin-left: 75px;width: 405px;}
 #mapContentRecords{ float: left;margin-top: 40px;width: 100%;}
 button.ui-multiselect span.value{color:#AA9984 !important}
 .mailchimpError{float: left;margin-left: 128px;margin-top: 9px;}
+.update-btn.goLeft{margin:0 !important}
