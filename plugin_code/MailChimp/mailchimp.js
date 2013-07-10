@@ -77,7 +77,15 @@ window.wuAfterInit = function(wu)
 				if(!dropDown.val())	dropDown.siblings('button').find('span').addClass('value');
 			});
 		});
-	});            
+	});
+	
+	wu.Messenger.sendMessageToWU('storage/add', {key: 'mailchimpKey', value: $('#apikey').val()}, function(response){
+        console.log(response);
+
+        wu.Messenger.sendMessageToWU('storage/get', {key: 'mailchimpKey'}, function(response){
+            console.log(response);
+        });
+    });            
 }
 
 window.wuAsyncInit = function () {
