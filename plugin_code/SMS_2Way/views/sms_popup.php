@@ -20,11 +20,12 @@ var success = $('#char_count').text();
 //alert(success);
 if(success == 'Your message is sent!')
 {
-wu.Messenger.sendMessageToWU('closePopup');
 wu.Messenger.sendMessageToWU('showGrowl', {
 	title: 'Message sent',
 	message: 'Your message is sent successfully'
 });
+
+wu.Messenger.sendMessageToWU('closePopup');
 }
 
 });
