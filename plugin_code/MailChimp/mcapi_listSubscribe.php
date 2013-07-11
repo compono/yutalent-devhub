@@ -3,8 +3,7 @@
 /*
 	to subscribe user detail in a prticular mailchimp list
 */
-
-if(count($_REQUEST))
+if(!count($_REQUEST))
 {
 	$_REQUEST = array (
 	'mailchimpListId' => 'c219854d56',
