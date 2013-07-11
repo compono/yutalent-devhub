@@ -14,6 +14,7 @@ if(isset($_REQUEST['name']) && isset($_REQUEST['email']) && isset($_REQUEST['mai
 					);
 	$apiKey = $_REQUEST['mailchimpKey'];
 	$mailchimpListId = $_REQUEST['mailchimpListId'];
+	print_r($userDetail);
 	require_once('libraries/MaichimpConnect.php');
 	$mailchimpConnect = new MailchimpConnect($apikey);
 	print_r($userDetail);
