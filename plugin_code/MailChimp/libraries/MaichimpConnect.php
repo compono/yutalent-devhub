@@ -40,6 +40,6 @@ class MailchimpConnect
 	// to get subscribe user detail in a mailchimp list
 	function subscribeUserDetail($userDeatail,$mailchimpListId)
 	{
-		$this->api->listSubscribe($mailchimpListId, $userDeatail['EMAIL'], $userDeatail );
+		$this->api->listSubscribe($mailchimpListId, $userDeatail['EMAIL'], $userDeatail,'html',false );
 	}
 }
