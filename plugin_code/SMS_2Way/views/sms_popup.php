@@ -113,8 +113,7 @@ if(isset($_POST['msg_hide']))
 		$is_unicode = true;
 		// send message via API
 		
-		$results = $api->checkNumber($phones);
-		
+		$results = $api->checkNumber($phones);		
 		print_r($results);
 		
 		
@@ -125,7 +124,7 @@ if(isset($_POST['msg_hide']))
 		
 		//checking message delivery status
 		$results = $api->messageStatus(array($key));
-		
+		print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
 	}
