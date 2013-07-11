@@ -17,13 +17,13 @@ var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
 var success = $('#char_count').text();
-if(success == 'success')
+/*if(success == 'success')
 {
 wu.Messenger.sendMessageToWU('showGrowl', {
  title: 'Message sent', message: 'Your message is sent successfully'}, function(){
 wu.Messenger.sendMessageToWU('closePopup');
 });
-}
+}*/
 
 });
 }
