@@ -71,6 +71,8 @@ require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 
 <!-- text message validation and sending-->
 <?php 
+echo $results = $api->getBalance();
+
 $feedback = "";
 if(isset($_POST['msg_hide']))
 {	
