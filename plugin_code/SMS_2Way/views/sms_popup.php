@@ -107,7 +107,7 @@ if(isset($_POST['msg_hide']))
 		// send message via API
 		$resp = $api->send($message, $phones, $is_unicode);
 		print_r($resp);
-		echo $resp['messages'];
+		echo $resp['messages'][0];
 		print_r($resp['messages']);
 		//$results = $api->messageStatus(array($messageId));
 
