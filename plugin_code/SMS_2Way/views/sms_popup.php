@@ -71,6 +71,10 @@ require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 
 <!-- text message validation and sending-->
 <?php 
+$api = new TextMagicAPI(array(
+			"username" => U_NAME,
+			"password" => U_PASS, 
+		));
 echo $results = $api->getBalance();
 
 $feedback = "";
