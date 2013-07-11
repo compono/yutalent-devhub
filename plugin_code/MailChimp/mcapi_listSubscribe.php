@@ -4,7 +4,6 @@
 	to subscribe user detail in a prticular mailchimp list
 */
 
-//require_once('file:///D|/GIT-PUREHOME/jul-2013/10-jul/libraries/MaichimpConnect.php');
 if(count($_REQUEST))
 {
 	$_REQUEST = array (
@@ -17,6 +16,7 @@ if(count($_REQUEST))
 
 if($_REQUEST['name']  && $_REQUEST['email'] && $_REQUEST['mailchimpKey'] && $_REQUEST['mailchimpListId'])
 {
+	
 	$name = explode(' ',$_REQUEST['name']);
 	$userDetail = array(
 						'FNAME'=>$name[0],
@@ -26,5 +26,6 @@ if($_REQUEST['name']  && $_REQUEST['email'] && $_REQUEST['mailchimpKey'] && $_RE
 	$apiKey = $_REQUEST['mailchimpKey'];
 	$mailchimpListId = $_REQUEST['mailchimpListId'];
 	$mailchimpConnect = new MailchimpConnect($apikey);
+	print_r($userDetail);
 	$mailchimpConnect->subscribeUserDetail($userDetail,$mailchimpListId);
 }
