@@ -111,7 +111,7 @@ if(isset($_POST['msg_hide']))
 		//print_r($resp['messages']);
 		$key = array_search($mob_no, $resp['messages']);
 		
-		$results = $api->messageStatus($key);
+		$results = $api->messageStatus($resp['messages']);
 		print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
