@@ -16,6 +16,8 @@ console.log( response );
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
+$("#sms_form").ajaxSubmit(alert('hello'));
+
 
 var success = $('#char_count').text();
 if(success == 'success')
