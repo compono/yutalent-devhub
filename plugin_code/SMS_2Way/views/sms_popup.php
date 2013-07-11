@@ -16,6 +16,9 @@ console.log( response );
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
+$("#sms_form").ajaxSubmit(alert('hello'));
+
+
 var success = $('#char_count').text();
 if(success == 'success')
 {
@@ -112,7 +115,7 @@ if(isset($_POST['msg_hide']))
 
 
 <!--html for message form start-->
-<form method="Post" action="" name="sms_popup"/>
+<form method="Post" action="" name="sms_popup" id="sms_form"/>
 <input type="hidden" name="signed_request" value="<?php print $_REQUEST['signed_request'] ?>"/>
 <input type="hidden" name="contact_no" id="cont_no" value="">
 <input type="hidden" name="credit_count" id="cred_count" value="">
