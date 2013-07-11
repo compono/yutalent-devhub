@@ -8,8 +8,8 @@
 	{
 		extract($_POST);	// grab the posted varibale list
 		require_once('libraries/MaichimpConnect.php');
-		$mailchimpConnect = new MailchimpConnect();
-		$mailchimp = $mailchimpConnect->apiConnect($apikey);
+		$mailchimpConnect = new MailchimpConnect($apikey);
+		$mailchimp = $mailchimpConnect->getMailchimpList();
 		if($mailchimp['error'])
 		{
 			echo $mailchimp['list'];	// display error message

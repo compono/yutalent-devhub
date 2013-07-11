@@ -4,9 +4,20 @@ require_once 'MCAPI.class.php';
 require_once 'config.inc.php';
 class MailchimpConnect
 {
-	function apiConnect($apikey)
+	private $api;
+	private $apikey;
+	
+	function MailchimpConnect($apikey)
 	{
-        $api = new MCAPI($apikey);
+		$this->api = new MCAPI($apikey);
+		$this->apikey = $apikey;
+	}
+	
+	
+	// to get mailchimp list according to api key
+	function getMailchimpList()
+	{
+        $api = $this->api;
         $retval = $api->lists();
 		$error = false;
         if ($api->errorCode)	// if any error return by mailchimp
@@ -24,5 +35,11 @@ class MailchimpConnect
             }
         }
 		return array('list'=>$mailChimpList,'error'=>$error);
+	}
+	
+	// to get subscribe user detail in a mailchimp list
+	function subscribeUserDetail($userDeatail,$mailchimpListId)
+	{
+		$this->api->listSubscribe($mailchimpListId, $userDeatail['EMAIL'], $userDeatail );
 	}
 }
