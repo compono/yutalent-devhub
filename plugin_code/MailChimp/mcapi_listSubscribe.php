@@ -13,7 +13,9 @@ if(!count($_REQUEST))
 	);
 }
 
-if($_REQUEST['name']  && $_REQUEST['email'] && $_REQUEST['mailchimpKey'] && $_REQUEST['mailchimpListId'])
+print_r($_REQUEST);
+
+if(isset($_REQUEST['name']) && isset($_REQUEST['email']) && isset($_REQUEST['mailchimpKey']) && isset($_REQUEST['mailchimpListId']))
 {
 	
 	$name = explode(' ',$_REQUEST['name']);
