@@ -79,7 +79,8 @@ if(isset($_POST['msg_hide']))
  	$message = trim($_POST['message']);
 	
 	// set mobile number
-	$mob_no = $_POST['contact_no'];
+	//$mob_no = $_POST['contact_no'];
+	$mob_no = '+919427520443';
 	
 	// check for mobile number format according to text magic API's standard
 	$mob_no = preg_replace("/[^0-9]/", "", $mob_no);
