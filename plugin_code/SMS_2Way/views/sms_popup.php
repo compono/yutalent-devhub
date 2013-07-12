@@ -66,6 +66,7 @@ WU.init({
 // including required files
 require_once('/home/devhub.wutalent.co.uk/public_html/plugin_code/SMS_2Way/config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
+echo SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php';
 require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 ?>
 
