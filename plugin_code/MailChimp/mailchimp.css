@@ -19,3 +19,4 @@ p .right.input{float: left;margin-left: 75px;width: 405px;}
 button.ui-multiselect span.value{color:#AA9984 !important}
 .mailchimpError{float: left;margin-left: 128px;margin-top: 9px;}
 .update-btn.goLeft{margin:0 !important}
+.successMessage {color: green;margin-left: 31%;margin-top: -18px;padding-bottom: 18px;position: relative;}

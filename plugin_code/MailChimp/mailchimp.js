@@ -57,7 +57,12 @@ window.wuAfterInit = function(wu)
 				arr[$(this).attr('id')] = $(this).find('select option:selected').val();
 			});
 			//store all the categories record
-			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: arr});
+			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: arr},function(response)
+			{
+				if($('#mapContentRecords .successMessage')) 	$('#mapContentRecords .successMessage').remove();
+				$('#mapContentRecords').prepend('<div class="successMessage"><div style="position:absolute">Your setting has been saved</div></div>');
+				setTimeout(function(){$('#mapContentRecords .successMessage').remove();},10000);
+			});
 		});
 		
 		/*get all the stored data when user has saved previously*/
