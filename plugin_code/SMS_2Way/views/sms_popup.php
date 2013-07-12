@@ -113,6 +113,7 @@ if(isset($_POST['msg_hide']))
 		$phones = array($mob_no);		
 		$is_unicode = true;
 		// send message via API
+		echo "Hi";
 		
 		$results = $api->checkNumber($phones);		
 		print_r($results);
