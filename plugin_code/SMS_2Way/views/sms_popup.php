@@ -15,7 +15,6 @@ console.log( response );
 /* assigning mobile no to variable from yutalent js API response*/
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
-$('#hid_form').val(mob_no);
 
 var success = $('#char_count').text();
 /*if(success == 'success')
@@ -87,7 +86,7 @@ if(isset($_POST['msg_hide']))
 	
 	// set mobile number
 	//$mob_no = $_POST['contact_no'];
-	echo $mob_no = '789173575883';
+	echo $mob_no = '09173575883';
 	
 	
 	// check for mobile number format according to text magic API's standard
@@ -98,10 +97,10 @@ if(isset($_POST['msg_hide']))
 	if($mob_no == "")
 	{
 		$feedback = "<p class='err'>No mobile number found!</p>";
-	}else if($fchar == '0')
+	}/*else if($fchar == '0')
 	{
 		$feedback = "<p class='err'>Invalid mobile number. There should not be leading zero.</p>";
-	}else if($message == "" || $message == "Type your SMS message here..." )
+	}*/else if($message == "" || $message == "Type your SMS message here..." )
 	{	
 		$feedback = "<p class='err'>Please type your message!</p>";
 	}else
@@ -120,7 +119,7 @@ if(isset($_POST['msg_hide']))
 		print_r($results);
 		
 		//exit('stop here');
-		$resp = $api->send($message, $phones, $is_unicode);
+		//$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
 		$key = array_search($mob_no, $resp['messages']);
@@ -152,9 +151,6 @@ Type your SMS message here...
 </form>
 <!--html for message form end-->
 
-<form id="hid_form" action="" method="post" style="display:none;">
-<input type="hidden" name="hid_no" value="">
-</form>
 
 </body>
 </html>
