@@ -113,7 +113,6 @@ if(isset($_POST['msg_hide']))
 		$phones = array($mob_no);		
 		$is_unicode = true;
 		// send message via API
-		echo "Hello";
 		
 		$results = $api->checkNumber($phones);			
 		print_r($results);
@@ -122,11 +121,11 @@ if(isset($_POST['msg_hide']))
 		//$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
-		$key = array_search($mob_no, $resp['messages']);
+		//$key = array_search($mob_no, $resp['messages']);
 		
 		//checking message delivery status
-		$results = $api->messageStatus(array('34614719'));
-		print_r($results);
+		//$results = $api->messageStatus(array('34614719'));
+		//print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
 	}
