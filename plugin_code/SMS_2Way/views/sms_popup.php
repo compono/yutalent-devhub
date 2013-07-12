@@ -121,7 +121,7 @@ if(isset($_POST['msg_hide']))
 		//$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
-		$key = array_search($mob_no, $resp['messages']);
+		//$key = array_search($mob_no, $resp['messages']);
 		
 		//checking message delivery status
 		$results = $api->messageStatus(array('34582307'));
