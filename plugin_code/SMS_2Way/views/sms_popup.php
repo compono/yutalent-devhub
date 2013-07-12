@@ -125,7 +125,7 @@ if(isset($_POST['msg_hide']))
 		$key = array_search($mob_no, $resp['messages']);
 		
 		//checking message delivery status
-		$results = $api->messageStatus($key);
+		$results = $api->messageStatus(array($key));
 		print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
