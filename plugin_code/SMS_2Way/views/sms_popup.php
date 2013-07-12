@@ -63,6 +63,7 @@ WU.init({
 
 <body>
 <?php 
+echo "Hello";
 // including required files
 require_once('/home/devhub.wutalent.co.uk/public_html/plugin_code/SMS_2Way/config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
