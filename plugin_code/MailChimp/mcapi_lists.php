@@ -1,6 +1,7 @@
 <link href="https://www.wutalent.co.uk/static/styles/plugin/plugin.css" rel="stylesheet" />
 <link href="mailchimp.css" rel="stylesheet" />
 <script>var wuDomain ='<?php echo $_SERVER['SERVER_NAME']; ?>';</script>
+<?php echo $_REQUEST['key']; ?>
 <div id="content">
   <?php /* Form for get mailchimp key from user*/
 	require_once('views/keyForm.php');	
