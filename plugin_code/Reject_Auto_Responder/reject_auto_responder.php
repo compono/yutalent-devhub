@@ -1,2 +1,3 @@
-<?php
-echo "Auto-reject-responder";
+<div id="content">
+
+</div>
