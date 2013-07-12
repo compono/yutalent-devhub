@@ -17,13 +17,13 @@ var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
 var success = $('#char_count').text();
-if(success == 'success')
+/*if(success == 'success')
 {
 wu.Messenger.sendMessageToWU('showGrowl', {
  title: 'Message sent', message: 'Your message is sent successfully'}, function(){
 wu.Messenger.sendMessageToWU('closePopup');
 });
-}
+}*/
 
 });
 }
@@ -75,7 +75,7 @@ $api = new TextMagicAPI(array(
 			"username" => U_NAME,
 			"password" => U_PASS, 
 		));
-//echo $results = $api->getBalance();
+echo $results = $api->getBalance();
 
 $feedback = "";
 if(isset($_POST['msg_hide']))
@@ -114,17 +114,17 @@ if(isset($_POST['msg_hide']))
 		// send message via API
 		
 		$results = $api->checkNumber($phones);		
-		//print_r($results);
+		print_r($results);
 		
 		
-		$resp = $api->send($message, $phones, $is_unicode);
+		//$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
 		$key = array_search($mob_no, $resp['messages']);
 		
 		//checking message delivery status
 		$results = $api->messageStatus(array('34582307'));
-		//print_r($results);
+		print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
 	}
