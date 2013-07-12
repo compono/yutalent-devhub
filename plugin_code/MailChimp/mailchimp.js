@@ -60,7 +60,7 @@ window.wuAfterInit = function(wu)
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: arr},function(response)
 			{
 				if($('#mapContentRecords .successMessage')) 	$('#mapContentRecords .successMessage').remove();
-				$('#mapContentRecords').prepend('<div class="successMessage"><div style="position:absolute">Your setting has been saved</div></div>');
+				$('#mapContentRecords').prepend('<div class="successMessage"><div style="position:absolute">Your settinga have been saved</div></div>');
 				setTimeout(function(){$('#mapContentRecords .successMessage').remove();},10000);
 			});
 		});
