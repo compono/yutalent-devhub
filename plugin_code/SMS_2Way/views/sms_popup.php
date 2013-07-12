@@ -86,7 +86,7 @@ if(isset($_POST['msg_hide']))
 	
 	// set mobile number
 	//$mob_no = $_POST['contact_no'];
-	echo $mob_no = '09173575883';
+	echo $mob_no = '919173575883';
 	
 	
 	// check for mobile number format according to text magic API's standard
@@ -107,7 +107,7 @@ if(isset($_POST['msg_hide']))
 	{
 		$api = new TextMagicAPI(array(
 			"username" => U_NAME,
-			"password" => U_PASS, 
+			"password" => U_PASS,
 		));
 		
 		$phones = array($mob_no);		
@@ -115,17 +115,17 @@ if(isset($_POST['msg_hide']))
 		// send message via API
 		
 		
-		$results = $api->checkNumber($phones);			
-		print_r($results);
+		//$results = $api->checkNumber($phones);			
+		//print_r($results);
 		
-		//$resp = $api->send($message, $phones, $is_unicode);
+		$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
 		$key = array_search($mob_no, $resp['messages']);
 		
 		//checking message delivery status
-		$results = $api->messageStatus(array('34614719'));
-		print_r($results);
+		//$results = $api->messageStatus(array('34614719'));
+		//print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
 	}
