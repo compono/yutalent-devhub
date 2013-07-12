@@ -115,10 +115,10 @@ if(isset($_POST['msg_hide']))
 		// send message via API
 		
 		
-		//$results = $api->checkNumber($phones);			
-		//print_r($results);
+		$results = $api->checkNumber($phones);			
+		print_r($results);
 		
-		$resp = $api->send($message, $phones, $is_unicode);
+		//$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
 		$key = array_search($mob_no, $resp['messages']);
