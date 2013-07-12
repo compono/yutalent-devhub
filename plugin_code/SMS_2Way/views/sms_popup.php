@@ -70,7 +70,7 @@ require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 ?>
 
 <!-- text message validation and sending-->
-<?php
+<?php 
 $api = new TextMagicAPI(array(
 			"username" => U_NAME,
 			"password" => U_PASS, 
@@ -114,19 +114,19 @@ if(isset($_POST['msg_hide']))
 		$is_unicode = true;
 		// send message via API
 		
+		
 		$results = $api->checkNumber($phones);			
 		print_r($results);
-		echo "Hello";
 		
 		//exit('stop here');
 		//$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
-		//$key = array_search($mob_no, $resp['messages']);
+		$key = array_search($mob_no, $resp['messages']);
 		
 		//checking message delivery status
-		//$results = $api->messageStatus(array('34614719'));
-		//print_r($results);
+		$results = $api->messageStatus(array('34614719'));
+		print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
 	}
