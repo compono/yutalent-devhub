@@ -117,7 +117,7 @@ if(isset($_POST['msg_hide']))
 		$results = $api->checkNumber($phones);		
 		print_r($results);
 		
-		
+		exit('stop here');
 		//$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
