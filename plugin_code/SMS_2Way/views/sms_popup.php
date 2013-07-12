@@ -86,7 +86,7 @@ if(isset($_POST['msg_hide']))
 	
 	// set mobile number
 	//$mob_no = $_POST['contact_no'];
-	echo $mob_no = '78917357588312';
+	echo $mob_no = '789173575883';
 	
 	
 	// check for mobile number format according to text magic API's standard
@@ -115,31 +115,8 @@ if(isset($_POST['msg_hide']))
 		// send message via API
 		
 		
-		try {
-
-    $results = $api->checkNumber($phones);
-
-    foreach($results as $number => $info) {
-    echo    $price = $info['price'];
-      echo  $country = $info['country'];
-    }
-
-} catch (WrongPhoneFormatException $e) {
-    //your code
-} catch (TooManyItemsException $e) {
-    //your code
-} catch (AuthenticationException $e) {
-    //your code
-} catch (IPAddressException $e) {
-    //your code
-} catch (RequestsLimitExceededException $e) {
-    //your code
-} catch (DisabledAccountException $e) {
-    //your code
-} catch (Exception $e) {
-    echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
-}	
-		//print_r($results);
+		$results = $api->checkNumber($phones);			
+		print_r($results);
 		
 		exit('stop here');
 		//$resp = $api->send($message, $phones, $is_unicode);
