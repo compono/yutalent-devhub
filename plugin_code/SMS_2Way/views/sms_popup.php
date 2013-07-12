@@ -115,9 +115,31 @@ if(isset($_POST['msg_hide']))
 		// send message via API
 		
 		
-		$results = $api->checkNumber($phones);
-		echo "Hi";	
-		print_r($results);
+		try {
+
+    $results = $api->checkNumber($phones);
+
+    foreach($results as $number => $info) {
+    echo    $price = $info['price'];
+      echo  $country = $info['country'];
+    }
+
+} catch (WrongPhoneFormatException $e) {
+    //your code
+} catch (TooManyItemsException $e) {
+    //your code
+} catch (AuthenticationException $e) {
+    //your code
+} catch (IPAddressException $e) {
+    //your code
+} catch (RequestsLimitExceededException $e) {
+    //your code
+} catch (DisabledAccountException $e) {
+    //your code
+} catch (Exception $e) {
+    echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
+}	
+		//print_r($results);
 		
 		exit('stop here');
 		//$resp = $api->send($message, $phones, $is_unicode);
