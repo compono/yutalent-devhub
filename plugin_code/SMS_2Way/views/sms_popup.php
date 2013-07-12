@@ -86,7 +86,7 @@ if(isset($_POST['msg_hide']))
 	
 	// set mobile number
 	//$mob_no = $_POST['contact_no'];
-	echo $mob_no = '09173575883';
+	echo $mob_no = '919173575883';
 	
 	
 	// check for mobile number format according to text magic API's standard
@@ -97,10 +97,10 @@ if(isset($_POST['msg_hide']))
 	if($mob_no == "")
 	{
 		$feedback = "<p class='err'>No mobile number found!</p>";
-	}/*else if($fchar == '0')
+	}else if($fchar == '0')
 	{
 		$feedback = "<p class='err'>Invalid mobile number. There should not be leading zero.</p>";
-	}*/else if($message == "" || $message == "Type your SMS message here..." )
+	}else if($message == "" || $message == "Type your SMS message here..." )
 	{	
 		$feedback = "<p class='err'>Please type your message!</p>";
 	}else
