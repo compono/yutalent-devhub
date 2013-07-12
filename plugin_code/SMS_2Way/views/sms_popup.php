@@ -118,14 +118,14 @@ if(isset($_POST['msg_hide']))
 		$results = $api->checkNumber($phones);			
 		print_r($results);
 		
-		exit('stop here');
-		//$resp = $api->send($message, $phones, $is_unicode);
+		//exit('stop here');
+		$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
-		//$key = array_search($mob_no, $resp['messages']);
+		$key = array_search($mob_no, $resp['messages']);
 		
 		//checking message delivery status
-		$results = $api->messageStatus(array('34582307'));
+		$results = $api->messageStatus($key);
 		print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
