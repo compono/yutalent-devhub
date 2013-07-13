@@ -5,7 +5,7 @@
 <title>Untitled Document</title>
 <link href="https://www.wutalent.co.uk/static/styles/plugin/plugin.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-<script src="js/jqueryValidate.js" type="text/javascript"></script>
+<script src="jqueryValidate.js" type="text/javascript"></script>
 <script type="text/javascript" src="https://www.wutalent.co.uk/static/scripts/lib/tiny_mce/jquery.tinymce.js"></script>
 <script type="text/javascript">
 $(window).load(function()
