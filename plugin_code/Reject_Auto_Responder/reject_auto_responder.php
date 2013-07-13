@@ -1,9 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
 <link href="https://www.wutalent.co.uk/static/styles/plugin/plugin.css" rel="stylesheet" />
 <link href="reject.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="https://www.wutalent.co.uk/static/scripts/lib/tiny_mce/jquery.tinymce.js"></script>
 <script src="jqueryValidate.js" type="text/javascript"></script>
 <script src="reject.js" type="text/javascript"></script>
+</head>
+<body>
 <div id="content">
 	<form name="rejectAuotRespond" id="rejectAuotRespond" method="post">
         <span class="red-title">Email send method</span>
@@ -65,3 +72,5 @@
         </div>
 	</form>
 </div>
+</body>
+</html>
