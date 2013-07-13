@@ -8,13 +8,13 @@
 <!--script for getting mobile no from js API-->
 <script type="text/javascript">
 
-var temp_mob_no = '9191735758831';
+var temp_mob_no = '429173575883';
 $.ajax({
         url: "msg_form_submit.php?mob="+temp_mob_no,
         type: "post",
        	success: function(data)
         {
-            //alert(data);
+            alert(data);
 			if(data == 'invalid')
 			{
 				$('#sms_form').replaceWith('<div>Invalid mobile no.</div>');
