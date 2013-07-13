@@ -8,7 +8,7 @@
 <!--script for getting mobile no from js API-->
 <script type="text/javascript">
 
-var temp_mob_no = '919173575883';
+var temp_mob_no = '9191735758831';
 alert(temp_mob_no);
 $.ajax({
         url: "msg_form_submit.php?mob="+temp_mob_no,
