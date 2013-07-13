@@ -21,21 +21,23 @@ try {
     }
 
 } catch (WrongPhoneFormatException $e) {
-    //your code
+    $return = "invalid";
 } catch (TooManyItemsException $e) {
-    //your code
+    $return = "invalid";
 } catch (AuthenticationException $e) {
-    //your code
+    $return = "invalid";
 } catch (IPAddressException $e) {
-    //your code
+    $return = "invalid";
 } catch (RequestsLimitExceededException $e) {
-    //your code
+    $return = "invalid";
 } catch (DisabledAccountException $e) {
-    //your code
+    $return = "invalid";
 } catch (Exception $e) {
-    echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
+    $return = "invalid";
+	//echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
 }
 
+echo $return;
 
 
 
