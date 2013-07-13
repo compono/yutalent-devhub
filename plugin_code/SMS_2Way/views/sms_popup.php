@@ -18,10 +18,9 @@ $('#cont_no').val(mob_no);
 
 
 $.ajax({
-        url: "msg_form_submit.php",
+        url: "msg_form_submit.php?mob="+mob_no,
         type: "post",
-        data: mob_no,
-		success: function(data)
+       	success: function(data)
         {
             alert(data);
         }
