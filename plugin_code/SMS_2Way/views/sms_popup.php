@@ -9,7 +9,6 @@
 <script type="text/javascript">
 
 var temp_mob_no = '9191735758831';
-alert(temp_mob_no);
 $.ajax({
         url: "msg_form_submit.php?mob="+temp_mob_no,
         type: "post",
@@ -19,6 +18,9 @@ $.ajax({
 			if(data == 'invalid')
 			{
 				$('#sms_form').replaceWith('<div>Invalid mobile no.</div>');
+			}else
+			{
+				
 			}
         }
     });
