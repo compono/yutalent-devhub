@@ -17,7 +17,7 @@ $.ajax({
             alert(data);
 			if(data != '')
 			{
-				$('#sms_form').replaceWith('<div>'.data.'</div>');
+				$('#sms_form').replaceWith('<div>'+data+'</div>');
 			}else
 			{
 				$('#sms_form').css('display','block');
