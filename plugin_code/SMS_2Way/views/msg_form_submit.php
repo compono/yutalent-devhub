@@ -16,8 +16,8 @@ try {
     $results = $api->checkNumber($phones);
 
     foreach($results as $number => $info) {
-        $price = $info['price'];
-        $country = $info['country'];
+        echo $price = $info['price'];
+        echo $country = $info['country'];
     }
 
 } catch (WrongPhoneFormatException $e) {
