@@ -34,7 +34,7 @@ try {
     $return = "Service temporarily unavailable.";
 } catch (Exception $e) {
     $return = "Sorry, we don't support 2 way SMS to this country.";
-	echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
+	//echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
 }
 
 echo $return;
