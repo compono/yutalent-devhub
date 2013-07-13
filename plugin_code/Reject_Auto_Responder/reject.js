@@ -39,7 +39,6 @@ $(document).ready(function()
 	{
 		var smtpId = $(this).attr('id');
 		if(smtpId == 'smtpSSL')			$('#port').val(485);
-		else if(smtpId == 'smtpTLS')	$('#port').val(587);
-		else 							$('#port').val('');
+		else if(smtpId == 'smtpTLS')	$('#port').val(587);		
 	});
 });
