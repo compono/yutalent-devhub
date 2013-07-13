@@ -83,14 +83,6 @@ WU.init({
 
 <body>
 <?php 
-
-
-
-
-
-
-
-
 // including required files
 require_once('../config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
@@ -140,19 +132,18 @@ if(isset($_POST['msg_hide']))
 		
 		$phones = array($mob_no);		
 		$is_unicode = true;
-		// send message via API
-		
+		// send message via API		
 		
 		$results = $api->checkNumber($phones);			
-		print_r($results);
+		//print_r($results);
 		
-		//$resp = $api->send($message, $phones, $is_unicode);
+		$resp = $api->send($message, $phones, $is_unicode);
 		
 		//Fetching message id from response
 		$key = array_search($mob_no, $resp['messages']);
 		
 		//checking message delivery status
-		//$results = $api->messageStatus(array('34614719'));
+		$results = $api->messageStatus(array($key));
 		//print_r($results);
 
 		$feedback = "<p class='success_msg'>success</p>";
