@@ -1,6 +1,6 @@
 // JavaScript Document
 
-
+alert('test');
 // javascript for character check and credit deduction
 function countChar(val) {	
 	alert('Hello');
