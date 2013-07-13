@@ -7,8 +7,8 @@
 
 <!--script for getting mobile no from js API-->
 <script type="text/javascript">
-
-var temp_mob_no = '429173575883';
+// script for validating mobile number prefix
+var temp_mob_no = '919173575883';
 $.ajax({
         url: "msg_form_submit.php?mob="+temp_mob_no,
         type: "post",
@@ -24,10 +24,6 @@ $.ajax({
 			}
         }
     });
-
-
-
-
 
 window.wuAfterInit = function(wu) {
 var cid = wu.Options.getOption('request')['id'];
@@ -107,7 +103,7 @@ $api = new TextMagicAPI(array(
 			"username" => U_NAME,
 			"password" => U_PASS, 
 		));
-echo $results = $api->getBalance();
+//echo $results = $api->getBalance();
 
 $feedback = "";
 if(isset($_POST['msg_hide']))
