@@ -1,9 +1,7 @@
 // JavaScript Document
 
-alert('test');
 // javascript for character check and credit deduction
-function countChar(val) {	
-	alert('Hello');
+function countChar(val) {
         var tlen = val.value.length;
 		if(tlen > 459)
 		{
@@ -24,15 +22,3 @@ function countChar(val) {
 		//$('#cred_count').val(no);
 		$('#char_count').text('This will use '+no+' credit!');
       };
-	  
-
-var temp_mob_no = '919173575883';
-alert(temp_mob_no);
-$.ajax({
-        url: "msg_form_submit.php?mob="+temp_mob_no,
-        type: "post",
-       	success: function(data)
-        {
-            alert(data);
-        }
-    });

@@ -6,8 +6,23 @@
 </head>
 
 <!--script for getting mobile no from js API-->
-<script type="text/javascript" src="../js/SMS_2Way.js"></script>
 <script type="text/javascript">
+
+var temp_mob_no = '919173575883';
+alert(temp_mob_no);
+$.ajax({
+        url: "msg_form_submit.php?mob="+temp_mob_no,
+        type: "post",
+       	success: function(data)
+        {
+            alert(data);
+        }
+    });
+
+
+
+
+
 window.wuAfterInit = function(wu) {
 var cid = wu.Options.getOption('request')['id'];
 console.log( cid );
@@ -61,6 +76,7 @@ WU.init({
 
 </script>
 
+<script type="text/javascript" src="../js/SMS_2Way.js"></script>
 <link rel="stylesheet" href="../SMS_2Way.css" type="text/css">
 
 <body>
