@@ -14,10 +14,10 @@ $.ajax({
         type: "post",
        	success: function(data)
         {
-            alert(data);
+            //alert(data);
 			if(data != '')
 			{
-				$('#sms_form').replaceWith('<div>'+data+'</div>');
+				$('#sms_form').replaceWith('<div class="valid_err">'+data+'</div>');
 			}else
 			{
 				$('#sms_form').css('display','block');
