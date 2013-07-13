@@ -17,9 +17,15 @@ var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
 
-
-
-
+$.ajax({
+        url: "msg_form_submit.php",
+        type: "post",
+        data: mob_no,
+		success: function(data)
+        {
+            alert(data);
+        }
+    });
 
 
 var success = $('#char_count').text();
