@@ -2,7 +2,8 @@
 
 
 // javascript for character check and credit deduction
-function countChar(val) {					
+function countChar(val) {	
+	alert('Hello');
         var tlen = val.value.length;
 		if(tlen > 459)
 		{
