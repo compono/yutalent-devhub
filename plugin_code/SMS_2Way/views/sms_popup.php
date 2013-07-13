@@ -153,14 +153,12 @@ if(isset($_POST['msg_hide']))
 
 <!--html for message form start-->
 <form method="Post" action="" name="sms_popup" id="sms_form" style="display:none;"/>
-<input type="hidden" name="signed_request" value="<?php print $_REQUEST['signed_request'] ?>"/>
-<input type="hidden" name="contact_no" id="cont_no" value="">
-<input type="hidden" name="credit_count" id="cred_count" value="">
-<input type="hidden" name="msg_hide">
+	<input type="hidden" name="signed_request" value="<?php print $_REQUEST['signed_request'] ?>"/>
+	<input type="hidden" name="contact_no" id="cont_no" value="">
+	<input type="hidden" name="credit_count" id="cred_count" value="">
+	<input type="hidden" name="msg_hide">
 
-<textarea id="msg_area" class="textarea-med bronze" name="message" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" rows="6" cols="40" onkeyup="countChar(this)">
-Type your SMS message here...
-</textarea>
+	<textarea id="msg_area" class="textarea-med bronze" name="message" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" rows="6" cols="40" onkeyup="countChar(this)">Type your SMS message here...</textarea>
 
 <!--for displaying credit count and success and failure message-->
 <span id="char_count"><?php echo $feedback;?></span>
