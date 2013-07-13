@@ -16,6 +16,12 @@ console.log( response );
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
+
+
+
+
+
+
 var success = $('#char_count').text();
 /*if(success == 'success')
 {
@@ -63,6 +69,14 @@ WU.init({
 
 <body>
 <?php 
+
+
+
+
+
+
+
+
 // including required files
 require_once('../config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
