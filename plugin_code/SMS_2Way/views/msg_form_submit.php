@@ -11,8 +11,31 @@ $api = new TextMagicAPI(array(
 			"password" => U_PASS, 
 		));
 		
-$results = $api->checkNumber($phones);			
-print_r($results);
+try {
+
+    $results = $api->checkNumber($phones);
+
+    foreach($results as $number => $info) {
+        $price = $info['price'];
+        $country = $info['country'];
+    }
+
+} catch (WrongPhoneFormatException $e) {
+    //your code
+} catch (TooManyItemsException $e) {
+    //your code
+} catch (AuthenticationException $e) {
+    //your code
+} catch (IPAddressException $e) {
+    //your code
+} catch (RequestsLimitExceededException $e) {
+    //your code
+} catch (DisabledAccountException $e) {
+    //your code
+} catch (Exception $e) {
+    echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
+}
+
 
 
 
