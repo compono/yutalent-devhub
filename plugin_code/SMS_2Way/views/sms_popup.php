@@ -6,8 +6,8 @@
 </head>
 
 <!--script for getting mobile no from js API-->
+<script type="text/javascript" src="../js/SMS_2Way.js"></script>
 <script type="text/javascript">
-alert('welcome to wu:talent');
 window.wuAfterInit = function(wu) {
 var cid = wu.Options.getOption('request')['id'];
 console.log( cid );
@@ -61,7 +61,6 @@ WU.init({
 
 </script>
 
-<script type="text/javascript" src="../js/SMS_2Way.js"></script>
 <link rel="stylesheet" href="../SMS_2Way.css" type="text/css">
 
 <body>
