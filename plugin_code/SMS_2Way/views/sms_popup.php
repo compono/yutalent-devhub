@@ -17,16 +17,6 @@ console.log( response );
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
 
-var temp_mob_no = '919173575883';
-alert(temp_mob_no);
-$.ajax({
-        url: "msg_form_submit.php?mob="+temp_mob_no,
-        type: "post",
-       	success: function(data)
-        {
-            alert(data);
-        }
-    });
 
 
 var success = $('#char_count').text();
