@@ -10,6 +10,7 @@ $(document).ready(function()
 		//rules:{full_description:{required:true}},
 		//messages:{full_description:{required:'Please eneter mail content'}}	
 	});
+	$('#full-description').rules("add", {required: true,messages: {required: "Please eneter mail content"}});
 	$('#ownSmtp').click(function()
 	{
 		$('.userSmtpSetting').slideUp();
