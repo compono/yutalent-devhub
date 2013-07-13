@@ -40,7 +40,7 @@ wu.Messenger.sendMessageToWU('closePopup');
 });
 }
 
-var wuDomain = 'yutalent.com';
+var wuDomain = 'wutalent.co.uk';
 
 window.wuAsyncInit = function () {
 WU.init({
