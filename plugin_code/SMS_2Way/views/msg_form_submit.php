@@ -21,20 +21,20 @@ try {
     }
 
 } catch (WrongPhoneFormatException $e) {
-    $return = "1";
+    $return = "Invalid Phone format.";
 } catch (TooManyItemsException $e) {
-    $return = "2";
+    $return = "Service temporarily unavailable.";
 } catch (AuthenticationException $e) {
-    $return = "3";
+    $return = "Service temporarily unavailable.";
 } catch (IPAddressException $e) {
-    $return = "4";
+    $return = "Service temporarily unavailable.";
 } catch (RequestsLimitExceededException $e) {
-    $return = "5";
+    $return = "Service temporarily unavailable.";
 } catch (DisabledAccountException $e) {
-    $return = "6";
+    $return = "Service temporarily unavailable.";
 } catch (Exception $e) {
-    $return = "7";
-	echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
+    $return = "Sorry, we don't support 2 way SMS to this country.";
+	//echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
 }
 
 echo $return;

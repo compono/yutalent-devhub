@@ -15,9 +15,9 @@ $.ajax({
        	success: function(data)
         {
             alert(data);
-			if(data == 'invalid')
+			if(data != '')
 			{
-				$('#sms_form').replaceWith('<div>Invalid mobile no.</div>');
+				$('#sms_form').replaceWith('<div>'.data.'</div>');
 			}else
 			{
 				$('#sms_form').css('display','block');
