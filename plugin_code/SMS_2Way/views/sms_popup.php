@@ -8,6 +8,7 @@
 <!--script for getting mobile no from js API-->
 <script type="text/javascript">
 window.wuAfterInit = function(wu) {
+alert('Hello');
 var cid = wu.Options.getOption('request')['id'];
 console.log( cid );
 wu.Messenger.sendMessageToWU('candidates/get', {id: wu.Options.getOption('request')['id'] }, function(response){
