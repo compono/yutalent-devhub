@@ -34,7 +34,7 @@ try {
     $return = "6";
 } catch (Exception $e) {
     $return = "7";
-	//echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
+	echo "Catched Exception '".__CLASS__ ."' with message '".$e->getMessage()."' in ".$e->getFile().":".$e->getLine();
 }
 
 echo $return;
