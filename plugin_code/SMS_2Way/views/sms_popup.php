@@ -1,8 +1,3 @@
-<?php // including required files
-require_once('../config.inc.php');
-require_once('/home/developers_sandbox/SMS_2Way_config.php');
-require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php'); ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,7 +11,7 @@ window.wuAfterInit = function(wu) {
 var cid = wu.Options.getOption('request')['id'];
 console.log( cid );
 wu.Messenger.sendMessageToWU('candidates/get', {id: wu.Options.getOption('request')['id'] }, function(response){
-console.log( response );
+console.log( response ));
 /* assigning mobile no to variable from yutalent js API response*/
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
@@ -41,11 +36,8 @@ $.ajax({
 			}
         }
     });
-	
-var balance = wu.sendMessagetoWU('credits/getAppCredits', function(response){
-console.log( response );
+var balance = wu.sendMessagetoWU('credits/getAppCredits');
 alert(balance);
-
 var success = $('#char_count').text();
 if(success == 'success')
 {
@@ -59,7 +51,7 @@ wu.Messenger.sendMessageToWU('closePopup');
 });
 }
 
-});
+}
 }
 
 var wuDomain = 'www.wutalent.co.uk';
@@ -97,7 +89,11 @@ WU.init({
 
 <body>
 <?php 
-/*
+// including required files
+require_once('../config.inc.php');
+require_once('/home/developers_sandbox/SMS_2Way_config.php');
+require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
+
 public function decreaseCreditsAction( $params )
 	{
 		$creditsLeft = \WU_API::apiCall('credits/getAppCredits');
@@ -112,7 +108,7 @@ public function decreaseCreditsAction( $params )
 
     		\WU_API::apiCall('credits/decreaseAppCredits', array('amount' => $params['amount'])));
  		}
-	}*/
+	}
 ?>
 
 <!-- text message validation and sending-->
