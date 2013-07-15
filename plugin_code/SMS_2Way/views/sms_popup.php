@@ -43,10 +43,10 @@ $.ajax({
 var success = $('#char_count').text();
 if(success == 'success')
 {
-var cred_val = $('#cred_count').val();
+/*var cred_val = $('#cred_count').val();
 wu.Messenger.sendMessagetoWU('event/decreaseCredits', {amount:cred_val}, function(){
 alert('Hello');
-});
+});*/
 wu.Messenger.sendMessageToWU('showGrowl', {
 title: 'Message sent', message: 'Your message is sent successfully'}, function(){
 wu.Messenger.sendMessageToWU('closePopup');
