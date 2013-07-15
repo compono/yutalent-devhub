@@ -42,8 +42,8 @@ $.ajax({
         }
     });
 	
-//var balance = wu.Messenger.sendMessagetoWU('credits/getAppCredits');
-//alert(balance);
+var balance = wu.sendMessagetoWU('credits/getAppCredits');
+alert(balance);
 
 var success = $('#char_count').text();
 if(success == 'success')
