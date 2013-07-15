@@ -37,7 +37,8 @@ $.ajax({
         }
     });
 	
-var balance = wu.sendMessagetoWU('credits/getAppCredits');
+var balance = wu.sendMessagetoWU('credits/getAppCredits', function(bal){
+console.log( bal ));
 alert(balance);
 var success = $('#char_count').text();
 if(success == 'success')
@@ -95,7 +96,7 @@ require_once('../config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
 require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 
-public function decreaseCreditsAction( $params )
+/*public function decreaseCreditsAction( $params )
 	{
 		$creditsLeft = \WU_API::apiCall('credits/getAppCredits');
 
@@ -109,7 +110,7 @@ public function decreaseCreditsAction( $params )
 
     		\WU_API::apiCall('credits/decreaseAppCredits', array('amount' => $params['amount'])));
  		}
-	}
+	}*/
 ?>
 
 <!-- text message validation and sending-->
