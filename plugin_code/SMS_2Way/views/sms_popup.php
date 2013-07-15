@@ -38,8 +38,8 @@ $.ajax({
     });
 	
 
-wu.Messenger.sendMessageToWU('credits/getAppCredits',function(response){
-                console.log( response );
+wu.Messenger.sendMessageToWU('credits/getAppCredits',function(cred){
+                console.log(cred);
             });
 
 
