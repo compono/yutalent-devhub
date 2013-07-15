@@ -37,17 +37,16 @@ $.ajax({
         }
     });
 	
-var balance = wu.sendMessagetoWU('credits/getAppCredits');
-alert(balance);
+wu.Messenger.sendMessagetoWU('credits/getAppCredits'function(response){
+console.log( response )
+});
+
 var success = $('#char_count').text();
 if(success == 'success')
 {
-
 wu.Messenger.sendMessagetoWU('event/decreaseCredits', {amount:3});
-
-
 wu.Messenger.sendMessageToWU('showGrowl', {
- title: 'Message sent', message: 'Your message is sent successfully'}, function(){
+title: 'Message sent', message: 'Your message is sent successfully'}, function(){
 wu.Messenger.sendMessageToWU('closePopup');
 });
 }
