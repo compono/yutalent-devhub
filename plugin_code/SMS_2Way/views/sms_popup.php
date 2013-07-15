@@ -38,7 +38,7 @@ $.ajax({
     });
 	
 
-var bal = wu.Messenger.sendMessageToWU('credits/getAppCredits'function(cbal){
+var bal = wu.Messenger.sendMessageToWU('credits/getAppCredits', function(cbal){
 console.log(cbal)
 });
 alert(bal);
