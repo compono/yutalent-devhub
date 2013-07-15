@@ -7,8 +7,19 @@
 
 <!--script for getting mobile no from js API-->
 <script type="text/javascript">
+window.wuAfterInit = function(wu) {
+var cid = wu.Options.getOption('request')['id'];
+console.log( cid );
+wu.Messenger.sendMessageToWU('candidates/get', {id: wu.Options.getOption('request')['id'] }, function(response){
+console.log( response );
+/* assigning mobile no to variable from yutalent js API response*/
+var mob_no = response.phone.profile.mobile;
+$('#cont_no').val(mob_no);
+
+
+
 // script for validating mobile number prefix
-var temp_mob_no = '919173575883';
+var temp_mob_no = mob_no;
 $.ajax({
         url: "msg_form_submit.php?mob="+temp_mob_no,
         type: "post",
@@ -24,16 +35,6 @@ $.ajax({
 			}
         }
     });
-
-window.wuAfterInit = function(wu) {
-var cid = wu.Options.getOption('request')['id'];
-console.log( cid );
-wu.Messenger.sendMessageToWU('candidates/get', {id: wu.Options.getOption('request')['id'] }, function(response){
-console.log( response );
-/* assigning mobile no to variable from yutalent js API response*/
-var mob_no = response.phone.profile.mobile;
-$('#cont_no').val(mob_no);
-
 
 
 var success = $('#char_count').text();
