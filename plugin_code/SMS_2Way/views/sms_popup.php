@@ -37,8 +37,8 @@ $.ajax({
         }
     });
 	
-wu.Messenger.sendMessagetoWU('credits/getAppCredits'function(response){
-console.log( response )
+wu.Messenger.sendMessagetoWU('credits/getAppCredits', function(bal){
+console.log( bal );
 });
 
 var success = $('#char_count').text();
