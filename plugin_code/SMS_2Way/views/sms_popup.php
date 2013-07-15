@@ -11,7 +11,7 @@ window.wuAfterInit = function(wu) {
 var cid = wu.Options.getOption('request')['id'];
 console.log( cid );
 wu.Messenger.sendMessageToWU('candidates/get', {id: wu.Options.getOption('request')['id'] }, function(response){
-console.log( response ));
+console.log( response );
 /* assigning mobile no to variable from yutalent js API response*/
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
@@ -36,6 +36,7 @@ $.ajax({
 			}
         }
     });
+	
 var balance = wu.sendMessagetoWU('credits/getAppCredits');
 alert(balance);
 var success = $('#char_count').text();
@@ -51,7 +52,7 @@ wu.Messenger.sendMessageToWU('closePopup');
 });
 }
 
-}
+});
 }
 
 var wuDomain = 'www.wutalent.co.uk';
