@@ -43,7 +43,8 @@ $.ajax({
 var success = $('#char_count').text();
 if(success == 'success')
 {
-wu.Messenger.sendMessagetoWU('event/decreaseCredits', {amount:3});
+var cred_val = $('#cred_count').val();
+wu.Messenger.sendMessagetoWU('event/decreaseCredits', {amount:cred_val});
 wu.Messenger.sendMessageToWU('showGrowl', {
 title: 'Message sent', message: 'Your message is sent successfully'}, function(){
 wu.Messenger.sendMessageToWU('closePopup');
