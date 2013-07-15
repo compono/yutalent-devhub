@@ -42,9 +42,9 @@ $.ajax({
         }
     });
 	
-var balance = wu.sendMessagetoWU('credits/getAppCredits', function(response){
-console.log( response );
-alert(balance);
+//var balance = wu.sendMessagetoWU('credits/getAppCredits', function(response){
+//console.log( response );
+//alert(balance);
 
 var success = $('#char_count').text();
 if(success == 'success')
