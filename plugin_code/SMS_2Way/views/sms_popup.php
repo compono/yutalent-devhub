@@ -20,7 +20,7 @@ $('#cont_no').val(mob_no);
 
 // script for validating mobile number prefix
 //var temp_mob_no = mob_no;
-t_mob_no = '+91 253 458 9999 - 57 *';
+t_mob_no = '+91 253 458 9999 -  *';
 var temp_mob_no = t_mob_no.replace(/[^0-9]/g, '');
 alert(temp_mob_no);
 $.ajax({
