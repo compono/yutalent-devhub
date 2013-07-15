@@ -48,7 +48,7 @@ wu.Messenger.sendMessageToWU('closePopup');
 });
 }
 
-var wuDomain = 'wutalent.co.uk';
+var wuDomain = 'https://www.wutalent.co.uk';
 
 window.wuAsyncInit = function () {
 WU.init({
