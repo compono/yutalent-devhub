@@ -20,6 +20,7 @@ $('#cont_no').val(mob_no);
 
 // script for validating mobile number prefix
 var temp_mob_no = mob_no;
+alert(temp_mob_no);
 $.ajax({
         url: "msg_form_submit.php?mob="+temp_mob_no,
         type: "post",
