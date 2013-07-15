@@ -38,13 +38,14 @@ $.ajax({
     });
 	
 
-
+var bal = wu.Messenger.sendMessageToWU('credits/getAppCredits');
+alert(bal);
 
 var success = $('#char_count').text();
 if(success == 'success')
 {
-//var cred_val = $('#cred_count').val();
-wu.Messenger.sendMessagetoWU('event/decreaseCredits', {amount:1});
+var cred_val = $('#cred_count').val();
+wu.Messenger.sendMessageToWU('event/decreaseCredits', {amount:cred_val});
 wu.Messenger.sendMessageToWU('showGrowl', {
 title: 'Message sent', message: 'Your message is sent successfully'}, function(){
 wu.Messenger.sendMessageToWU('closePopup');
