@@ -98,7 +98,7 @@ require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
 //require __DIR__ . '/../api/wu-api/wu-api.php';
 //echo __DIR__ . '/../api/wu-api/wu-api.php';
 
-public function decreaseCreditsAction( $params )
+/*public function decreaseCreditsAction( $params )
 	{
 		$creditsLeft = \WU_API::apiCall('credits/getAppCredits');
 
@@ -112,7 +112,7 @@ public function decreaseCreditsAction( $params )
 
     		\WU_API::apiCall('credits/decreaseAppCredits', array('amount' => $params['amount'])));
  		}
-	}
+	}*/
 ?>
 
 <!-- text message validation and sending-->
