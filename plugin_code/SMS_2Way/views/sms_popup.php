@@ -37,8 +37,7 @@ $.ajax({
         }
     });
 	
-var balance = wu.sendMessagetoWU('credits/getAppCredits', function(bal){
-console.log( bal ));
+var balance = wu.sendMessagetoWU('credits/getAppCredits');
 alert(balance);
 var success = $('#char_count').text();
 if(success == 'success')
