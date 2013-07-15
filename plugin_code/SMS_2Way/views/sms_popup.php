@@ -38,10 +38,8 @@ $.ajax({
     });
 	
 
-wu.Messenger.sendMessageToWU('credits/getAppCredits', function(cbal){
-console.log(cbal)
-});
-//alert(bal);
+var bal = wu.Messenger.sendMessageToWU('credits/getAppCredits');
+console.log( bal );
 
 var success = $('#char_count').text();
 if(success == 'success')
