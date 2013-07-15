@@ -36,11 +36,15 @@ $.ajax({
 			}
         }
     });
-
-
+var balance = wu.Messenger.sendMessagetoWU('credits/getAppCredits');
+alert(balance);
 var success = $('#char_count').text();
 if(success == 'success')
 {
+
+wu.Messenger.sendMessagetoWU('event/decreaseCredits', {amount:3});
+
+
 wu.Messenger.sendMessageToWU('showGrowl', {
  title: 'Message sent', message: 'Your message is sent successfully'}, function(){
 wu.Messenger.sendMessageToWU('closePopup');
@@ -89,6 +93,22 @@ WU.init({
 require_once('../config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
 require_once(SITE_URL.DEV.'libraries/textmagicAPI/TextMagicAPI.php');
+
+public function decreaseCreditsAction( $params )
+	{
+		$creditsLeft = \WU_API::apiCall('credits/getAppCredits');
+
+		if( $creditsLeft <= 0 )
+ 		{
+    		\WU_API::noCredits($params['amount'], $creditsLeft); // show message about lack of credits and button with optino to buy more
+ 		}
+		 else
+ 		{
+   			\WU_API::showAlert( 'You have ' . $creditsLeft . ' credits left!' );
+
+    		\WU_API::apiCall('credits/decreaseAppCredits', array('amount' => $params['amount'])));
+ 		}
+	}
 ?>
 
 <!-- text message validation and sending-->
