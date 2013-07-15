@@ -20,7 +20,6 @@ $('#cont_no').val(mob_no);
 
 // script for validating mobile number prefix
 //var temp_mob_no = mob_no;
-t_mob_no = '+01 253 458 9999 -  *';
 var temp_mob_no = t_mob_no.replace(/[^0-9]/g, '');
 alert(temp_mob_no);
 $.ajax({
@@ -41,13 +40,13 @@ $.ajax({
 
 
 var success = $('#char_count').text();
-/*if(success == 'success')
+if(success == 'success')
 {
 wu.Messenger.sendMessageToWU('showGrowl', {
  title: 'Message sent', message: 'Your message is sent successfully'}, function(){
 wu.Messenger.sendMessageToWU('closePopup');
 });
-}*/
+}
 
 });
 }
