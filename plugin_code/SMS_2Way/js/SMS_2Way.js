@@ -19,6 +19,6 @@ function countChar(val) {
 		var div = 1;
 		}		
 		var no = Math.ceil(div);
-		//$('#cred_count').val(no);
+		$('#cred_count').val(no);
 		$('#char_count').text('This will use '+no+' credit!');
       };
