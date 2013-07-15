@@ -38,9 +38,9 @@ $.ajax({
     });
 	
 
-wu.Messenger.sendMessageToWU('credits/getAppCredits',function(cred){
+/*wu.Messenger.sendMessageToWU('credits/getAppCredits',function(cred){
                 console.log(cred);
-            });
+            });*/
 
 
 var success = $('#char_count').text();
@@ -150,7 +150,7 @@ if(isset($_POST['msg_hide']))
 		
 		//Fetching message id from response
 		$key = array_search($mob_no, $resp['messages']);
-		
+		echo $key;		
 		//checking message delivery status
 		$results = $api->messageStatus(array($key));
 		//print_r($results);
