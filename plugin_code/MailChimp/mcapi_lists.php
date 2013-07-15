@@ -1,6 +1,7 @@
+<?php  require_once('config.inc.php'); ?>
 <link href="https://www.wutalent.co.uk/static/styles/plugin/plugin.css" rel="stylesheet" />
 <link href="mailchimp.css" rel="stylesheet" />
-<script>var wuDomain ='wutalent.co.uk<?php //echo $_SERVER['SERVER_NAME']; ?>';</script>
+<script>var wuDomain ='<?php echo wuDomain; ?>';</script>
 <div id="content">
   <?php /* Form for get mailchimp key from user*/
   	if($_REQUEST['key'] != '')	$_POST['apikey'] = $_REQUEST['key'];
