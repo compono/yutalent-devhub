@@ -4,7 +4,7 @@ window.wuAfterInit = function(wu)
 { 
 	var keyArray = new Array();
 	// get candidate contact record type.
-	wu.Messenger.sendMessageToWU('candidates/categories', {}, function(response)
+	wu.Messenger.sendMessageToWU('contacts/categories', {}, function(response)
 	{
 		$('#mapContentRecords').empty();
 		// process each category and preapre the html and add mailchimp list in select box
