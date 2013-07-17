@@ -17,3 +17,5 @@ input:-moz-placeholder { color:#AA9984 !important; }
 .smtpSecure .standard-blue-link{font-size:18px;}
 .edit-yw-box{margin-top:20px}
 .error{color:red;font-size:13px}
+.successMessage { color: green;text-align:center}
+.errorMessage { color: red;text-align:center}
