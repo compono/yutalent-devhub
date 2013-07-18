@@ -13,19 +13,19 @@ class SmtpMail
 	var $port;
 	var $SMTPSecure;
 	var $testAutentication;
-	function SmtpMail($userName,$password,$toEmail,$fromEmail,$fromName,$subject,$body,$host,$port,$SMTPSecure,$testConnection=false)
+	function SmtpMail($userName,$password,$toEmail,$fromEmail,$fromName,$subject,$body,$host,$port,$SMTPSecure,$testAutentication=false)
 	{
-		$this->userName 		= $userName;
-		$this->password 		= $password; 
-		$this->toEmail 			= $toEmail;
-		$this->fromEmail 		= $fromEmail; 
-		$this->fromName 		= $fromName;
-		$this->subject 			= $subject; 
-		$this->body 			= $body;
-		$this->host 			= $host;
-		$this->port 			= $port;
-		$this->SMTPSecure 		= $SMTPSecure;
-		$this->testAutentication 	= $testConnection;
+		$this->userName 			= $userName;
+		$this->password 			= $password; 
+		$this->toEmail 				= $toEmail;
+		$this->fromEmail 			= $fromEmail; 
+		$this->fromName 			= $fromName;
+		$this->subject 				= $subject; 
+		$this->body 				= $body;
+		$this->host 				= $host;
+		$this->port 				= $port;
+		$this->SMTPSecure 			= $SMTPSecure;
+		$this->testAutentication 	= $testAutentication;
 	}
 	
 	function  sendEmail()
@@ -50,6 +50,6 @@ class SmtpMail
 		$mail->AddAddress($this->toEmail);
 		$mail->testAutentication 	= $this->testAutentication;
 		if(!$mail->Send()) 		return $mail->ErrorInfo; 
-		else 					return 1;
+		else 					echo 1;
 	}	
 }
