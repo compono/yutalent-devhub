@@ -17,7 +17,7 @@
                 <li>
                     <ul class="inner">
                         <li>From</li>
-                        <li>From Name</li>
+                        <li>From name</li>
                         <li class="last">Host</li>
                     </ul>
                 </li>
