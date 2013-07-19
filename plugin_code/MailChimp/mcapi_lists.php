@@ -1,5 +1,5 @@
 <?php  require_once('config.inc.php'); ?>
-<link href="https://www.wutalent.co.uk/static/styles/plugin/plugin.css" rel="stylesheet" />
+<link href="<?php echo HTTP_SSL.'://'.wuDomain.'/static/styles/plugin/plugin.css';?>" rel="stylesheet" />
 <link href="mailchimp.css" rel="stylesheet" />
 <script>var wuDomain ='<?php echo wuDomain; ?>';</script>
 <div id="content">

@@ -7,5 +7,5 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="jquery.multiselect.js"></script>
 <script type="text/javascript" src="mailchimp.js"></script>
-<link rel="stylesheet" type="text/css" href="https://www.wutalent.co.uk/static/styles/jquery-ui/jquery-ui.css" />
-<link href="https://www.wutalent.co.uk/static/styles/jquery-ui/jquery.multiselect.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="<?php echo HTTP_SSL.'://'.wuDomain.'/static/styles/jquery-ui/jquery-ui.css'?>" />
+<link href="<?php echo HTTP_SSL.'://'.wuDomain.'/static/styles/jquery-ui/jquery.multiselect.css';?>" rel="stylesheet" />

@@ -1,7 +1,7 @@
-<link href="https://www.wutalent.co.uk/static/styles/plugin/plugin.css" rel="stylesheet" />
+<link href="<?php echo HTTP_SSL.'://'.wuDomain.'/static/styles/plugin/plugin.css'?>" rel="stylesheet" />
 <link href="reject.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="https://www.wutalent.co.uk/static/scripts/lib/tiny_mce/jquery.tinymce.js"></script>
+<script type="text/javascript" src="<?php echo HTTP_SSL.'://'.wuDomain.'/static/scripts/lib/tiny_mce/jquery.tinymce.js'?>"></script>
 <script src="jqueryValidate.js" type="text/javascript"></script>
 <script src="reject.js" type="text/javascript"></script>
 <div id="content">
