@@ -80,27 +80,32 @@ window.wuAfterInit = function(wu)
 		$('#rejectAuotRespond').show();
 		$('a#testSmtpConnection').click(function()		// test connection to check smtp setting
 		{
-			var formData = new Array();
-			formData['fromEmail'] 	= 	$('#fromEmail').val();
-			formData['fromName'] 	= 	$('#fromName').val();
-			formData['hostServer'] 	= 	$('#hostServer').val();
-			formData['userName'] 	= 	$('#userName').val();
-			formData['password'] 	= 	$('#password').val();
-			formData['smtpNumber'] 		= 	$('#port').val();
-			formData['mailContent'] = 	($('#full-description').val());
-			formData['port']  = 	$('[name="smtpNumber"]:checked').val();
-			var dataString = Object.keys(formData).map(function(x){return x+'='+formData[x];}).join('&');
-			$.ajax(
+			if(!$(this).hasClass('dull'))
 			{
-				type:'post',
-				url:'sendEmail.php',
-				data:dataString+'&testConnection=1',
-				success:function(response)
+				var formData = new Array();
+				formData['fromEmail'] 	= 	$('#fromEmail').val();
+				formData['fromName'] 	= 	$('#fromName').val();
+				formData['hostServer'] 	= 	$('#hostServer').val();
+				formData['userName'] 	= 	$('#userName').val();
+				formData['password'] 	= 	$('#password').val();
+				formData['smtpNumber'] 		= 	$('#port').val();
+				formData['mailContent'] = 	($('#full-description').val());
+				formData['port']  = 	$('[name="smtpNumber"]:checked').val();
+				var dataString = Object.keys(formData).map(function(x){return x+'='+formData[x];}).join('&');
+				$.ajax(
 				{
-					if(response == '1')				statusMessage('Test connection succeed',false);
-					else							statusMessage(response,true);
-				}
-			});
+					type:'post',
+					url:'sendEmail.php',
+					data:dataString+'&testConnection=1',
+					beforeSend:function(){$(this).addClass('dull').siblings('img').show();},
+					complete:function(){$(this).removeClass('dull').siblings('img').hide();},
+					success:function(response)
+					{
+						if(response == '1')				statusMessage('Test connection succeed',false);
+						else							statusMessage(response,true);
+					}
+				});
+			}
 		});
 	});
 	$('#rejectAuotRespond').submit(function()		// submit the form

@@ -19,3 +19,4 @@ input:-moz-placeholder { color:#AA9984 !important; }
 .error{color:red;font-size:13px}
 .successMessage { color: green;text-align:center}
 .errorMessage { color: red;text-align:center}
+.dull{opacity:0.5}
