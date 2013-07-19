@@ -122,10 +122,12 @@ window.wuAfterInit = function(wu)
 			formData['userName'] 	= 	$('#userName').val();
 			formData['password'] 	= 	$('#password').val();
 			formData['port'] 		= 	$('#port').val();
-			if(parseInt(formData['useSmtp']))
-				formData['mailContent'] = 	$('#full-description').val();
-			else
-				formData['mailContent'] = 	($('#full-description').val());
+			formData['mailContent'] = 	$('#full-description').val();
+			var firstLine = formData['mailContent'].split(/<br\s*\//)[0];
+			var firstWord = firstLine.split(' ')[0];
+			if(firstLine.indexOf('Candidate') == -1 && firstLine.indexOf('candidate') == -1 && firstLine.indexOf('{name}') == -1)
+				formData['mailContent'] = formData['mailContent'].replace(firstLine, $.trim(firstWord)+' Candidate');
+			$('#full-description').val(formData['mailContent']);
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: formData},function(response)
 			{
 				statusMessage('Your settings have been saved',false);
