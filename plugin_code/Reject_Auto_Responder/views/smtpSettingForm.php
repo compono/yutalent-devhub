@@ -47,7 +47,7 @@
                 <div class="goLeft">
                 	<a href="javascript:void(0)" id="testSmtpConnection" class="standard-blue-link">Click to test connection...
                     </a>
-                    <img src="images/loading.gif" style="display:none"/ >
+                    <img class="loadingImage" src="images/loading.gif"/ >
 				</div>
                 <div class="goRight">
                     <span class="bronze">SMTP secure</span>

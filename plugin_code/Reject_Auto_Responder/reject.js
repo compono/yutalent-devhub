@@ -80,7 +80,8 @@ window.wuAfterInit = function(wu)
 		$('#rejectAuotRespond').show();
 		$('a#testSmtpConnection').click(function()		// test connection to check smtp setting
 		{
-			if(!$(this).hasClass('dull'))
+			var self = $(this);
+			if(!self.hasClass('dull'))
 			{
 				var formData = new Array();
 				formData['fromEmail'] 	= 	$('#fromEmail').val();
@@ -97,8 +98,9 @@ window.wuAfterInit = function(wu)
 					type:'post',
 					url:'sendEmail.php',
 					data:dataString+'&testConnection=1',
-					beforeSend:function(){$(this).addClass('dull').siblings('img').show();},
-					complete:function(){$(this).removeClass('dull').siblings('img').hide();},
+					beforeSend:function()
+						{self.addClass('dull');self.siblings('img').show();},
+					complete:function(){self.removeClass('dull');self.siblings('img').hide();},
 					success:function(response)
 					{
 						if(response == '1')				statusMessage('Test connection succeed',false);
