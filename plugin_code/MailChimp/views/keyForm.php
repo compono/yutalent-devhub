@@ -1,6 +1,6 @@
 <?php /* Form to get key from user */?>
 
-<span class="red-title">Your Mailchip API key</span>
+<span class="red-title">Your Mailchimp API key</span>
 <form action="<?php echo 'http'.($_SERVER['HTTPS'] == 'on'? 's' : '').'://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post" >
     <span class="margin-right-7-per">
         <label class="bronze-info goLeft " for="apikey">Api Key</label>
