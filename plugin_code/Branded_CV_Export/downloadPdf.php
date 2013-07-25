@@ -15,7 +15,7 @@ $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id))
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
 $summary 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['summary']);
-$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
+//$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
 $keySkills 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['key-skills']);
 $history 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['history']);
 $education 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['education']);
@@ -31,9 +31,9 @@ $cvHTML = '<style>
 if(!is_null($privateInfo) || !is_null($summary))
 {
 	$cvHTML.= '<div class="profile-info-box">
-		<h2>Summary</h2>'.
-		(!is_null($privateInfo) ? $privateInfo : '').
-		(!is_null($summary) ? '</div><div class="profile-info-box" style="margin-bootm:0 !important">'.$summary : '').
+		<h2>Summary</h2>'.$summary.
+		//(!is_null($privateInfo) ? $privateInfo : '').
+		//(!is_null($summary) ? '</div><div class="profile-info-box" style="margin-bootm:0 !important">'.$summary : '').
 	'</div>';
 }
 if(!is_null($keySkills))

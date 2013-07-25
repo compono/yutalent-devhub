@@ -8,7 +8,7 @@ $WU_API = new WU_API();
 // and then redirect uri will differ from the url which requested access token
 $WU_API->setRedirectUri($scriptUrl);
 $error = $WU_API->getParam('error');	// get error parmeter 
-if(!is_null($error))			// if eeor paramter is exist
+if(!is_null($error))			// if error paramter is exist
 {
 	?>
 	<link rel="stylesheet" type="text/css" href="branded.css" />
@@ -19,15 +19,4 @@ if(!is_null($error))			// if eeor paramter is exist
 		<div class="error">we need this to create the branded PDF.</div>
 		<div class="error">'.$error.'</div>
 	</div>';
-}
-else
-{
-	$scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.dirname($_SERVER['PHP_SELF']).'/downloadPdf.php?id='.$WU_API->getParam('contact_id').'&companyName='.urlencode($WU_API->getParam('companyName')).'&image='.urlencode($WU_API->getParam('image'));
-	?>
-	<script>var scriptUrl = '<?php echo $scriptUrl; ?>';
-	var wuDomain = '<?php echo WU_DOMAIN; ?>';
-	var signed_request = '<?php echo $_POST['signed_request']; ?>';</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script type="text/javascript" src="branded.js"></script>	
-	<?php	
 }
