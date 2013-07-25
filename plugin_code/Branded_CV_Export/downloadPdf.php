@@ -27,7 +27,7 @@ $cvHTML = '<style>
 .profile-info-box strong,.profile-info-box h5 {display: block;padding: 5px 0 0;width:600px;}
 </style>';
 
-if(!is_null($privateInfo) || !is_null($summary))
+if(/*!is_null($privateInfo) || */!is_null($summary) && !empty($summary))
 {
 	$cvHTML.= '<div class="profile-info-box">
 		<h2>Summary</h2>'.$summary.
@@ -35,11 +35,11 @@ if(!is_null($privateInfo) || !is_null($summary))
 		//(!is_null($summary) ? '</div><div class="profile-info-box" style="margin-bootm:0 !important">'.$summary : '').
 	'</div>';
 }
-if(!is_null($keySkills))
+if(!is_null($keySkills)  && !empty($keySkills))
 	$cvHTML.= '<div class="profile-info-box"><h2>Key skills</h2>'.$keySkills.'</div>';
-if(!is_null($history))
+if(!is_null($history)  && !empty($history))
 	$cvHTML.= '<div class="profile-info-box"><h2>Work history</h2>'.$history.'</div>';
-if(!is_null($education))
+if(!is_null($education)  && !empty($education))
 	$cvHTML.= '<div class="profile-info-box"><h2>Education</h2>'.$education.'</div>';
 
 // create new PDF document
