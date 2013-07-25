@@ -1,11 +1,10 @@
 <?php
 $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
-//echo dirname(dirname(dirname(__FILE__)));die;
-require_once '../../../config.inc.php';
-require_once '../../wu-api/wu-api.php';
-require_once '../../brandedFunctions.php';
-require_once 'tcpdf_include.php';
+require_once 'config.inc.php';
+require_once 'libraries/wu-api/wu-api.php';
+require_once 'libraries/brandedFunctions.php';
+require_once 'libraries/tcpdf/core/tcpdf_include.php';
 $WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
