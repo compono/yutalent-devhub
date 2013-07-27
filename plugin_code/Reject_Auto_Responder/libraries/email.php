@@ -11,9 +11,8 @@ class SmtpMail
 	var $body;
 	var $host;
 	var $port;
-	var $SMTPSecure;
-	var $testAutentication;
-	function SmtpMail($userName,$password,$toEmail,$fromEmail,$fromName,$subject,$body,$host,$port,$SMTPSecure,$testAutentication=false)
+	var $SMTPSecure;	
+	function SmtpMail($userName,$password,$toEmail,$fromEmail,$fromName,$subject,$body,$host,$port,$SMTPSecure)
 	{
 		$this->userName 			= $userName;
 		$this->password 			= $password; 
@@ -24,8 +23,7 @@ class SmtpMail
 		$this->body 				= $body;
 		$this->host 				= $host;
 		$this->port 				= $port;
-		$this->SMTPSecure 			= $SMTPSecure;
-		$this->testAutentication 	= $testAutentication;
+		$this->SMTPSecure 			= $SMTPSecure;		
 	}
 	
 	function  sendEmail()
@@ -48,7 +46,6 @@ class SmtpMail
 		$mail->Body = $this->body;
 		$mail->IsHTML(true);      
 		$mail->AddAddress($this->toEmail);
-		$mail->testAutentication 	= $this->testAutentication;
 		if(!$mail->Send()) 		return $mail->ErrorInfo; 
 		else 					echo 1;
 	}	

@@ -1,5 +1,4 @@
 var wuObject;
-
 // add custome validator for tinyMce
 jQuery.validator.addMethod("tinyMCEvalidator", function(value, element)
 {
@@ -79,42 +78,55 @@ window.wuAfterInit = function(wu)
 			else if(parseInt(formData['port']) == 587)	$('#smtpTLS').trigger('click');
 			else						$('#smtpNone').trigger('click');
 		}
+		if ($('#full-description').val().length == 0)	$('#full-description').val(DEFAULT_MAIL_CONTENT);
 		$('#rejectAuotRespond').show();
 		$('a#testSmtpConnection').click(function()		// test connection to check smtp setting
 		{
 			var self = $(this);
-			if(!self.hasClass('dull'))
+			$('#full-description').rules("remove");
+			if(!self.hasClass('dull') && $('#rejectAuotRespond').valid())
 			{
-				var formData = new Array();
-				formData['fromEmail'] 	= 	$('#fromEmail').val();
-				formData['fromName'] 	= 	$('#fromName').val();
-				formData['hostServer'] 	= 	$('#hostServer').val();
-				formData['userName'] 	= 	$('#userName').val();
-				formData['password'] 	= 	$('#password').val();
-				formData['smtpNumber'] 		= 	$('#port').val();
-				formData['mailContent'] = 	($('#full-description').val());
-				formData['port']  = 	$('[name="smtpNumber"]:checked').val();
-				var dataString = Object.keys(formData).map(function(x){return x+'='+formData[x];}).join('&');
-				$.ajax(
-				{
-					type:'post',
-					url:'sendEmail.php',
-					data:dataString+'&testConnection=1',
-					beforeSend:function()
-					{self.addClass('dull');self.siblings('img').show();},
-					complete:function()
-					{self.removeClass('dull');self.siblings('img').hide();},
-					success:function(response)
+				wu.Messenger.sendMessageToWU('user/profile',{},
+					function(userProfile)
 					{
-						if(response == '1')							statusMessage('Test connection succeed',false);
-						else							statusMessage(response,true);
+						var formData = new Array();
+						formData['fromEmail'] 	= 	$('#fromEmail').val();
+						formData['fromName'] 	= 	$('#fromName').val();
+						formData['hostServer'] 	= 	$('#hostServer').val();
+						formData['userName'] 	= 	$('#userName').val();
+						formData['password'] 	= 	$('#password').val();
+						formData['smtpNumber'] 	= 	$('#port').val();
+						formData['mailContent'] = 	($('#full-description').val());
+						formData['port']  = 	$('[name="smtpNumber"]:checked').val();
+						formData['name']  = 	userProfile['first-name']+' '+userProfile['last-name'];
+						var dataString = Object.keys(formData).map(function(x){return x+'='+formData[x];}).join('&');
+						$.ajax(
+						{
+							type:'post',
+							url:'sendEmail.php',
+							data:dataString+'&testConnection=1',
+							beforeSend:function()
+							{self.addClass('dull');self.siblings('img').show();},
+							complete:function()
+							{self.removeClass('dull');self.siblings('img').hide();},
+							success:function(response)
+							{
+								if(response == '1')
+									statusMessage('Test connection succeed',false);
+								else
+									statusMessage(response,true);
+							}
+						});						
 					}
-				});
+				);
+				$('#full-description').rules("add", {tinyMCEvalidator: true});	
+				
 			}
 		});
 	});
 	$('#rejectAuotRespond').submit(function()		// submit the form
 	{
+		$('#full-description').rules("add", {tinyMCEvalidator: true});
 		if($(this).valid())
 		{
 			var formData = {};
@@ -124,7 +136,7 @@ window.wuAfterInit = function(wu)
 			formData['hostServer'] 	= 	$('#hostServer').val();
 			formData['userName'] 	= 	$('#userName').val();
 			formData['password'] 	= 	$('#password').val();
-			formData['port'] 		= 	$('#port').val();
+			formData['port'] 	= 	$('#port').val();
 			formData['mailContent'] = 	$('#full-description').val();
 			var firstLine = formData['mailContent'].split(/<br\s*\//)[0];
 			var firstWord = firstLine.split(' ')[0];

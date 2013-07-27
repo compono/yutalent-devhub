@@ -706,13 +706,7 @@ class PHPMailer {
 
     if(!$this->SmtpConnect()) {
       throw new phpmailerException($this->Lang('smtp_connect_failed'), self::STOP_CRITICAL);
-    }elseif ($this->testAutentication)	//only check connection succedd or not
-	{
-		if($this->SMTPKeepAlive == true) {
-		  $this->smtp->Reset();
-		}
-		return true;
-	}
+    }
     $smtp_from = ($this->Sender == '') ? $this->From : $this->Sender;
     if(!$this->smtp->Mail($smtp_from)) {
       throw new phpmailerException($this->Lang('from_failed') . $smtp_from, self::STOP_CRITICAL);
