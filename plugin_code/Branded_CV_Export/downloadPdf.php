@@ -10,7 +10,7 @@ $WU_API = new WU_API();
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
 $WU_API->setRedirectUri($scriptUrl);	
-$currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>4255));
+$currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
 $summary 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['summary']);
