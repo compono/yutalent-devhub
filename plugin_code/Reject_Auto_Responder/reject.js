@@ -1,10 +1,12 @@
+var wuObject;
+
 // add custome validator for tinyMce
 jQuery.validator.addMethod("tinyMCEvalidator", function(value, element)
 {
 	$('#full-description').val(tinyMCE.get('full-description').getContent());
 	value = $('#full-description').val();
 	if(value.length)	return true;
-	else				return false;
+	else			return false;
 }, "Please eneter mail content");
 $(window).load(function()
 {
@@ -39,24 +41,24 @@ $(document).ready(function()
 	{
 		var value = $(this).val();
 		if(parseInt(value) == 465)		$('#smtpSSL').trigger('click');
-		else if(parseInt(value) == 587)	$('#smtpTLS').trigger('click');
-		else							$('#smtpNone').trigger('click');
+		else if(parseInt(value) == 587)		$('#smtpTLS').trigger('click');
+		else					$('#smtpNone').trigger('click');
 	});
 
 	$('#smtpSSL,#smtpTLS,#smtpNone').click(function()					// change port value when user choose smtp secure 
 	{
 		var smtpId = $(this).attr('id');
 		if(smtpId == 'smtpSSL')			$('#port').val(465);
-		else if(smtpId == 'smtpTLS')	$('#port').val(587);		
+		else if(smtpId == 'smtpTLS')		$('#port').val(587);		
 	});
 });
 
 window.wuAfterInit = function(wu)
 {
+	wuObject = wu;
 	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent'] },function(response)		// get added information
 	{
 		var formData = new Array();
-		
 		$(response).each(function()
 		{
 			formData[this.key] = this.value[0];			
@@ -75,7 +77,7 @@ window.wuAfterInit = function(wu)
 			$('#rejectAuotRespond').show();			
 			if(parseInt(formData['port']) == 465)		$('#smtpSSL').trigger('click');
 			else if(parseInt(formData['port']) == 587)	$('#smtpTLS').trigger('click');
-			else										$('#smtpNone').trigger('click');
+			else						$('#smtpNone').trigger('click');
 		}
 		$('#rejectAuotRespond').show();
 		$('a#testSmtpConnection').click(function()		// test connection to check smtp setting
@@ -99,11 +101,12 @@ window.wuAfterInit = function(wu)
 					url:'sendEmail.php',
 					data:dataString+'&testConnection=1',
 					beforeSend:function()
-						{self.addClass('dull');self.siblings('img').show();},
-					complete:function(){self.removeClass('dull');self.siblings('img').hide();},
+					{self.addClass('dull');self.siblings('img').show();},
+					complete:function()
+					{self.removeClass('dull');self.siblings('img').hide();},
 					success:function(response)
 					{
-						if(response == '1')				statusMessage('Test connection succeed',false);
+						if(response == '1')							statusMessage('Test connection succeed',false);
 						else							statusMessage(response,true);
 					}
 				});
@@ -130,7 +133,7 @@ window.wuAfterInit = function(wu)
 			$('#full-description').val(formData['mailContent']);
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: formData},function(response)
 			{
-				statusMessage('Your settings have been saved',false);
+				statusMessage('Auto-reject settings have been saved',false);
 			});
 		}
 		return false;
@@ -163,10 +166,8 @@ window.wuAsyncInit = function () {
 
 function statusMessage(msg,error)
 {
-	var classMessage = '';
-	if(error)		classMessage = 'errorMessage';
-	else			classMessage = 'successMessage';
-	if($('.radioDiv .successMessage') || $('.radioDiv .errorMessage')) 	$('.radioDiv .errorMessage,.radioDiv .successMessage').remove();
-	$('.radioDiv').prepend('<div class="'+classMessage+'"><div style="">'+msg+'</div></div>');
-	setTimeout(function(){$('#rejectAuotRespond .'+classMessage).remove();},10000);
+	var message = {};
+	message['title'] 	= error ? 'Error' : 'Success';
+	message['message'] 	= msg;
+	wuObject.Messenger.sendMessageToWU('showGrowl',message);
 }
