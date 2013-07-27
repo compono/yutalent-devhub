@@ -1,14 +1,6 @@
 <?php
 $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
-
-//echo '<pre>';print_r($_REQUEST);echo '</pre>';
-
 extract($_REQUEST);
-//echo '<pre>';print_r(getimagesize($image));echo '</pre>';
-//echo $image = base64_encode(file_get_contents($image));
-//echo '<pre>';print_r(getimagesize($image));echo '</pre>';die;
-if(($image))
-{
 require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
@@ -17,11 +9,8 @@ $WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
-$WU_API->setRedirectUri($scriptUrl);
-echo '<pre>';print_r($_REQUEST);echo '</pre>';
-$image = 'http://anylinuxwork.in/demonew//saurav/tcpdf/examples/images/addNote.png';
+$WU_API->setRedirectUri($scriptUrl);	
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
-echo '<pre>';print_r($currentUserProfile);echo '</pre>';die;
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
 $summary 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['summary']);
@@ -115,4 +104,3 @@ $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 $pdf->Output('CV-'.$candidateName.'.pdf', 'I');
-}
