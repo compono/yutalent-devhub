@@ -18,9 +18,9 @@ $summary 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['h
 $keySkills 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['key-skills']);
 $history 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['history']);
 $education 		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['education']);
-list($imageWidth,$imageHeight) = @getimagesize($image);
-$brandedFunctions	= new BrandedFunctions;
-$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,135);
+//list($imageWidth,$imageHeight) = @getimagesize($image);
+//$brandedFunctions	= new BrandedFunctions;
+//$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,135);
 $cvHTML = '<style>
 .profile-info-box {display: block;font-family: \'ProximaNovaRegular\';font-size: 14px;margin-bottom: 33px;}	
 .profile-info-box h2 {color: #CB2027;font-family: \'ProximaNovaRegular\';font-size: 17px;font-weight: normal;margin-bottom: 17px;}
@@ -94,7 +94,7 @@ $pdf->AddPage();
 
 // Set some content to print
 // Print text using writeHTMLCell()
-$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$image.'" alt="test alt attribute" border="0" />', 0, 0, false, true, '',true);
+//$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$image.'" alt="test alt attribute" border="0" />', 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
 $style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
