@@ -79,7 +79,7 @@ $pdf->setJPEGQuality(75);
 
 // Example of Image from data stream ('PHP rules')
 
-$filename = file_get_contents("http://anylinuxwork.in/demonew/saurav/tcpdf/examples/images/image_with_alpha.png");
+//$filename = file_get_contents("http://anylinuxwork.in/demonew/saurav/tcpdf/examples/images/image_with_alpha.png");
 //$imgdata = base64_decode($filename);//'iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
 
 // The '@' character is used to indicate that follows an image data stream and not an image file name
@@ -150,7 +150,7 @@ $pdf->Image('images/image_demo.jpg', '', '', 40, 40, '', '', '', false, 300, '',
 // -------------------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('example_009.pdf', 'D');
+$pdf->Output('example_009.pdf', 'I');
 
 //============================================================+
 // END OF FILE
