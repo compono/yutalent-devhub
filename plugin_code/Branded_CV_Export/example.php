@@ -25,7 +25,7 @@ $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 $pdf->AddPage();
 
 $pdf->Image($file, 0, 0, 20, 20, '', 'http://www.tcpdf.org', '', true, 150, '', false, false, 1, false, false, false);
-
+@unlink($file);
 $pdf->Output('doc.pdf', 'I');
 
  exit;
