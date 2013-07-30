@@ -4,11 +4,18 @@ require_once 'libraries/tcpdf/core/tcpdf_include.php';
 $imagepath = $_REQUEST['img'];
 $filename_from_url = parse_url($_REQUEST['img']);
 $ext = pathinfo($filename_from_url['path'], PATHINFO_EXTENSION);
-echo $uploadImgPath = __DIR__ . '/upload_image/';
+$uploadImgPath = __DIR__ . '/upload_image/';
 $file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;
-echo file_put_contents($file,file_get_contents($imagepath));die;
+if(is_dir($uploadImgPath)){
+	chmod($uploadImgPath,0777);
+} else{
+	mkdir($uploadImgPath,0777) ;
+	chmod($uploadImgPath,0777);
+}
+file_put_contents($file,file_get_contents($imagepath));
 
-//$image = '/home/vitaly/user_icon.png';
+
+
 
 $pdf = new TCPDF();
 
