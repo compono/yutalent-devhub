@@ -5,7 +5,7 @@ require_once 'config.inc.php';
 //require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
-$imagePath = $img;
+$imagePath = $image;
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
 $uploadImgPath = __DIR__ . '/upload_image/';
@@ -74,7 +74,7 @@ $pdf->setFooterData(array(0,64,0), array(0,64,128));
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
-/*// set default monospaced font
+// set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
@@ -88,6 +88,8 @@ $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 // set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
+
+
 // set default font subsetting mode
 $pdf->setFontSubsetting(true);
 
@@ -95,7 +97,7 @@ $pdf->setFontSubsetting(true);
 // dejavusans is a UTF-8 Unicode font, if you only need to0
 // print standard ASCII chars, you can use core fonts like
 // helvetica or times to reduce file size.
-$pdf->SetFont('dejavusans', '', 14, '', true);*/
+$pdf->SetFont('dejavusans', '', 14, '', true);
 
 // Add a page
 // This method has several options, check the source code documentation for more information.
@@ -105,10 +107,10 @@ $pdf->AddPage();
 // Print text using writeHTMLCell()
 //$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$image.'" alt="test alt attribute" border="0" />', 0, 0, false, true, '',true);
 $pdf->Image($imagePath, 10, 10, $imageSize['h'], $imageSize['w'], '', '', '', true, 150, '', false, false, 1, false, false, false);
-//$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
-//$pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
-//$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
-//$pdf->Line(10, 30, 200, 30, $style);
+$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
+$pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
+$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
+$pdf->Line(10, 30, 200, 30, $style);
 //$pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 @unlink($imagePath);
 // Close and output PDF document
