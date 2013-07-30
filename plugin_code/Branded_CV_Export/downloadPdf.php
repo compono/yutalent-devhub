@@ -20,8 +20,6 @@ file_put_contents($file,file_get_contents($imagePath));
 list($imageWidth,$imageHeight) = @getimagesize($imagePath);
 $brandedFunctions	= new BrandedFunctions;
 $imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,135);
-print_r($imageSize);
-print_r($imageWidth.'-'.$imageHeight);die;
 
 //$WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
@@ -108,7 +106,7 @@ $pdf->AddPage();
 // Set some content to print
 // Print text using writeHTMLCell()
 //$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$image.'" alt="test alt attribute" border="0" />', 0, 0, false, true, '',true);
-$pdf->Image($imagePath, 10, 10, $imageSize['w'], $imageSize['h'], '', '', '', true, 150, '', false, false, 1, false, false, false);
+$pdf->Image($imagePath, 10, 10, $imageSize['w'], $imageSize['h']);
 $pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
 $style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
