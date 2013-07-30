@@ -17,7 +17,13 @@ file_put_contents($file,file_get_contents($imagepath));
 
 
 
-$pdf = new TCPDF();
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+// set document information
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('WuTalent');
+$pdf->SetTitle('CV-'.$candidateName);
+$pdf->SetSubject('CV-'.$candidateName);
 
 // set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
