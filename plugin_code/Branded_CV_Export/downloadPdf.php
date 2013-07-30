@@ -106,7 +106,7 @@ $pdf->AddPage();
 // Set some content to print
 // Print text using writeHTMLCell()
 //$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$image.'" alt="test alt attribute" border="0" />', 0, 0, false, true, '',true);
-$pdf->Image($imagePath, 10, 10, $imageSize['w'], $imageSize['h']), '', '', '', true, 150, '', false, false, 1, false, false, false);
+$pdf->Image($imagePath, 10, 10, $imageSize['w'], $imageSize['h'], '', '', '', true, 150, '', false, false, 1, false, false, false);
 		//($file, $x='', $y='', $w=0, $h=0, $type='', $link='', $align='', $resize=false, $dpi=300, $palign='', $ismask=false, $imgmask=false, $border=0, $fitbox=false, $hidden=false, $fitonpage=false, $alt=false, $altimgs=array()) {
 $pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
