@@ -9,7 +9,7 @@ $imagePath = $img;
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
 $uploadImgPath = __DIR__ . '/upload_image/';
-$file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;
+echo $file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;die;
 if(is_dir($uploadImgPath)){
 	chmod($uploadImgPath,0777);
 } else{
