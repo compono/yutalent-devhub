@@ -1,6 +1,6 @@
 <?php
 
-require_once('../tcpdf.php');
+require_once 'libraries/tcpdf/core/tcpdf_include.php';
 $imagepath = $_REQUEST['img'];
 $filename_from_url = parse_url($_REQUEST['img']);
 $ext = pathinfo($filename_from_url['path'], PATHINFO_EXTENSION);
