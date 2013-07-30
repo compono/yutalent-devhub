@@ -19,7 +19,7 @@ if(is_dir($uploadImgPath)){
 file_put_contents($file,file_get_contents($imagePath));
 list($imageWidth,$imageHeight) = @getimagesize($imagePath);
 $brandedFunctions	= new BrandedFunctions;
-$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,135);
+$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,132);
 
 //$WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
@@ -110,7 +110,7 @@ $pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
 $style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
 $pdf->Line(10, 30, 200, 30, $style);
-//$pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
+$pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 @unlink($imagePath);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
