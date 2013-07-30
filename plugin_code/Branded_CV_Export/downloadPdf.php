@@ -1,6 +1,8 @@
 <?php
 $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
+if($id)
+{
 require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
@@ -13,8 +15,8 @@ $WU_API->setRedirectUri($scriptUrl);
 //$currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 //$currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
-//$userCVDetail 		= $WU_API->sendMessageToWU('contacts/get-parsed-cv',array('id'=>$id));
-//$userCVDetail		= json_decode(json_encode($userCVDetail),true);
+$userCVDetail 		= $WU_API->sendMessageToWU('contacts/get-parsed-cv',array('id'=>$id));
+$userCVDetail		= json_decode(json_encode($userCVDetail),true);
 $summary 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['summary']);
 //$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
 $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key-skills']);
@@ -106,3 +108,4 @@ $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 $pdf->Output('CV-'.$candidateName.'.pdf', 'I');
+}
