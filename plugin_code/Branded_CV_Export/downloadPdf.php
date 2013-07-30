@@ -2,7 +2,7 @@
 $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
 require_once 'config.inc.php';
-require_once 'libraries/wu-api/wu-api.php';
+//require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
 $imagePath = $image;
@@ -111,7 +111,7 @@ $pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
 $style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
 $pdf->Line(10, 30, 200, 30, $style);
-$pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
+//$pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 @unlink($imagePath);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
