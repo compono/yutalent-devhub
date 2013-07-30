@@ -10,11 +10,11 @@ $WU_API = new WU_API();
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
 $WU_API->setRedirectUri($scriptUrl);	
-$currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
-$currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
+//$currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
+//$currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
-$userCVDetail 		= $WU_API->sendMessageToWU('contacts/get-parsed-cv',array('id'=>$id));
-$userCVDetail		= json_decode(json_encode($userCVDetail),true);
+//$userCVDetail 		= $WU_API->sendMessageToWU('contacts/get-parsed-cv',array('id'=>$id));
+//$userCVDetail		= json_decode(json_encode($userCVDetail),true);
 $summary 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['summary']);
 //$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
 $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key-skills']);
