@@ -17,9 +17,11 @@ if(is_dir($uploadImgPath)){
 	chmod($uploadImgPath,0777);
 }
 file_put_contents($file,file_get_contents($imagePath));
-list($imageWidth,$imageHeight) = @getimagesize($image);
+list($imageWidth,$imageHeight) = @getimagesize($imagePath);
 $brandedFunctions	= new BrandedFunctions;
 $imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,135);
+print_r($imageSize);
+print_r($imageWidth.'-'.$imageHeight);die;
 
 //$WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
