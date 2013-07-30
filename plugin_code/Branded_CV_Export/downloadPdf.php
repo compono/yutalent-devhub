@@ -5,6 +5,22 @@ require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
+$imagePath = $img;
+$filenameFromUrl = parse_url($imagePath);
+$ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
+$uploadImgPath = __DIR__ . '/upload_image/';
+$file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;
+if(is_dir($uploadImgPath)){
+	chmod($uploadImgPath,0777);
+} else{
+	mkdir($uploadImgPath,0777) ;
+	chmod($uploadImgPath,0777);
+}
+file_put_contents($file,file_get_contents($imagePath));
+list($imageWidth,$imageHeight) = @getimagesize($image);
+$brandedFunctions	= new BrandedFunctions;
+$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,135);
+
 $WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
@@ -20,9 +36,6 @@ $summary 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['summa
 $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key-skills']);
 $history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
 $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
-//list($imageWidth,$imageHeight) = @getimagesize($image);
-//$brandedFunctions	= new BrandedFunctions;
-//$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,135);
 $cvHTML = '<style>
 .profile-info-box {display: block;font-family: \'ProximaNovaRegular\';font-size: 14px;margin-bottom: 33px;}	
 .profile-info-box h2 {color: #CB2027;font-family: \'ProximaNovaRegular\';font-size: 17px;font-weight: normal;margin-bottom: 17px;}
@@ -97,12 +110,13 @@ $pdf->AddPage();
 // Set some content to print
 // Print text using writeHTMLCell()
 //$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$image.'" alt="test alt attribute" border="0" />', 0, 0, false, true, '',true);
+$pdf->Image($imagePath, 10, 10, $imageSize['h'], $imageSize['w'], '', '', '', true, 150, '', false, false, 1, false, false, false);
 $pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
 $style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
 $pdf->Line(10, 30, 200, 30, $style);
 $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
-
+@unlink($imagePath);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 $pdf->Output('CV-'.$candidateName.'.pdf', 'I');
