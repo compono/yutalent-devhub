@@ -4,9 +4,8 @@ require_once('../tcpdf.php');
 $imagepath = $_REQUEST['img'];
 $filename_from_url = parse_url($_REQUEST['img']);
 $ext = pathinfo($filename_from_url['path'], PATHINFO_EXTENSION);
-$imageName = time().$ext;
 $uploadImgPath = __DIR__ . '/upload_image/';
-$file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;
+echo $file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;die;
 file_put_contents($file,file_get_contents($imagepath));
 
 //$image = '/home/vitaly/user_icon.png';
