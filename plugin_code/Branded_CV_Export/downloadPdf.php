@@ -2,7 +2,7 @@
 $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
 require_once 'config.inc.php';
-//require_once 'libraries/wu-api/wu-api.php';
+require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
 $imagePath = $image;
@@ -21,11 +21,11 @@ list($imageWidth,$imageHeight) = @getimagesize($imagePath);
 $brandedFunctions	= new BrandedFunctions;
 $imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,135);
 
-//$WU_API = new WU_API();
+$WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
-/*$WU_API->setRedirectUri($scriptUrl);	
+$WU_API->setRedirectUri($scriptUrl);	
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
@@ -35,7 +35,7 @@ $summary 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['summa
 //$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
 $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key-skills']);
 $history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
-$education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);*/
+$education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
 $cvHTML = '<style>
 .profile-info-box {display: block;font-family: \'ProximaNovaRegular\';font-size: 14px;margin-bottom: 33px;}	
 .profile-info-box h2 {color: #CB2027;font-family: \'ProximaNovaRegular\';font-size: 17px;font-weight: normal;margin-bottom: 17px;}
@@ -105,9 +105,7 @@ $pdf->AddPage();
 
 // Set some content to print
 // Print text using writeHTMLCell()
-$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="test alt attribute" border="0" />', 0, 0, false, true, '',true);
-//$pdf->Image($imagePath, 10, 10, $imageSize['w'], $imageSize['h'], '', '', '', true, 150, '', false, false, 1, false, false, false);
-		//($file, $x='', $y='', $w=0, $h=0, $type='', $link='', $align='', $resize=false, $dpi=300, $palign='', $ismask=false, $imgmask=false, $border=0, $fitbox=false, $hidden=false, $fitonpage=false, $alt=false, $altimgs=array()) {
+$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
 $style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
