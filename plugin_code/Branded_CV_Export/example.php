@@ -24,6 +24,20 @@ $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('WuTalent');
 $pdf->SetTitle('CV-'.$candidateName);
 $pdf->SetSubject('CV-'.$candidateName);
+// set default header data
+$pdf->SetHeaderData('', '', '', '');
+$pdf->setFooterData(array(0,64,0), array(0,64,128));
+
+// set header and footer fonts
+$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+// set margins
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->SetHeaderMargin(0);
+$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
 // set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
