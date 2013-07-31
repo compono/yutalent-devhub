@@ -62,7 +62,7 @@ window.wuAfterInit = function(wu)
 				var message = {};
 				message['title'] 	= 'Success';
 				message['message'] 	= 'Your settings have been saved';
-				wuObject.Messenger.sendMessageToWU('showGrowl',message);
+				wu.Messenger.sendMessageToWU('showGrowl',message);
 			});
 		});
 		
