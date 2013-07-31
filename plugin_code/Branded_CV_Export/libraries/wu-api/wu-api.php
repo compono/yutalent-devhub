@@ -1,9 +1,8 @@
 <?php
-echo 'Testing';die;
-//require_once 'oauth/http.php';
-//require_once 'oauth/oauth_client.php';
+require_once 'oauth/http.php';
+require_once 'oauth/oauth_client.php';
 
-/*class WU_API
+class WU_API
 {
     protected $_frame;
     protected $_url;
@@ -202,4 +201,4 @@ echo 'Testing';die;
     {
         return $this->_url;
     }
-}*/
+}
