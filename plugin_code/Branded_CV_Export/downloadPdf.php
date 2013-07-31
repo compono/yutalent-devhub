@@ -25,7 +25,8 @@ $WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
-$WU_API->setRedirectUri($scriptUrl);	
+//$WU_API->setRedirectUri($scriptUrl);
+print_r($_REQUEST);
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 print_r($currentUserProfile);die;
 /*$currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
