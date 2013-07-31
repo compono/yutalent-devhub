@@ -13,7 +13,7 @@ if(!is_null($error))			// if error paramter is exist
 	?>
 	<link rel="stylesheet" type="text/css" href="branded.css" />
 	<?php
-	$error = $error == 0 ? 'Ask your account owner to complete the company profile' : 'Please <a href="'.WU_DOMAIN.'/c/accounts/profile">click here</a> to complete the company profile';
+	$error = $error == 0 ? 'Ask your account owner to complete the company profile' : 'Please <a target="_blank" href="'.WU_DOMAIN.'/c/accounts/profile">click here</a> to complete the company profile';
 	echo '<div class="errorConatiner">
 		<div class="error">Your company profile inside your account is not yet complete... </div>
 		<div class="error">we need this to create the branded PDF.</div>
