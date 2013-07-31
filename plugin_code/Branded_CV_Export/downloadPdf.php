@@ -1,4 +1,5 @@
 <?php
+echo '<pre>';print_r($_SERVER);echo '</pre>';die;
 $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
 require_once 'config.inc.php';
