@@ -1,4 +1,5 @@
 <?php
+echo 'Testing';die;
 require_once 'oauth/http.php';
 require_once 'oauth/oauth_client.php';
 
