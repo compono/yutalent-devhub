@@ -8,7 +8,7 @@ require_once 'libraries/tcpdf/core/tcpdf_include.php';
 $imagePath = $image;
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
-$uploadImgPath = __DIR__ . '/upload_image/';
+$uploadImgPath = 'upload_image/';
 $file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;
 if(is_dir($uploadImgPath)){
 	chmod($uploadImgPath,0777);
