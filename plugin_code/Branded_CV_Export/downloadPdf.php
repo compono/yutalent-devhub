@@ -5,7 +5,7 @@ require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
-$imagePath = 'images/user_icon.png';//$image;
+$imagePath = $image;
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
 $uploadImgPath = 'upload_image/';
