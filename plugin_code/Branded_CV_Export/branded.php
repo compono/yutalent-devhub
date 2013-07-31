@@ -11,9 +11,13 @@ $error = $WU_API->getParam('error');	// get error parmeter
 if(!is_null($error))			// if error paramter is exist
 {
 	?>
-	<link rel="stylesheet" type="text/css" href="branded.css" />
+	<input type="hidden" id="signed_request" name="signed_request" value="<?php echo $_POST['signed_request'];?>"/>
+	<script>var wuDomain = '<?php echo WU_DOMAIN;?>';var HTTP_SSL = '<?php echo HTTP_SSL;?>';</script>
+	<link rel="stylesheet" type="text/css" href="branded.css" />	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+	<script src="branded.js" type="text/javascript"></script>	
 	<?php
-	$error = $error == 0 ? 'Ask your account owner to complete the company profile' : 'Please <a target="_blank" href="'.WU_DOMAIN.'/c/accounts/profile">click here</a> to complete the company profile';
+	$error = $error == 0 ? 'Ask your account owner to complete the company profile' : 'Please <a  href="javascript:void(0)">click here</a> to complete the company profile';
 	echo '<div class="errorConatiner">
 		<div class="error">Your company profile inside your account is not yet complete... </div>
 		<div class="error">we need this to create the branded PDF.</div>
