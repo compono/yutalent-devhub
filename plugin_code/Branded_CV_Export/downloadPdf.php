@@ -1,5 +1,5 @@
 <?php
-$scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
+//$scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
 require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
@@ -27,8 +27,7 @@ $WU_API = new WU_API();
 // and then redirect uri will differ from the url which requested access token
 //$WU_API->setRedirectUri($scriptUrl);
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>4257));
-print_r($currentUserProfile);die;
-/*$currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
+$currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
 $userCVDetail 		= $WU_API->sendMessageToWU('contacts/get-parsed-cv',array('id'=>$id));
 $userCVDetail		= json_decode(json_encode($userCVDetail),true);
@@ -116,3 +115,5 @@ $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 $pdf->Output('CV-'.$candidateName.'.pdf', 'I');
+exit;
+?>
