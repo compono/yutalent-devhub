@@ -5,7 +5,7 @@ require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
-$imagePath = $image;
+$imagePath = 'images/user_icon.png';//$image;
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
 $uploadImgPath = 'upload_image/';
@@ -26,7 +26,7 @@ $WU_API = new WU_API();
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
 //$WU_API->setRedirectUri($scriptUrl);
-$currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>4257));
+$currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
 $userCVDetail 		= $WU_API->sendMessageToWU('contacts/get-parsed-cv',array('id'=>$id));
