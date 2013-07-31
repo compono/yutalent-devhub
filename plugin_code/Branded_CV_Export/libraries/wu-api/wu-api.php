@@ -1,7 +1,9 @@
 <?php
 
-require_once __DIR__ . '/../oauth/http.php';
-require_once __DIR__ . '/../oauth/oauth_client.php';
+<?php
+
+require_once __DIR__ . '/oauth/http.php';
+require_once __DIR__ . '/oauth/oauth_client.php';
 
 class WU_API
 {
