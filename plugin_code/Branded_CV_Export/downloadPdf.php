@@ -1,8 +1,9 @@
 <?php
 $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
+print_r($_REQUEST);die;
 require_once 'config.inc.php';
-error_reporting(E_ALL);
+
 //require_once 'libraries/wu-api/wu-api.php';
 echo 'Hello';die;
 require_once 'libraries/brandedFunctions.php';
