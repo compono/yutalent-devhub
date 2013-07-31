@@ -60,7 +60,7 @@ window.wuAfterInit = function(wu)
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: arr},function(response)
 			{
 				var message = {};
-				message['title'] 	= error ? 'Error' : 'Success';
+				message['title'] 	= 'Success';
 				message['message'] 	= 'Your settings have been saved';
 				wuObject.Messenger.sendMessageToWU('showGrowl',message);
 			});
