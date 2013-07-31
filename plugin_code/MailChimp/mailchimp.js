@@ -59,9 +59,10 @@ window.wuAfterInit = function(wu)
 			//store all the categories record
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: arr},function(response)
 			{
-				if($('#mapContentRecords .successMessage')) 	$('#mapContentRecords .successMessage').remove();
-				$('#mapContentRecords').prepend('<div class="successMessage"><div style="position:absolute">Your settings have been saved</div></div>');
-				setTimeout(function(){$('#mapContentRecords .successMessage').remove();},10000);
+				var message = {};
+				message['title'] 	= error ? 'Error' : 'Success';
+				message['message'] 	= 'Your settings have been saved';
+				wuObject.Messenger.sendMessageToWU('showGrowl',message);
 			});
 		});
 		
