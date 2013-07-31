@@ -3,6 +3,7 @@ $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'h
 extract($_REQUEST);
 require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
+echo 'Hello';die;
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
 $imagePath = $image;
