@@ -1,7 +1,7 @@
 window.wuAfterInit = function(wu)
 {
         $('a').click(function(){
-                wu.Messenger.sendMessageToWU('openUrl', {link: HTTP_SSL+'://'+wuDomain+'/c/accounts/profile'} );
+                wu.Messenger.sendMessageToWU('openUrl', {link: wuDomain+'/c/accounts/profile'} );
         });
 }
 
@@ -26,6 +26,6 @@ window.wuAsyncInit = function ()
         }
         js = d.createElement(s);
         js.id = id;
-        js.src = HTTP_SSL+'://'+wuDomain+'/static/scripts/api/WU.js';
+        js.src = wuDomain+'/static/scripts/api/WU.js';
         wjs.parentNode.insertBefore(js, wjs);
 }(document, 'script', 'wutalent-jssdk'));
