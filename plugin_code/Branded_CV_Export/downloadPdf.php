@@ -2,7 +2,7 @@
 $scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
 require_once 'config.inc.php';
-require_once 'libraries/wu-api/wu-api.php';
+//require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
 $imagePath = $image;
@@ -21,22 +21,21 @@ $imagePath = $file;
 list($imageWidth,$imageHeight) = @getimagesize($imagePath);
 $brandedFunctions	= new BrandedFunctions;
 $imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,132);
-$WU_API = new WU_API();
+//$WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
-$WU_API->setRedirectUri($scriptUrl);	
+/*$WU_API->setRedirectUri($scriptUrl);	
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
-print_r($currentUserProfile);die;
-//$candidateName 		= $currentUserProfile['name'];
+$candidateName 		= $currentUserProfile['name'];
 $userCVDetail 		= $WU_API->sendMessageToWU('contacts/get-parsed-cv',array('id'=>$id));
 $userCVDetail		= json_decode(json_encode($userCVDetail),true);
 $summary 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['summary']);
 //$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
 $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key-skills']);
 $history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
-$education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
+$education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);*/
 $cvHTML = '<style>
 .profile-info-box {display: block;font-family: \'ProximaNovaRegular\';font-size: 14px;margin-bottom: 33px;}	
 .profile-info-box h2 {color: #CB2027;font-family: \'ProximaNovaRegular\';font-size: 17px;font-weight: normal;margin-bottom: 17px;}
