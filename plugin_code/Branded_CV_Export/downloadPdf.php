@@ -1,11 +1,10 @@
 <?php
-//$scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'].'?';
+$scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 extract($_REQUEST);
 require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
-
 $imagePath = 'images/user_icon.pmg';//urldecode($image);
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -26,7 +25,7 @@ $WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
-//$WU_API->setRedirectUri($scriptUrl);
+$WU_API->setRedirectUri($scriptUrl);
 $comProfile 	= $WU_API->sendMessageToWU('user/profile');
 print_r($comProfile);die;
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
