@@ -5,22 +5,6 @@ require_once 'config.inc.php';
 require_once 'libraries/wu-api/wu-api.php';
 require_once 'libraries/brandedFunctions.php';
 require_once 'libraries/tcpdf/core/tcpdf_include.php';
-$imagePath = 'images/user_icon.png';//urldecode($image);
-$filenameFromUrl = parse_url($imagePath);
-$ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
-$uploadImgPath = 'upload_image/';
-$file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;
-if(is_dir($uploadImgPath)){
-	chmod($uploadImgPath,0777);
-} else{
-	mkdir($uploadImgPath,0777) ;
-	chmod($uploadImgPath,0777);
-}
-file_put_contents($file,file_get_contents($imagePath));
-$imagePath = $file;
-list($imageWidth,$imageHeight) = @getimagesize($imagePath);
-$brandedFunctions	= new BrandedFunctions;
-$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,132);
 $WU_API = new WU_API();
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
@@ -29,6 +13,7 @@ $WU_API = new WU_API();
 $comProfile 		= $WU_API->sendMessageToWU('user/profile');
 $comProfile		= json_decode(json_encode($comProfile),true);
 $companyName 		= $comProfile['profile']['company-name'];
+$imagePath 		= $comProfile['profile']['company-logo']['medium'];
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
 $candidateName 		= $currentUserProfile['name'];
@@ -44,6 +29,21 @@ $cvHTML = '<style>
 .profile-info-box h2 {color: #CB2027;font-family: \'ProximaNovaRegular\';font-size: 17px;font-weight: normal;margin-bottom: 17px;}
 .profile-info-box strong,.profile-info-box h5 {display: block;padding: 5px 0 0;width:600px;}
 </style>';
+$filenameFromUrl = parse_url($imagePath);
+$ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
+$uploadImgPath = 'upload_image/';
+$file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;
+if(is_dir($uploadImgPath)){
+	chmod($uploadImgPath,0777);
+} else{
+	mkdir($uploadImgPath,0777) ;
+	chmod($uploadImgPath,0777);
+}
+file_put_contents($file,file_get_contents($imagePath));
+$imagePath = $file;
+list($imageWidth,$imageHeight) = @getimagesize($imagePath);
+$brandedFunctions	= new BrandedFunctions;
+$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,132);
 
 if(/*!is_null($privateInfo) || */!is_null($summary) && !empty($summary))
 {
