@@ -3,13 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="414b39d0-0fb9-4527-9709-df2fd39e02f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css" afterPath="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php" afterPath="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wutalent-devhub.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375346748272" ignored="false" />
-    <file path="/reject.css" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375346906575" ignored="false" />
-    <file path="/smtpSettingForm.php" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375346733299" ignored="false" />
+    <file path="/Dummy.txt" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375346915866" ignored="false" />
+    <file path="/reject.css" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375353829057" ignored="false" />
+    <file path="/smtpSettingForm.php" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375353941050" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,19 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="reject.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="reject.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="28" selection-start="155" selection-end="155" vertical-scroll-proportion="0.21212122">
+            <state line="83" column="10" selection-start="1524" selection-end="1524" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="smtpSettingForm.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="smtpSettingForm.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="59" selection-start="3623" selection-end="3623" vertical-scroll-proportion="-12.230769">
+            <state line="23" column="20" selection-start="1459" selection-end="1459" vertical-scroll-proportion="0.29885057">
               <folding>
                 <element signature="n#style#0;n#textarea#0;n#div#2;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -67,8 +68,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php" />
         <option value="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css" />
+        <option value="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php" />
       </list>
     </option>
   </component>
@@ -208,7 +209,11 @@
       <created>1375346752954</created>
       <updated>1375346752954</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- font-style fix&#10;- textarea fix">
+      <created>1375346919493</created>
+      <updated>1375346919493</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -220,12 +225,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25227273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25227273" sideWeight="0.6712095" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -277,7 +282,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="- More Fixed for Textarea and font style" />
+    <option name="LAST_COMMIT_MESSAGE" value="- font-style fix&#10;- textarea fix" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -293,6 +298,7 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="- Fixes on Submit Button" />
     <MESSAGE value="- More Fixed for Textarea and font style" />
+    <MESSAGE value="- font-style fix&#10;- textarea fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -312,19 +318,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php">
+    <entry file="file://$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="59" selection-start="3623" selection-end="3623" vertical-scroll-proportion="-12.230769">
-          <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="83" column="10" selection-start="1524" selection-end="1524" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css">
+    <entry file="file://$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="155" selection-end="155" vertical-scroll-proportion="0.21212122">
-          <folding />
+        <state line="23" column="20" selection-start="1459" selection-end="1459" vertical-scroll-proportion="0.29885057">
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#2;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

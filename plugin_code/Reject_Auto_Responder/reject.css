@@ -78,6 +78,12 @@ input:-moz-placeholder {
 .edit-yw-box {
     margin-top: 20px
 }
+
+.edit-yw-box .rejected-label {
+    position: relative;
+    top: 30px;
+}
+
 .error {
     color: red;
     font-size: 13px

@@ -23,7 +23,7 @@
                 </li>
                 <li>
                     <ul class="inner">
-                        <li><input type="text" placeholder="From email address..." name="fromEmail" id="fromEmail"/></li>
+                        <li><input type="text" class="default-field" placeholder="From email address..." name="fromEmail" id="fromEmail"/></li>
                         <li><input type="text" placeholder="Name to display..." name="fromName" id="fromName"/></li>
                         <li class="last"><input type="text" placeholder="SMTP server..." name="hostServer" id="hostServer"/></li>
                     </ul>
@@ -61,7 +61,7 @@
             
         </div>
 		<div class="edit-yw-box">
-            <label class="tiny_mce-label bronze">Rejected candidate email template</label>
+            <label class="tiny_mce-label rejected-label bronze">Rejected candidate email template</label>
             <div class="clear"></div>
             <textarea rows="30" cols="30" style="width:100%" id="full-description" name="full-description" class="tinymce bronze"></textarea>
         </div> <!-- edit-yw-box ends here -->
