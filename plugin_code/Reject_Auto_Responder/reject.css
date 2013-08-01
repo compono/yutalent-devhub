@@ -6,6 +6,8 @@
     float: left;
     padding-bottom: 50px;
     width: 100%;
+    font-family:"ProximaNovaRegular";
+    font-size: 17px;
 }
 .radioDiv {
     text-align: center
