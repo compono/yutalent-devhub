@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="414b39d0-0fb9-4527-9709-df2fd39e02f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css" afterPath="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php" afterPath="$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/views/smtpSettingForm.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wutalent-devhub.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375354218193" ignored="false" />
-    <file path="/reject.css" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375354275647" ignored="false" />
+    <file path="/Dummy.txt" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375354465985" ignored="false" />
+    <file path="/reject.css" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375354591393" ignored="false" />
     <file path="/smtpSettingForm.php" changelist="414b39d0-0fb9-4527-9709-df2fd39e02f5" time="1375353941050" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +32,7 @@
       <file leaf-file-name="reject.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="55" selection-start="1990" selection-end="1990" vertical-scroll-proportion="0.54545456">
+            <state line="127" column="21" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.72727275">
               <folding />
             </state>
           </provider>
@@ -221,7 +220,15 @@
       <created>1375354221901</created>
       <updated>1375354221901</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="more fixes:&#10;- fields of SMTP2">
+      <created>1375354286189</created>
+      <updated>1375354286189</updated>
+    </task>
+    <task id="LOCAL-00007" summary="more fixes&#10;                 - fields of SMTP3">
+      <created>1375354470101</created>
+      <updated>1375354470101</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -290,7 +297,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="more fixes:&#10;- fields of SMTP" />
+    <option name="LAST_COMMIT_MESSAGE" value="more fixes&#10;                 - fields of SMTP3" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -310,6 +317,8 @@
     <MESSAGE value="- more fixed" />
     <MESSAGE value="more fixes:&#10;- textarea label&#10;- fields of SMTP" />
     <MESSAGE value="more fixes:&#10;- fields of SMTP" />
+    <MESSAGE value="more fixes:&#10;- fields of SMTP2" />
+    <MESSAGE value="more fixes&#10;                 - fields of SMTP3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -340,7 +349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugin_code/Reject_Auto_Responder/reject.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="55" selection-start="1990" selection-end="1990" vertical-scroll-proportion="0.54545456">
+        <state line="127" column="21" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.72727275">
           <folding />
         </state>
       </provider>

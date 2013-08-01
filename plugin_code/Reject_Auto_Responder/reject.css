@@ -106,7 +106,7 @@ input:-moz-placeholder {
     margin-top: 5px;
 }
 
-#content .radioDiv {
+#content .red-title {
     padding-top: 11px;
 }
 
@@ -125,7 +125,7 @@ input:-moz-placeholder {
     -moz-border-radius: 3px;
     border-radius: 3px;
     padding: 0 10px;
-    margin: 0;
+    margin: 0 0 7px 0;
     font-family: 'ProximaNovaRegular';
-    font-size: 17px
+    font-size: 17px;
 }
