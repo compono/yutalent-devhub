@@ -105,3 +105,17 @@ input:-moz-placeholder {
     margin-left: 7px;
     margin-top: 5px;
 }
+
+#content input[type="text"] {
+    display: block;
+    border: 1px solid #dedede;
+    width: 293px;
+    height: 36px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin: 0;
+    font-family: 'ProximaNovaRegular';
+    font-size: 17px
+}
