@@ -1,7 +1,13 @@
 #content {
     padding: 0 25px 25px;
     width: 95%;
+    font-family:"ProximaNovaRegular";
 }
+
+#content #full-description_ifr {
+    width: 97.5% !important;
+}
+
 .red-title {
     float: left;
     padding-bottom: 50px;
