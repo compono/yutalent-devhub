@@ -32,7 +32,7 @@ $cvHTML = '<style>
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
 $uploadImgPath = 'upload_image/';
-$file = tempnam( $uploadImgPath, 'tcpdf').'.'.$ext;
+$file = tempnam($uploadImgPath, 'tcpdf').'.'.$ext;
 if(is_dir($uploadImgPath)){
 	chmod($uploadImgPath,0777);
 } else{
@@ -41,10 +41,10 @@ if(is_dir($uploadImgPath)){
 }
 file_put_contents($file,file_get_contents($imagePath));
 $imagePath = $file;
+if(!(@getimagesize($imagePath)))	$imagePath = 'images/wu-logo.png';// if image does not exist then provide default image
 list($imageWidth,$imageHeight) = @getimagesize($imagePath);
 $brandedFunctions	= new BrandedFunctions;
 $imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,132);
-
 if(/*!is_null($privateInfo) || */!is_null($summary) && !empty($summary))
 {
 	$cvHTML.= '<div class="profile-info-box">
@@ -59,7 +59,6 @@ if(!is_null($history)  && !empty($history))
 	$cvHTML.= '<div class="profile-info-box"><h2>Work history</h2>'.$history.'</div>';
 if(!is_null($education)  && !empty($education))
 	$cvHTML.= '<div class="profile-info-box"><h2>Education</h2>'.$education.'</div>';
-
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -114,7 +113,7 @@ $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',t
 $style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
 $pdf->Line(10, 30, 200, 30, $style);
 $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
-@unlink($imagePath);
+if($imagePath != 'images/wu-logo.png')		@unlink($imagePath);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
 $pdf->Output('CV-'.$candidateName.'.pdf', 'I');
