@@ -23,7 +23,7 @@
                 </li>
                 <li>
                     <ul class="inner">
-                        <li><input type="text" class="default-field" placeholder="From email address..." name="fromEmail" id="fromEmail"/></li>
+                        <li><input type="text" placeholder="From email address..." name="fromEmail" id="fromEmail"/></li>
                         <li><input type="text" placeholder="Name to display..." name="fromName" id="fromName"/></li>
                         <li class="last"><input type="text" placeholder="SMTP server..." name="hostServer" id="hostServer"/></li>
                     </ul>

@@ -106,10 +106,11 @@ input:-moz-placeholder {
     margin-top: 5px;
 }
 
-#content input[type="text"] {
+#content input[type="text"],
+#content input[type="password"]{
     display: block;
     border: 1px solid #dedede;
-    width: 293px;
+    width: 293px; /* different width based on design */
     height: 36px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
