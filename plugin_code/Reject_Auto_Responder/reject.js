@@ -81,6 +81,7 @@ window.wuAfterInit = function(wu)
 	wuObject = wu;
 	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','disableTinyMCE','subject'] },function(response)		// get added information
 	{
+		console.log(response);
 		var formData = new Array();
 		$(response).each(function()
 		{
@@ -95,7 +96,7 @@ window.wuAfterInit = function(wu)
 			$('#hostServer').val(formData['hostServer']);
 			$('#userName').val(formData['userName']);
 			$('#password').val(formData['password']);
-			$('#subject').val((formData['subject']).length ? formData['subject'] : DEFAULT_SUBJECT);
+			//$('#subject').val((formData['subject']).length ? formData['subject'] : DEFAULT_SUBJECT);
 			$('#port').val(formData['port']);
 			$('#rejectAuotRespond').show();
 			if(parseInt(formData['port']) == 465)		$('#smtpSSL').trigger('click');
