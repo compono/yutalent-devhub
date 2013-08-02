@@ -79,7 +79,7 @@ $(document).ready(function()
 window.wuAfterInit = function(wu)
 {
 	wuObject = wu;
-	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','disableTinyMCE','subject'] },function(response)		// get added information
+	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','subject','disableTinyMCE'] },function(response)		// get added information
 	{
 		console.log(response);
 		var formData = new Array();
