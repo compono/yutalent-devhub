@@ -79,7 +79,7 @@ $(document).ready(function()
 window.wuAfterInit = function(wu)
 {
 	wuObject = wu;
-	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','subject','disableTinyMCE'] },function(response)		// get added information
+	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','mailSubject','disableTinyMCE'] },function(response)		// get added information
 	{
 		console.log(response);
 		var formData = new Array();
@@ -96,7 +96,7 @@ window.wuAfterInit = function(wu)
 			$('#hostServer').val(formData['hostServer']);
 			$('#userName').val(formData['userName']);
 			$('#password').val(formData['password']);
-			//$('#subject').val((formData['subject']).length ? formData['subject'] : DEFAULT_SUBJECT);
+			$('#subject').val((formData['mailSubject']).length ? formData['mailSubject'] : DEFAULT_SUBJECT);
 			$('#port').val(formData['port']);
 			$('#rejectAuotRespond').show();
 			if(parseInt(formData['port']) == 465)		$('#smtpSSL').trigger('click');
@@ -175,7 +175,7 @@ window.wuAfterInit = function(wu)
 			formData['password'] 	= 	$('#password').val();
 			formData['port'] 	= 	$('#port').val();
 			formData['mailContent'] = 	$('#full-description').val();
-			formData['subject'] 	= 	$('#subject').val();
+			formData['mailSubject']	= 	$('#subject').val();
 			formData['mailContent']	= 	formData['mailContent'].replace(/\n/g,"<br />");
 			formData['disableTinyMCE']= 	tinyMCE.getInstanceById('full-description') ? 0 : 1;
 			var firstLine = formData['mailContent'].split(/<br\s*\//)[0];
