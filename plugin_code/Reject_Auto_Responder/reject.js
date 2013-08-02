@@ -96,7 +96,7 @@ window.wuAfterInit = function(wu)
 			$('#hostServer').val(formData['hostServer']);
 			$('#userName').val(formData['userName']);
 			$('#password').val(formData['password']);
-			//$('#subject').val((formData['mailSubject']).length ? formData['mailSubject'] : DEFAULT_SUBJECT);
+			$('#subject').val((formData['mailSubject']).length ? formData['mailSubject'] : DEFAULT_SUBJECT);
 			$('#port').val(formData['port']);
 			$('#rejectAuotRespond').show();
 			if(parseInt(formData['port']) == 465)		$('#smtpSSL').trigger('click');
