@@ -114,6 +114,8 @@ window.wuAfterInit = function(wu)
 				$('a#enable-disable-editor').html('enable editor');
 			}
 		}
+		else
+			initTinyMceEditor();
 		if ($('#full-description').val().length == 0)	$('#full-description').val(DEFAULT_MAIL_CONTENT);
 		$('#rejectAuotRespond').show();
 		$('a#testSmtpConnection').click(function()		// test connection to check smtp setting
