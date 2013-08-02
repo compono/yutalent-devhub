@@ -61,7 +61,7 @@
             
         </div>
 	<div class="edit-yw-box">
-		<label class="bronze" for>Rejected candidate email template</label>
+		<label class="bronze" for="subject">Email subject</label>
 		<input type="text" name="subject" id="subject"/>
 	</div>
 	<div class="edit-yw-box">
