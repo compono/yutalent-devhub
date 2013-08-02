@@ -1,4 +1,5 @@
 var wuObject;
+var tinyMCE = null;
 // add custome validator for tinyMce
 jQuery.validator.addMethod("tinyMCEvalidator", function(value, element)
 {
@@ -8,30 +9,26 @@ jQuery.validator.addMethod("tinyMCEvalidator", function(value, element)
 	if(value.length)	return true;
 	else			return false;
 }, "Please eneter mail content");
-$(window).load(function()
-{
-	// add tiny mce editor
-	$('textarea.tinymce').tinymce({setup:function(ed){ed.onInit.add(function(ed,evt){tinyMCE.dom.Event.add(ed.getDoc(),'blur',function(e){$('#full-description').blur();});});},script_url:HTTP_SSL+'://'+wuDomain+'/static/scripts/lib/tiny_mce/tiny_mce.js',forced_root_block:'',force_br_newlines:true,force_p_newlines:false,paste_auto_cleanup_on_paste:true,paste_remove_styles:true,paste_remove_styles_if_webkit:true,paste_strip_class_attributes:"all",paste_use_dialog:false,paste_remove_spans:true,paste_remove_styles:true,paste_retain_style_properties:'',paste_text_linebreaktype:'br',convert_newlines_to_brs:true,element_format:"xhtml",fix_list_elements:true,valid_elements:"br,em/i,strong/b,ul,ol,li",paste_preprocess:function(pl,o){o.content=o.content.replace(/<(p|div)\s?[^>]*?>\s*<br\s?\/?>\s*<\/(p|div)>/gi,'<br/>');o.content=o.content.replace(/<(p|div)\s?[^>]*?>/gi,'').replace(/<\/(p|div)>/gi,'<br/>');},theme:"advanced",plugins:"autoresize,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",theme_advanced_buttons1:"bold,italic,bullist,numlist",theme_advanced_toolbar_location:"top",theme_advanced_toolbar_align:"right",theme_advanced_statusbar_location:"bottom",theme_advanced_resizing:false,height:'200px'});
-});
 $(document).ready(function()
 {
 	$('a#enable-disable-editor').click(function()
 	{
-		if (tinyMCE.getInstanceById('full-description'))
+		if(tinyMCE)
 		{
-		    tinyMCE.execCommand('mceFocus', false, 'full-description');          
-		    tinyMCE.execCommand('mceRemoveControl', false, 'full-description');
-		    $('#full-description').val($('#full-description').val().replace(/\<br \/\>/g,"\n"));
-		    $(this).html('enable editor');
+			if (tinyMCE.getInstanceById('full-description'))
+			{
+				tinyMCE.execCommand('mceFocus', false, 'full-description');          
+				tinyMCE.execCommand('mceRemoveControl', false, 'full-description');
+				$('#full-description').val($('#full-description').val().replace(/\<br\s*\/\>/g,"\n"));
+				$(this).html('enable editor');
+			}
 		}
 		else
 		{
 			$('#full-description').val($('#full-description').val().replace(/\n/g,"<br />"));
-			$('textarea#full-description').tinymce({setup:function(ed){ed.onInit.add(function(ed,evt){tinyMCE.dom.Event.add(ed.getDoc(),'blur',function(e){$('#full-description').blur();});});},script_url:HTTP_SSL+'://'+wuDomain+'/static/scripts/lib/tiny_mce/tiny_mce.js',forced_root_block:'',force_br_newlines:true,force_p_newlines:false,paste_auto_cleanup_on_paste:true,paste_remove_styles:true,paste_remove_styles_if_webkit:true,paste_strip_class_attributes:"all",paste_use_dialog:false,paste_remove_spans:true,paste_remove_styles:true,paste_retain_style_properties:'',paste_text_linebreaktype:'br',convert_newlines_to_brs:true,element_format:"xhtml",fix_list_elements:true,valid_elements:"br,em/i,strong/b,ul,ol,li",paste_preprocess:function(pl,o){o.content=o.content.replace(/<(p|div)\s?[^>]*?>\s*<br\s?\/?>\s*<\/(p|div)>/gi,'<br/>');o.content=o.content.replace(/<(p|div)\s?[^>]*?>/gi,'').replace(/<\/(p|div)>/gi,'<br/>');},theme:"advanced",plugins:"autoresize,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",theme_advanced_buttons1:"bold,italic,bullist,numlist",theme_advanced_toolbar_location:"top",theme_advanced_toolbar_align:"right",theme_advanced_statusbar_location:"bottom",theme_advanced_resizing:false,height:'200px'});
-			
-			$(this).html('disble editor');
+			$('textarea#full-description').tinymce({setup:function(ed){ed.onInit.add(function(ed,evt){tinyMCE.dom.Event.add(ed.getDoc(),'blur',function(e){$('#full-description').blur();});});},script_url:HTTP_SSL+'://'+wuDomain+'/static/scripts/lib/tiny_mce/tiny_mce.js',forced_root_block:'',force_br_newlines:true,force_p_newlines:false,paste_auto_cleanup_on_paste:true,paste_remove_styles:true,paste_remove_styles_if_webkit:true,paste_strip_class_attributes:"all",paste_use_dialog:false,paste_remove_spans:true,paste_remove_styles:true,paste_retain_style_properties:'',paste_text_linebreaktype:'br',convert_newlines_to_brs:true,element_format:"xhtml",fix_list_elements:true,valid_elements:"br,em/i,strong/b,ul,ol,li",paste_preprocess:function(pl,o){o.content=o.content.replace(/<(p|div)\s?[^>]*?>\s*<br\s?\/?>\s*<\/(p|div)>/gi,'<br/>');o.content=o.content.replace(/<(p|div)\s?[^>]*?>/gi,'').replace(/<\/(p|div)>/gi,'<br/>');},theme:"advanced",plugins:"autoresize,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",theme_advanced_buttons1:"bold,italic,bullist,numlist",theme_advanced_toolbar_location:"top",theme_advanced_toolbar_align:"right",theme_advanced_statusbar_location:"bottom",theme_advanced_resizing:false,height:'200px'});			
+			$(this).html('disable editor');
 		}
-		
 	});
 	$("#rejectAuotRespond").validate({});								// add form validation initilize
 	$('#full-description').rules("add", {tinyMCEvalidator: true});		// add validation for tiny mce editor
@@ -74,7 +71,7 @@ $(document).ready(function()
 window.wuAfterInit = function(wu)
 {
 	wuObject = wu;
-	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent'] },function(response)		// get added information
+	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','disableTinyMCE'] },function(response)		// get added information
 	{
 		var formData = new Array();
 		$(response).each(function()
@@ -91,11 +88,21 @@ window.wuAfterInit = function(wu)
 			$('#userName').val(formData['userName']);
 			$('#password').val(formData['password']);
 			$('#port').val(formData['port']);
-			$('#full-description').val((formData['mailContent']));
 			$('#rejectAuotRespond').show();			
 			if(parseInt(formData['port']) == 465)		$('#smtpSSL').trigger('click');
 			else if(parseInt(formData['port']) == 587)	$('#smtpTLS').trigger('click');
 			else						$('#smtpNone').trigger('click');
+			if(!(parseInt(formData['disableTinyMCE'])))
+			{
+				initTinyMceEditor();
+				$('#full-description').val((formData['mailContent']));
+				$('a#enable-disable-editor').html('disable editor');
+			}
+			else
+			{
+				$('#full-description').val(formData['mailContent'].replace(/\<br\s*\/\>/g,"\n"));
+				$('a#enable-disable-editor').html('enable editor');
+			}
 		}
 		if ($('#full-description').val().length == 0)	$('#full-description').val(DEFAULT_MAIL_CONTENT);
 		$('#rejectAuotRespond').show();
@@ -116,8 +123,8 @@ window.wuAfterInit = function(wu)
 						formData['password'] 	= 	$('#password').val();
 						formData['smtpNumber'] 	= 	$('#port').val();
 						formData['mailContent'] = 	($('#full-description').val());
-						formData['port']  = 	$('[name="smtpNumber"]:checked').val();
-						formData['name']  = 	userProfile['first-name']+' '+userProfile['last-name'];
+						formData['port']  	= 	$('[name="smtpNumber"]:checked').val();
+						formData['name']  	= 	userProfile['first-name']+' '+userProfile['last-name'];
 						var dataString = Object.keys(formData).map(function(x){return x+'='+formData[x];}).join('&');
 						$.ajax(
 						{
@@ -145,8 +152,7 @@ window.wuAfterInit = function(wu)
 	});
 	$('#rejectAuotRespond').submit(function()		// submit the form
 	{
-		$('#full-description').rules("add", {tinyMCEvalidator: true});
-		console.log('Done');
+		$('#full-description').rules("add", {tinyMCEvalidator: true});		
 		if($(this).valid())
 		{
 			var formData = {};
@@ -158,16 +164,21 @@ window.wuAfterInit = function(wu)
 			formData['password'] 	= 	$('#password').val();
 			formData['port'] 	= 	$('#port').val();
 			formData['mailContent'] = 	$('#full-description').val();
+			formData['mailContent']	= 	formData['mailContent'].replace(/\n/g,"<br />");
+			formData['disableTinyMCE']= 	tinyMCE.getInstanceById('full-description') ? 0 : 1;
 			var firstLine = formData['mailContent'].split(/<br\s*\//)[0];
 			var firstWord = firstLine.split(' ')[0];
 			if(firstLine.indexOf('Candidate') == -1 && firstLine.indexOf('candidate') == -1 && firstLine.indexOf('{name}') == -1)
 				formData['mailContent'] = formData['mailContent'].replace(firstLine, $.trim(firstWord)+' Candidate');
-			$('#full-description').val(formData['mailContent']);
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: formData},function(response)
 			{
 				statusMessage('Auto-reject settings have been saved',false);
 			});
-		}
+			if (!(tinyMCE.getInstanceById('full-description')))
+				$('#full-description').val(formData['mailContent'].replace(/\<br\s*\/\>/g,"\n"));
+			else
+				$('#full-description').val(formData['mailContent']);
+		}		
 		return false;
 	});
 }
@@ -202,4 +213,9 @@ function statusMessage(msg,error)
 	message['title'] 	= error ? 'Error' : 'Success';
 	message['message'] 	= msg;
 	wuObject.Messenger.sendMessageToWU('showGrowl',message);
+}
+
+function initTinyMceEditor()
+{
+	$('textarea.tinymce').tinymce({setup:function(ed){ed.onInit.add(function(ed,evt){tinyMCE.dom.Event.add(ed.getDoc(),'blur',function(e){$('#full-description').blur();});});},script_url:HTTP_SSL+'://'+wuDomain+'/static/scripts/lib/tiny_mce/tiny_mce.js',forced_root_block:'',force_br_newlines:true,force_p_newlines:false,paste_auto_cleanup_on_paste:true,paste_remove_styles:true,paste_remove_styles_if_webkit:true,paste_strip_class_attributes:"all",paste_use_dialog:false,paste_remove_spans:true,paste_remove_styles:true,paste_retain_style_properties:'',paste_text_linebreaktype:'br',convert_newlines_to_brs:true,element_format:"xhtml",fix_list_elements:true,valid_elements:"br,em/i,strong/b,ul,ol,li",paste_preprocess:function(pl,o){o.content=o.content.replace(/<(p|div)\s?[^>]*?>\s*<br\s?\/?>\s*<\/(p|div)>/gi,'<br/>');o.content=o.content.replace(/<(p|div)\s?[^>]*?>/gi,'').replace(/<\/(p|div)>/gi,'<br/>');},theme:"advanced",plugins:"autoresize,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",theme_advanced_buttons1:"bold,italic,bullist,numlist",theme_advanced_toolbar_location:"top",theme_advanced_toolbar_align:"right",theme_advanced_statusbar_location:"bottom",theme_advanced_resizing:false,height:'200px'});
 }
