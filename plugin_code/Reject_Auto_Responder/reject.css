@@ -36,11 +36,15 @@ ul, li {
 .inner li.last {
     margin-right: 0
 }
-.inner li input[type="text"], .inner li input[type="password"] {
+.inner li input[type="text"], .inner li input[type="password"]{
     font-size: 18px;
     padding: 6px;
     width: 98%;
 }
+#subject{}
+    font-size: 18px;
+    padding: 6px;
+    width: 50%;}
 ::-webkit-input-placeholder {
     color:#AA9984 !important;
 }
