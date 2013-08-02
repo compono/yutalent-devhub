@@ -181,10 +181,6 @@ window.wuAfterInit = function(wu)
 			formData['mailSubject']	= 	$('#subject').val();
 			formData['mailContent']	= 	formData['mailContent'].replace(/\n/g,"<br />");
 			formData['disableTinyMCE']= 	tinyMCE.getInstanceById('full-description') ? 0 : 1;
-			var firstLine = formData['mailContent'].split(/<br\s*\//)[0];
-			var firstWord = firstLine.split(' ')[0];
-			if(firstLine.indexOf('Candidate') == -1 && firstLine.indexOf('candidate') == -1 && firstLine.indexOf('{name}') == -1)
-				formData['mailContent'] = formData['mailContent'].replace(firstLine, $.trim(firstWord)+' Candidate');
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: formData},function(response)
 			{
 				statusMessage('Auto-reject settings have been saved',false);
