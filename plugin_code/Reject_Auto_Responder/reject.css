@@ -44,7 +44,7 @@ ul, li {
 #subject{
     font-size: 18px;
     padding: 6px;
-    width: 50%;}
+    width: 50% !important; }
 ::-webkit-input-placeholder {
     color:#AA9984 !important;
 }
