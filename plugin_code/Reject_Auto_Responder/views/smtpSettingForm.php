@@ -5,8 +5,8 @@
 <script src="jqueryValidate.js" type="text/javascript"></script>
 <script src="reject.js" type="text/javascript"></script>
 <div id="content">
-	<form name="rejectAuotRespond" id="rejectAuotRespond" method="post" style="display:none">
-    	<input type="hidden" id="signed_request" name="signed_request" value="<?php echo  $_POST['signed_request'] ?>" />
+<form name="rejectAuotRespond" id="rejectAuotRespond" method="post" style="display:none">
+     <input type="hidden" id="signed_request" name="signed_request" value="<?php echo $_POST['signed_request'] ?>" />
         <span class="red-title">Email send method</span>
         <div class="radioDiv">
             <label><input type="radio" id="ownSmtp" name="useSmtp" value="1" checked="checked"/>Use system to send email</label>
@@ -45,10 +45,10 @@
             </ul>
             <div class="smtpSecure">
                 <div class="goLeft">
-                	<a href="javascript:void(0)" id="testSmtpConnection" class="standard-blue-link">Click to test connection...
+                 <a href="javascript:void(0)" id="testSmtpConnection" class="standard-blue-link">Click to test connection...
                     </a>
                     <img class="loadingImage" src="images/loading.gif"/ >
-				</div>
+</div>
                 <div class="goRight">
                     <span class="bronze">SMTP secure</span>
                     <span class="">
@@ -60,17 +60,21 @@
             </div>
             
         </div>
-		<div class="edit-yw-box">
-		<div class="goLeft">
-            <label class="tiny_mce-label bronze">Rejected candidate email template</label>
-		</div>
-	    <div class="goRight">
-	    <a id="enable-disable-editor" href="javascript:void(0)" class="standard-blue-link">disbale editor</a></div>
+	<div class="edit-yw-box">
+		<label class="bronze" for>Rejected candidate email template</label>
+		<input type="text" name="subject" id="subject"/>
+	</div>
+	<div class="edit-yw-box">
+	<div class="goLeft">
+		    <label class="tiny_mce-label bronze">Rejected candidate email template</label>
+	</div>
+<div class="goRight">
+<a id="enable-disable-editor" href="javascript:void(0)" class="standard-blue-link">disbale editor</a></div>
             <div class="clear"></div>
             <textarea rows="10" cols="100" id="full-description" name="full-description" class="tinymce"></textarea>
         </div> <!-- edit-yw-box ends here -->
         <div class="">
             <input type="submit" name="submit" id="submit" class="save-auto" value="">
         </div>
-	</form>
+</form>
 </div>

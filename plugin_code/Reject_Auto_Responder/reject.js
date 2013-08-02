@@ -38,7 +38,8 @@ $(document).ready(function()
 		}
 	});
 	$("#rejectAuotRespond").validate({});								// add form validation initilize
-	$('#full-description').rules("add", {tinyMCEvalidator: true});		// add validation for tiny mce editor
+	$('#full-description').rules("add", {tinyMCEvalidator: true});				// add validation for tiny mce editor
+	$('#subject').rules("add", {required: true,messages:{required: "Please enter subject"}});				// add validation for subject
 	$('#ownSmtp').click(function()										// remove validations from user's smtp setting
 	{
 		$('.userSmtpSetting').slideUp();
@@ -78,7 +79,7 @@ $(document).ready(function()
 window.wuAfterInit = function(wu)
 {
 	wuObject = wu;
-	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','disableTinyMCE'] },function(response)		// get added information
+	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','disableTinyMCE','subject'] },function(response)		// get added information
 	{
 		var formData = new Array();
 		$(response).each(function()
@@ -94,8 +95,9 @@ window.wuAfterInit = function(wu)
 			$('#hostServer').val(formData['hostServer']);
 			$('#userName').val(formData['userName']);
 			$('#password').val(formData['password']);
+			$('#subject').val((formData['password']).length ? formData['password'] : DEFAULT_SUBJECT);
 			$('#port').val(formData['port']);
-			$('#rejectAuotRespond').show();			
+			$('#rejectAuotRespond').show();
 			if(parseInt(formData['port']) == 465)		$('#smtpSSL').trigger('click');
 			else if(parseInt(formData['port']) == 587)	$('#smtpTLS').trigger('click');
 			else						$('#smtpNone').trigger('click');
@@ -132,6 +134,7 @@ window.wuAfterInit = function(wu)
 						formData['mailContent'] = 	($('#full-description').val());
 						formData['port']  	= 	$('[name="smtpNumber"]:checked').val();
 						formData['name']  	= 	userProfile['first-name']+' '+userProfile['last-name'];
+						
 						var dataString = Object.keys(formData).map(function(x){return x+'='+formData[x];}).join('&');
 						$.ajax(
 						{
@@ -171,6 +174,7 @@ window.wuAfterInit = function(wu)
 			formData['password'] 	= 	$('#password').val();
 			formData['port'] 	= 	$('#port').val();
 			formData['mailContent'] = 	$('#full-description').val();
+			formData['subject'] 	= 	$('#subject').val();
 			formData['mailContent']	= 	formData['mailContent'].replace(/\n/g,"<br />");
 			formData['disableTinyMCE']= 	tinyMCE.getInstanceById('full-description') ? 0 : 1;
 			var firstLine = formData['mailContent'].split(/<br\s*\//)[0];
