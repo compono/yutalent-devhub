@@ -117,6 +117,7 @@ window.wuAfterInit = function(wu)
 		else
 			initTinyMceEditor();
 		if ($('#full-description').val().length == 0)	$('#full-description').val(DEFAULT_MAIL_CONTENT);
+		if ($('#subject').val().length == 0)		$('#subject').val(DEFAULT_SUBJECT);
 		$('#rejectAuotRespond').show();
 		$('a#testSmtpConnection').click(function()		// test connection to check smtp setting
 		{
