@@ -81,9 +81,10 @@ class MYPDF extends TCPDF {
 		
 		global $comProfile;
 		$this->SetY(-15);
-		//$this->Line(0, 10, 400, 30, $style);
+		$style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));		
+		$this->Line(0, 10, 10, 30, $style);
 		$this->SetFont('dejavusans', '', 14, '', true);
-		//$this->SetDrawColor(222, 222, 2);
+		$this->SetDrawColor(222, 222, 222);
 		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
 	}
 }
@@ -133,7 +134,7 @@ $pdf->AddPage();
 
 // Set some content to print
 // Print text using writeHTMLCell()
-
+$pdf->SetDrawColor(0, 0, 0);
 $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 if($imagePath != 'images/wu-logo.png')		@unlink($imagePath);
 // Close and output PDF document
