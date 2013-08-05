@@ -85,7 +85,9 @@ class MYPDF extends TCPDF {
 		$this->Line(0, 14, 200, 30, $style);
 		$this->SetFont('dejavusans', '', 14, '', true);
 		$this->SetDrawColor(222, 222, 222);
-		$this->writeHTMLCell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
+		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
+		$this->SetDrawColor(222, 222, 222);
+		//$this->cell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
 		
 	}
 }
