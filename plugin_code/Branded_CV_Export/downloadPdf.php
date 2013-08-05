@@ -38,7 +38,7 @@ if(is_dir($uploadImgPath)){
 	mkdir($uploadImgPath,0777) ;
 	chmod($uploadImgPath,0777);
 }
-//file_put_contents($file,file_get_contents($imagePath));
+file_put_contents($file,file_get_contents($imagePath));
 $imagePath = $file;
 if(!(@getimagesize($imagePath)))	$imagePath = 'images/wu-logo.png';// if image does not exist then provide default image
 list($imageWidth,$imageHeight) = @getimagesize($imagePath);
@@ -82,10 +82,10 @@ class MYPDF extends TCPDF {
 		global $comProfile;
 		$this->SetY(-15);
 		$style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));		
-		$this->Line(10, -14, 200, -14, $style);
+		$this->Line(10, 280, 200, 280, $style);
 		$this->SetFont('dejavusans', '', 14, '', true);
 		$this->SetTextColorArray(array(222, 222, 222));
-		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');		
+		$this->Cell(0, 10, $comProfile['profile']['www']."    ".$comProfile['profile']['address'], 0, false, 'C', 0, '', 0, false, 'T', 'M');		
 		//$this->cell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
 		
 	}
