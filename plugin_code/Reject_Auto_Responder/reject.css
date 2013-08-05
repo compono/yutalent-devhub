@@ -4,6 +4,10 @@
     font-family:"ProximaNovaRegular";
 }
 
+#content iframe {
+    overflow: hidden;
+}
+
 #content #full-description_ifr,
 #full-description {
     width: 890px !important;
@@ -14,9 +18,11 @@
 }
 
 textarea#full-description {
-    margin-top: 40px;
+    margin-top: 37px;
     width: 910px !important;
     padding: 10px;
+    font-family:"ProximaNovaRegular";
+    font-size: 14px;
 }
 
 .red-title {
