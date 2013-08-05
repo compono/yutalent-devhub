@@ -10,7 +10,7 @@
 
 #content #full-description_ifr,
 #full-description {
-    width: 870px !important;
+    width: 890px !important;
     border: 1px solid #dedede;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -19,7 +19,7 @@
 
 textarea#full-description {
     margin-top: 37px;
-    width: 892px !important;
+    width: 912px !important;
     padding: 10px;
     font-family:"ProximaNovaRegular";
     font-size: 14px;
@@ -61,7 +61,7 @@ ul, li {
 #subject{
     font-size: 18px;
     padding: 6px;
-    width: 890px !important; }
+    width: 910px !important; }
 ::-webkit-input-placeholder {
     color:#AA9984 !important;
 }
