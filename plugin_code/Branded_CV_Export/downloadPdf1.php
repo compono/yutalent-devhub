@@ -65,6 +65,7 @@ class MYPDF extends TCPDF {
 
 	public function Header()
 	{
+		echo 'Hello';
 		print_r($imageSize);die;
 		// Logo
 		$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
@@ -95,8 +96,7 @@ $pdf->SetTitle('CV-'.$candidateName);
 $pdf->SetSubject('CV-'.$candidateName);
 
 // set default header data
-$pdf->SetHeaderData('', '', '', '');
-$pdf->setFooterData(array(0,64,0), array(0,64,128));
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
