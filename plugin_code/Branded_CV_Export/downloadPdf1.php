@@ -39,7 +39,7 @@ if(is_dir($uploadImgPath)){
 	mkdir($uploadImgPath,0777) ;
 	chmod($uploadImgPath,0777);
 }
-file_put_contents($file,file_get_contents($imagePath));
+//file_put_contents($file,file_get_contents($imagePath));
 $imagePath = $file;
 if(!(@getimagesize($imagePath)))	$imagePath = 'images/wu-logo.png';// if image does not exist then provide default image
 list($imageWidth,$imageHeight) = @getimagesize($imagePath);
@@ -65,31 +65,28 @@ class MYPDF extends TCPDF {
 
 	public function Header()
 	{
-		global $companyName;
-		global $candidateName;
-		global $imageSize;
-		global $imagePath;
-		global $style;
+		global $comProfile;
+		print_r($comProfile);die;/*
 		// Logo
 		echo  $style.'==='.$imagePath.'=='.$candidateName.'=='.$companyName.'--';die;
 		$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
 		$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
 $style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
-$pdf->Line(10, 30, 200, 30, $style);
+$pdf->Line(10, 30, 200, 30, $style);*/
 	}
 
 
 	// Page footer
 	public function Footer()
 	{
-		global $comProfile;
+		/*global $comProfile;
 		// Position at 15 mm from bottom
 		$this->SetY(-15);
 		// Set font
 		$this->SetFont('helvetica', 'I', 8);
 		// Page number
-		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
+		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');*/
 	}
 }
 
