@@ -82,7 +82,7 @@ class MYPDF extends TCPDF {
 		global $comProfile;
 		$this->SetY(-15);
 		$style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));		
-		$this->Line(-14, 14, 200, 14, $style);
+		$this->Line(14, -14, 200, 14, $style);
 		$this->SetFont('dejavusans', '', 14, '', true);
 		$this->SetDrawColor(222, 222, 222);
 		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
