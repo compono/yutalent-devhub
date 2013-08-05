@@ -68,8 +68,11 @@
 	<div class="goLeft">
 		    <label class="tiny_mce-label bronze">Rejected candidate email template</label>
 	</div>
+
 <div class="goRight">
-<a id="enable-disable-editor" href="javascript:void(0)" class="standard-blue-link">disbale editor</a></div>
+    <a id="enable-disable-editor" href="javascript:void(0)" class="standard-blue-link">disbale editor</a>
+</div>
+
             <div class="clear"></div>
             <textarea rows="10" cols="100" id="full-description" name="full-description" class="tinymce"></textarea>
         </div> <!-- edit-yw-box ends here -->

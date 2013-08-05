@@ -4,7 +4,8 @@
     font-family:"ProximaNovaRegular";
 }
 
-#content #full-description_ifr {
+#content #full-description_ifr,
+#full-description {
     width: 97.5% !important;
 }
 
