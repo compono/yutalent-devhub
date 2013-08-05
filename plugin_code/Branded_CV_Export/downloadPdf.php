@@ -70,7 +70,7 @@ class MYPDF extends TCPDF {
 		$this->SetFont('dejavusans', '', 14, '', true);
 		$this->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 		$this->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
-		$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
+		$style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));		
 		$this->Line(10, 30, 200, 30, $style);
 	}
 
@@ -81,9 +81,13 @@ class MYPDF extends TCPDF {
 		
 		global $comProfile;
 		$this->SetY(-15);
-		// Set font
-		$this->SetFont('dejavusans', '', 14, '', true);		
-		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
+		$style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));		
+		$this->Line(10, -14, 200, -14, $style);
+		$this->SetFont('dejavusans', '', 14, '', true);
+		$this->SetTextColorArray(array(222, 222, 222));
+		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');		
+		//$this->cell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
+		
 	}
 }
 
@@ -132,7 +136,7 @@ $pdf->AddPage();
 
 // Set some content to print
 // Print text using writeHTMLCell()
-
+$pdf->SetDrawColor(0, 0, 0);
 $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 if($imagePath != 'images/wu-logo.png')		@unlink($imagePath);
 // Close and output PDF document
