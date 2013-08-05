@@ -15,7 +15,7 @@
 
 textarea#full-description {
     margin-top: 40px;
-    width: 890px;
+    width: 910px !important;
     padding: 10px;
 }
 
