@@ -6,7 +6,7 @@
 
 #content #full-description_ifr,
 #full-description {
-    width: 97.9% !important;
+    width: 890% !important;
     border: 1px solid #dedede;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -14,11 +14,7 @@
 }
 
 textarea#full-description {
-    margin-top: 50px;
-}
-
-#full-description_toolbar1 {
-    margin-right: -1px;
+    margin-top: 40px;
 }
 
 .red-title {
@@ -57,7 +53,7 @@ ul, li {
 #subject{
     font-size: 18px;
     padding: 6px;
-    width: 98% !important; }
+    width: 910px !important; }
 ::-webkit-input-placeholder {
     color:#AA9984 !important;
 }
