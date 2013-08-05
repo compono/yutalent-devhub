@@ -12,7 +12,6 @@ $WU_API = new WU_API();
 //$WU_API->setRedirectUri($scriptUrl);
 $comProfile 		= $WU_API->sendMessageToWU('user/profile');
 $comProfile		= json_decode(json_encode($comProfile),true);
-$companyName 		= $comProfile['profile']['company-name'];
 $imagePath 		= $comProfile['profile']['company-logo']['medium'];
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
@@ -65,15 +64,13 @@ class MYPDF extends TCPDF {
 
 	public function Header()
 	{
-		global $comProfile;
-		print_r($comProfile);die;/*
-		// Logo
-		echo  $style.'==='.$imagePath.'=='.$candidateName.'=='.$companyName.'--';die;
-		$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
-		$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
-$pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
-$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
-$pdf->Line(10, 30, 200, 30, $style);*/
+		global $comProfile,$candidateName,$imagePath,$imageSize,$pdf;
+		$companyName 		= $comProfile['profile']['company-name'];		
+		$this->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
+		$this->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
+		$this->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
+		$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
+		$this->Line(10, 30, 200, 30, $style);
 	}
 
 
