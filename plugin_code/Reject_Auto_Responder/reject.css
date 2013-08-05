@@ -6,7 +6,11 @@
 
 #content #full-description_ifr,
 #full-description {
-    width: 97.5% !important;
+    width: 97.9% !important;
+    border: 1px solid #dedede;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .red-title {
