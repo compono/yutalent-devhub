@@ -71,6 +71,7 @@ class MYPDF extends TCPDF {
 		global $imagePath;
 		global $style;
 		// Logo
+		echo  $style.'==='.$imagePath.'=='.$candidateName.'=='.$companyName.'--';die;
 		$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
 		$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 $pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
