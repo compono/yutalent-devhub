@@ -60,7 +60,7 @@ if(!is_null($history)  && !empty($history))
 if(!is_null($education)  && !empty($education))
 	$cvHTML.= '<div class="profile-info-box"><h2>Education</h2>'.$education.'</div>';
 // create new PDF document
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
 class MYPDF extends TCPDF {
 
 	public function Header()
@@ -86,7 +86,7 @@ $pdf->Line(10, 30, 200, 30, $style);
 	}
 }
 
-
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('WuTalent');
