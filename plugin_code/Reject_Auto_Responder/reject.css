@@ -10,7 +10,7 @@
 
 #content #full-description_ifr,
 #full-description {
-    width: 880px !important;
+    width: 870px !important;
     border: 1px solid #dedede;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -19,7 +19,7 @@
 
 textarea#full-description {
     margin-top: 37px;
-    width: 902px !important;
+    width: 892px !important;
     padding: 10px;
     font-family:"ProximaNovaRegular";
     font-size: 14px;
