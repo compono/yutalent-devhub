@@ -13,6 +13,10 @@
     border-radius: 3px;
 }
 
+#full-description_toolbar1 {
+    margin-right: -1px;
+}
+
 .red-title {
     float: left;
     padding-bottom: 50px;
