@@ -24,7 +24,7 @@ $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key
 $history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
 $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
 $cvHTML = '<style>
-.profile-info-box {display: block;font-family: \'ProximaNovaRegular\';font-size: 14px;margin-bottom: 13px;}	
+.profile-info-box {display: block;font-family: \'ProximaNovaRegular\';font-size: 14px;margin-bottom: 33px;}	
 .profile-info-box h2 {color: #CB2027;font-family: \'ProximaNovaRegular\';font-size: 17px;font-weight: normal;margin-bottom: 17px;}
 .profile-info-box strong,.profile-info-box h5 {display: block;padding: 5px 0 0;width:600px;}
 </style>';
