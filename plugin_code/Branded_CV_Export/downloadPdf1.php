@@ -65,8 +65,11 @@ class MYPDF extends TCPDF {
 
 	public function Header()
 	{
-		echo 'Hello';
-		print_r($imageSize);die;
+		global $companyName;
+		global $candidateName;
+		global $imageSize;
+		global $imagePath;
+		global $style;
 		// Logo
 		$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
 		$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
@@ -79,6 +82,7 @@ $pdf->Line(10, 30, 200, 30, $style);
 	// Page footer
 	public function Footer()
 	{
+		global $comProfile;
 		// Position at 15 mm from bottom
 		$this->SetY(-15);
 		// Set font
