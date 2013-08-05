@@ -113,8 +113,8 @@ input:-moz-placeholder {
     margin: 0 330px 0 0;
 }
 
-.disable-enable-edt .disabled {
-    margin-left: 330px;
+.disable-enable-edt.disabled {
+    margin-right: 0;
 }
 
 .error {
