@@ -12,7 +12,6 @@ $WU_API = new WU_API();
 //$WU_API->setRedirectUri($scriptUrl);
 $comProfile 		= $WU_API->sendMessageToWU('user/profile');
 $comProfile		= json_decode(json_encode($comProfile),true);
-$companyName 		= $comProfile['profile']['company-name'];
 $imagePath 		= $comProfile['profile']['company-logo']['medium'];
 $currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
 $currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
@@ -39,7 +38,7 @@ if(is_dir($uploadImgPath)){
 	mkdir($uploadImgPath,0777) ;
 	chmod($uploadImgPath,0777);
 }
-file_put_contents($file,file_get_contents($imagePath));
+//file_put_contents($file,file_get_contents($imagePath));
 $imagePath = $file;
 if(!(@getimagesize($imagePath)))	$imagePath = 'images/wu-logo.png';// if image does not exist then provide default image
 list($imageWidth,$imageHeight) = @getimagesize($imagePath);
@@ -60,33 +59,35 @@ if(!is_null($history)  && !empty($history))
 if(!is_null($education)  && !empty($education))
 	$cvHTML.= '<div class="profile-info-box"><h2>Education</h2>'.$education.'</div>';
 // create new PDF document
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
 class MYPDF extends TCPDF {
 
 	public function Header()
 	{
-		// Logo
-		$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
-		$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
-$pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
-$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
-$pdf->Line(10, 30, 200, 30, $style);
+		global $comProfile,$candidateName,$imagePath,$imageSize;
+		$companyName = $comProfile['profile']['company-name'];		
+		$this->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
+		$this->SetFont('dejavusans', '', 14, '', true);
+		$this->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
+		$this->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
+		$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
+		$this->Line(10, 30, 200, 30, $style);
 	}
 
 
 	// Page footer
 	public function Footer()
 	{
-		// Position at 15 mm from bottom
+		
+		global $comProfile;
 		$this->SetY(-15);
 		// Set font
-		$this->SetFont('helvetica', 'I', 8);
-		// Page number
+		$this->SetFont('dejavusans', '', 14, '', true);		
 		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
 	}
 }
 
-
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('WuTalent');
@@ -94,8 +95,7 @@ $pdf->SetTitle('CV-'.$candidateName);
 $pdf->SetSubject('CV-'.$candidateName);
 
 // set default header data
-$pdf->SetHeaderData('', '', '', '');
-$pdf->setFooterData(array(0,64,0), array(0,64,128));
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
