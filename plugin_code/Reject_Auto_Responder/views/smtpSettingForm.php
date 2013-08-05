@@ -66,7 +66,7 @@
 	</div>
 	<div class="edit-yw-box">
 	<div class="goLeft">
-		    <label class="tiny_mce-label bronze">Rejected candidate email template</label>
+		    <label class="tiny_mce-label rejected-label bronze">Rejected candidate email template</label>
 	</div>
 
 <div class="goRight">
