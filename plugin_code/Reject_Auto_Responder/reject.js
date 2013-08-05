@@ -13,6 +13,7 @@ $(document).ready(function()
 {
 	$('a#enable-disable-editor').click(function()
 	{
+        $(this).toggleClass('disabled');
 		if(tinyMCE)
 		{
 			if (tinyMCE.getInstanceById('full-description'))
