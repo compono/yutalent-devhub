@@ -1,6 +1,5 @@
 <link href="<?php echo HTTP_SSL.'://'.wuDomain.'/static/styles/plugin/plugin.css'?>" rel="stylesheet" />
 <link href="reject.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://www.wutalent.co.uk/static/styles/base.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="<?php echo HTTP_SSL.'://'.wuDomain.'/static/scripts/lib/tiny_mce/jquery.tinymce.js'?>"></script>
 <script src="jqueryValidate.js" type="text/javascript"></script>
