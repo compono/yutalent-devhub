@@ -19,12 +19,12 @@ $(document).ready(function()
 			{
 				tinyMCE.execCommand('mceFocus', false, 'full-description');          
 				tinyMCE.execCommand('mceRemoveControl', false, 'full-description');
-				$('#full-description').val($('#full-description').val().replace(/\<br\s*\/\>/g,"\n"));
+				//$('#full-description').val($('#full-description').val().replace(/\<br\s*\/\>/g,"\n"));
 				$(this).html('enable editor');
 			}
 			else
 			{
-				$('#full-description').val($('#full-description').val().replace(/\n/g,"<br />"));
+				//$('#full-description').val($('#full-description').val().replace(/\n/g,"<br />"));
 				initTinyMceEditor();
 				$(this).html('disable editor');
 			}
@@ -32,7 +32,7 @@ $(document).ready(function()
 		}
 		else
 		{
-			$('#full-description').val($('#full-description').val().replace(/\n/g,"<br />"));
+			//$('#full-description').val($('#full-description').val().replace(/\n/g,"<br />"));
 			initTinyMceEditor();
 			$(this).html('disable editor');
 		}
@@ -110,7 +110,7 @@ window.wuAfterInit = function(wu)
 			}
 			else
 			{
-				$('#full-description').val(formData['mailContent'].replace(/\<br\s*\/\>/g,"\n"));
+				//$('#full-description').val(formData['mailContent'].replace(/\<br\s*\/\>/g,"\n"));
 				$('a#enable-disable-editor').html('enable editor');
 			}
 		}
@@ -179,15 +179,15 @@ window.wuAfterInit = function(wu)
 			formData['port'] 	= 	$('#port').val();
 			formData['mailContent'] = 	$('#full-description').val();
 			formData['mailSubject']	= 	$('#subject').val();
-			formData['mailContent']	= 	formData['mailContent'].replace(/\n/g,"<br />");
+			//formData['mailContent']	= 	formData['mailContent'].replace(/\n/g,"<br />");
 			formData['disableTinyMCE']= 	tinyMCE.getInstanceById('full-description') ? 0 : 1;
 			wu.Messenger.sendMessageToWU('storage/add-multiple',{append: false, pairs: formData},function(response)
 			{
 				statusMessage('Auto-reject settings have been saved',false);
 			});
-			if (!(tinyMCE.getInstanceById('full-description')))
+			/*if (!(tinyMCE.getInstanceById('full-description')))
 				$('#full-description').val(formData['mailContent'].replace(/\<br\s*\/\>/g,"\n"));
-			else
+			else*/
 				$('#full-description').val(formData['mailContent']);
 		}		
 		return false;
