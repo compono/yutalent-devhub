@@ -114,7 +114,7 @@ input:-moz-placeholder {
 }
 
 .disable-enable-edt.disabled {
-    margin-right: 0;
+    margin-right: 5px;
 }
 
 .error {
