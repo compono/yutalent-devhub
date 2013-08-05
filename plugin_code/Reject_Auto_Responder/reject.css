@@ -105,6 +105,12 @@ input:-moz-placeholder {
     top: 30px;
 }
 
+/* Disable Enable Link - position */
+.disable-enable-edt {
+    display: block;
+
+}
+
 .error {
     color: red;
     font-size: 13px

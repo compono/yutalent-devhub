@@ -69,7 +69,7 @@
 		    <label class="tiny_mce-label rejected-label bronze">Rejected candidate email template</label>
 	</div>
 
-<div class="goRight">
+<div class="goRight disable-enable-edt">
     <a id="enable-disable-editor" href="javascript:void(0)" class="standard-blue-link">disbale editor</a>
 </div>
 
