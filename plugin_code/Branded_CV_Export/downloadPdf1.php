@@ -64,7 +64,7 @@ class MYPDF extends TCPDF {
 
 	public function Header()
 	{
-		global $comProfile,$candidateName,$imagePath,$imageSize,$pdf;
+		global $comProfile,$candidateName,$imagePath,$imageSize;
 		$companyName 		= $comProfile['profile']['company-name'];		
 		$this->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
 		$this->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
@@ -77,13 +77,13 @@ class MYPDF extends TCPDF {
 	// Page footer
 	public function Footer()
 	{
-		/*global $comProfile;
-		// Position at 15 mm from bottom
+		
+		global $comProfile;
 		$this->SetY(-15);
 		// Set font
 		$this->SetFont('helvetica', 'I', 8);
 		// Page number
-		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');*/
+		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
 	}
 }
 
