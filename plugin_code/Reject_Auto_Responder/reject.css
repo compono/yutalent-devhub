@@ -13,6 +13,10 @@
     border-radius: 3px;
 }
 
+textarea#full-description {
+    margin-top: 50px;
+}
+
 #full-description_toolbar1 {
     margin-right: -1px;
 }
