@@ -61,6 +61,31 @@ if(!is_null($education)  && !empty($education))
 	$cvHTML.= '<div class="profile-info-box"><h2>Education</h2>'.$education.'</div>';
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+class MYPDF extends TCPDF {
+
+	public function Header()
+	{
+		// Logo
+		$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
+		$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
+$pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
+$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
+$pdf->Line(10, 30, 200, 30, $style);
+	}
+
+
+	// Page footer
+	public function Footer()
+	{
+		// Position at 15 mm from bottom
+		$this->SetY(-15);
+		// Set font
+		$this->SetFont('helvetica', 'I', 8);
+		// Page number
+		$this->Cell(0, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
+	}
+}
+
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
@@ -107,11 +132,7 @@ $pdf->AddPage();
 
 // Set some content to print
 // Print text using writeHTMLCell()
-$pdf->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
-$pdf->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
-$pdf->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
-$style = array('width' => 0.5, 'phase' => 10, 'color' => array(0, 0, 0));
-$pdf->Line(10, 30, 200, 30, $style);
+
 $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
 if($imagePath != 'images/wu-logo.png')		@unlink($imagePath);
 // Close and output PDF document
