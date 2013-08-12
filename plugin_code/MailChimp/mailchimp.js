@@ -75,13 +75,25 @@ window.wuAfterInit = function(wu)
 		wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: keyArray }, function(response)
 		{
 			$('p#'+this.key).find('select option').removeAttr('selected');
-			$(response).each(function(k,v)
+			if(response.length)
 			{
-				var dropDown = $('p#'+this.key).find('select');
-				dropDown.val(this.value[0]).filter('[value="'+this.value[0]+'"]').attr('selected','selected');
-				dropDown.multiselect({ header:false,multiple: false,selectedList: 1});
-				if(!dropDown.val())	dropDown.siblings('button').find('span').addClass('value');
-			});
+				$(response).each(function(k,v)
+				{
+					var dropDown = $('p#'+this.key).find('select');
+					dropDown.val(this.value[0]).filter('[value="'+this.value[0]+'"]').attr('selected','selected');
+					dropDown.multiselect({ header:false,multiple: false,selectedList: 1});
+					if(!dropDown.val())	dropDown.siblings('button').find('span').addClass('value');
+				});
+			}
+			else
+			{
+				$(keyArray).each(function(k,v)
+				{
+					var dropDown = $('p#'+this).find('select');
+					dropDown.multiselect({ header:false,multiple: false,selectedList: 1});
+					if(!dropDown.val())	dropDown.siblings('button').find('span').addClass('value');
+				});				
+			}
 		});
 	});
 	
