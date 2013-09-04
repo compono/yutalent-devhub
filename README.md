@@ -9,10 +9,15 @@ As we build plugins and extensions to our product we try to keep the code open a
 
 - <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/Plugin_Template">Plugin Template</a> - a skeleton plugin for how we like our code to be developed - for developer reference only
 
+- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/MailChimp">MailChimp</a> - sync's contacts from the contact database into MailChimp for newsletter management. Different contact record types (prospect, candidate, client etc) can be inserted into different MailChimp lists
+
 ## Under development
 
 Current plugins under development. You may browse the code for reference at anytime. 
 
-- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/SMS_2Way">SMS 2Way</a> - allows client to send out SMS messages to contacts, wuth both the outbound and reply messages recorded as notes in the contact database
+- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/SMS">SMS</a> - allows client to send out SMS messages to contacts recorded as notes in the contact database
 
-- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/MailChimp">MailChimp</a> - sync's contacts from the contact database into MailChimp for newsletter management. Different contact record types (prospect, candidate, client etc) can be inserted into different MailChimp lists.
+- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/Branded_CV_Export">Branded CV Export</a> - allows recruitment consultants to download company branded, anonymised PDFs they can send on to their clients
+
+- <a href="https://github.com/oneworldmarket/wutalent-devhub/tree/master/plugin_code/Reject_Auto_Responder">Rejected Candidate Auto-responder</a> - create a standard rejection email for applicants who aren't right for the role
+
