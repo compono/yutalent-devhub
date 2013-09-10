@@ -161,7 +161,7 @@ if(isset($_POST['msg_hide']))
 
 
 <!--html for message form start-->
-<form method="Post" action="" name="sms_popup" id="sms_form" style="display:none;"/>
+<form method="Post" action="" name="sms_popup" id="sms_form" style="display:none;">
 	<input type="hidden" name="signed_request" value="<?php print $_REQUEST['signed_request'] ?>"/>
 	<input type="hidden" name="contact_no" id="cont_no" value="">
 	<input type="hidden" name="credit_count" id="cred_count" value="">
