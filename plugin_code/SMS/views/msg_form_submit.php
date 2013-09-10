@@ -16,7 +16,7 @@ $api = new TextMagicAPI(array(
 			"username" => U_NAME,
 			"password" => U_PASS, 
 		));
-		
+$return = "";
 try {
     $results = $api->checkNumber($phones);
     foreach($results as $number => $info) {
