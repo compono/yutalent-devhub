@@ -166,7 +166,7 @@ if(isset($_POST['msg_hide']))
 
 		$feedback = "<p class='success_msg'>success</p>";?>
         <script type="text/javascript">
-            window.wuAfterInit = function(){
+            window.wuAfterInit = function(wu){
                 wu.addSmsOutboundNote("<?php echo $message; ?>");
             }
         </script>
