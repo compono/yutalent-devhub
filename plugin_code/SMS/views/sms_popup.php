@@ -15,7 +15,7 @@ console.log( response );
 /* assigning mobile no to variable from yutalent js API response*/
 var mob_no = response.phone.profile.mobile;
 $('#cont_no').val(mob_no);
-function addSmsOutboundNote ( message ){
+wu.addSmsOutboundNote = function ( message ){
     wu.Messenger.sendMessageToWU('notes/add', {
             "contact_id": wu.Options.getOption('request')['id'],
             "received":false,
@@ -167,7 +167,7 @@ if(isset($_POST['msg_hide']))
 		$feedback = "<p class='success_msg'>success</p>";?>
         <script type="text/javascript">
             window.wuAfterInit = function(){
-                addSmsOutboundNote("<?php echo $message; ?>");
+                wu.addSmsOutboundNote("<?php echo $message; ?>");
             }
         </script>
 	<?php }
