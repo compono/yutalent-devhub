@@ -157,15 +157,7 @@ if(isset($_POST['msg_hide']))
 		$feedback = "<p class='success_msg'>success</p>";?>
         <script type="text/javascript">
             window.wuAfterInit = function(wu){
-                wu.Messenger.sendMessageToWU('timeline/add', {
-                        "contact_id": wu.Options.getOption('request')['id'],
-                        "type":"plugin_sms",
-                        "interview_title": "sms int"
-                    },
-                    function(resp){
-                        console.log(resp);
-                    }
-                );
+
                 wu.addSmsOutboundNote = function( message ){
                     wu.Messenger.sendMessageToWU('notes/add', {
                             "contact_id": wu.Options.getOption('request')['id'],
@@ -175,8 +167,20 @@ if(isset($_POST['msg_hide']))
                             "message": message
                         }
                     );
+
+                    wu.Messenger.sendMessageToWU('timeline/add', {
+                            "contact_id": wu.Options.getOption('request')['id'],
+                            "type":"plugin_sms",
+                            "interview_title": "sms int"
+                        },
+                        function(resp){
+                            console.log('timeline');
+                            console.log(resp);
+                        }
+                    );
                 }
                 wu.addSmsOutboundNote("<?php echo $message; ?>");
+
 
                 var success = $('#char_count').text();
                 if(success == 'success')
