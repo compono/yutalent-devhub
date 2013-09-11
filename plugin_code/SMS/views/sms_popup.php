@@ -9,7 +9,6 @@
 <script type="text/javascript">
 
 window.wuAfterInit = function(wu) {
-window.myWu = wu;
 var cid = wu.Options.getOption('request')['id'];
 console.log( cid );
 wu.Messenger.sendMessageToWU('contacts/get', {id: wu.Options.getOption('request')['id'] }, function(response){
@@ -157,7 +156,8 @@ if(isset($_POST['msg_hide']))
 
 		$feedback = "<p class='success_msg'>success</p>";?>
         <script type="text/javascript">
-                 function addSmsOutboundNote( message ){
+            window.wuAfterInit = function(wu){
+                wu.addSmsOutboundNote = function( message ){
                     myWu.Messenger.sendMessageToWU('notes/add', {
                             "contact_id": myWu.Options.getOption('request')['id'],
                             "received":false,
@@ -167,7 +167,18 @@ if(isset($_POST['msg_hide']))
                         }
                     );
                 }
-                addSmsOutboundNote("<?php echo $message; ?>");
+                wu.addSmsOutboundNote("<?php echo $message; ?>");
+                var success = $('#char_count').text();
+                if(success == 'success')
+                {
+                    var cred_val = $('#cred_count').val();
+                    wu.Messenger.sendMessageToWU('event/decreaseCredits', {amount:cred_val});
+                    wu.Messenger.sendMessageToWU('showGrowl', {
+                        title: 'Message sent', message: 'Your message is sent successfully'}, function(){
+                        wu.Messenger.sendMessageToWU('closePopup');
+                    });
+                }
+            }
         </script>
 	<?php }
 }?>
