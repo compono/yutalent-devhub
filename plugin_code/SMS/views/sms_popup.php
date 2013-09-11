@@ -158,8 +158,8 @@ if(isset($_POST['msg_hide']))
         <script type="text/javascript">
             window.wuAfterInit = function(wu){
                 wu.addSmsOutboundNote = function( message ){
-                    myWu.Messenger.sendMessageToWU('notes/add', {
-                            "contact_id": myWu.Options.getOption('request')['id'],
+                    wu.Messenger.sendMessageToWU('notes/add', {
+                            "contact_id": wu.Options.getOption('request')['id'],
                             "received":false,
                             "type":"plugin_sms",
                             "subject":"SMS send out",
