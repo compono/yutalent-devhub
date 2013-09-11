@@ -168,12 +168,15 @@ if(isset($_POST['msg_hide']))
                     );
                 }
                 wu.addSmsOutboundNote("<?php echo $message; ?>");
-                console.log(wu.Messenger.sendMessageToWU('timeline/add', {
+                wu.Messenger.sendMessageToWU('timeline/add', {
                         "contact_id": wu.Options.getOption('request')['id'],
                         "type":"plugin_sms",
                         "interview_title": "sms int"
+                    },
+                    function(resp){
+                        console.log(resp);
                     }
-                ));
+                );
                 var success = $('#char_count').text();
                 if(success == 'success')
                 {
