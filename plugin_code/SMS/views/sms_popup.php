@@ -7,7 +7,9 @@
 
 <!--script for getting mobile no from js API-->
 <script type="text/javascript">
+
 window.wuAfterInit = function(wu) {
+window.myWu = wu;
 var cid = wu.Options.getOption('request')['id'];
 console.log( cid );
 wu.Messenger.sendMessageToWU('contacts/get', {id: wu.Options.getOption('request')['id'] }, function(response){
@@ -155,10 +157,9 @@ if(isset($_POST['msg_hide']))
 
 		$feedback = "<p class='success_msg'>success</p>";?>
         <script type="text/javascript">
-            window.wuAfterInit = function(wu){
-                wu.addSmsOutboundNote = function ( message ){
-                    wu.Messenger.sendMessageToWU('notes/add', {
-                            "contact_id": wu.Options.getOption('request')['id'],
+                 function addSmsOutboundNote( message ){
+                    myWu.Messenger.sendMessageToWU('notes/add', {
+                            "contact_id": myWu.Options.getOption('request')['id'],
                             "received":false,
                             "type":"plugin_sms",
                             "subject":"SMS send out",
@@ -166,7 +167,7 @@ if(isset($_POST['msg_hide']))
                         }
                     );
                 }
-                wu.addSmsOutboundNote("<?php echo $message; ?>");
+                addSmsOutboundNote("<?php echo $message; ?>");
             }
         </script>
 	<?php }
