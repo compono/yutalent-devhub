@@ -168,7 +168,6 @@ if(isset($_POST['msg_hide']))
                     );
                 }
                 addSmsOutboundNote("<?php echo $message; ?>");
-            }
         </script>
 	<?php }
 }?>
