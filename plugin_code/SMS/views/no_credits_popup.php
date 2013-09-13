@@ -2,10 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-        <script src="https://devhub.wutalent.co.uk/plugin_code/SMS/js/jquery.min.js"></script>
+        <link rel="stylesheet" href="../SMS_2Way.css" type="text/css">
+        <script src="../js/jquery.min.js"></script>
         <script type="text/javascript">
-            window.wuAfterInit = function(wu){};
-            var wuDomain = Options.getOption('domain');
+            window.wuAfterInit = function(wu){
+                wu.sendMessageToWU('credits/getProductID', {}, function(response){
+                    console.log(response);
+                });
+            };
+            var wuDomain = wu.Options.getOption('domain');
             console.log(wuDomain);
             window.wuAsyncInit = function(){
                 WU.init({
