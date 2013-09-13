@@ -4,42 +4,43 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
         <link rel="stylesheet" href="../SMS_2Way.css" type="text/css">
         <script src="../js/jquery.min.js"></script>
-        <script type="text/javascript">
-            window.wuAfterInit = function(wu){
-                wu.sendMessageToWU('credits/getProductID', {}, function(response){
-                    console.log(response);
-                });
-            };
-            var wuDomain = wu.Options.getOption('domain');
-            console.log(wuDomain);
-            window.wuAsyncInit = function(){
-                WU.init({
-                    domain: wuDomain,
-                    signed_request: '<?php echo $_REQUEST['signed_request'] ?>',
-                    height: '100%',
-                    'afterInit': function(wu){
-                        if( typeof window.wuAfterInit == 'function' ) {
-                            window.wuAfterInit(wu);
-                        }
-                    }
-                });
-            };
-            // Load the SDK's source Asynchronously
-            (function (d, s, id) {
-                var js, wjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//" + wuDomain + "/static/scripts/api/WU.js";
-                wjs.parentNode.insertBefore(js, wjs);
-            }(document, 'script', 'wutalent-jssdk'));
-        </script>
     </head>
+    <script type="text/javascript">
+        var wuDomain = 'wutalent.co.uk';
+        window.wuAfterInit = function(wu){
+            var wuDomain = wu.Options.getOption('domain');
+            console.log('wuDomain' + wuDomain);
+            wu.sendMessageToWU('credits/getProductID', {}, function(response){
+                console.log(response);
+            });
+        };
+        window.wuAsyncInit = function(){
+            WU.init({
+                domain: wuDomain,
+                signed_request: '<?php echo $_REQUEST['signed_request'];?>',
+                height: '100%',
+                'afterInit': function(wu){
+                    if( typeof window.wuAfterInit == 'function' ) {
+                        window.wuAfterInit(wu);
+                    }
+                }
+            });
+        };
+        // Load the SDK's source Asynchronously
+        (function (d, s, id) {
+            var js, wjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//" + wuDomain + "/static/scripts/api/WU.js";
+            wjs.parentNode.insertBefore(js, wjs);
+        }(document, 'script', 'wutalent-jssdk'));
+    </script>
     <body>
         <div>
-            <p class="valid_err">You dont have any SMS credit</p>
+            <p class="error-message">You dont have any SMS credit</p>
         </div>
     </body>
 </html>
