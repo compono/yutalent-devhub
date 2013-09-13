@@ -51,3 +51,17 @@ font-size: 16px;
     color: #cb2027;
     text-align: center;
 }
+.update-btn{
+    display: inline-block;
+    width: 168px;
+    height: 41px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 13px 0 0;
+    background: url('/images/buy_credit.png') no-repeat;
+    text-indent: -9999px;
+}
+.update-btn:hover{
+    background: url('/images/buy_credit_hover.png') no-repeat;
+}
