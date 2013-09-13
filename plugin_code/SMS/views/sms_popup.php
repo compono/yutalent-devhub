@@ -181,14 +181,18 @@ if(isset($_POST['msg_hide']))
                 }
                 wu.addSmsOutboundNote("<?php echo $message; ?>");
 
-
                 var success = $('#char_count').text();
-                if(success == 'success')
-                {
+                if(success == 'success'){
                     var cred_val = $('#cred_count').val();
                     wu.Messenger.sendMessageToWU('event/decreaseCredits', {amount:cred_val});
-                    wu.Messenger.sendMessageToWU('showGrowl', {
-                        title: 'Message sent', message: 'Your message is sent successfully'}, function(){
+                    wu.Messenger.sendMessageToWU('showGrowl',{
+                        title: 'Success', message: 'SMS message has been sent'}, function(){
+                        wu.Messenger.sendMessageToWU('closePopup');
+                    });
+                }
+                else{
+                    wu.Messenger.sendMessageToWU('showGrowl',{
+                        title: 'Error!', message: 'There was problem sending the SMS'}, function(){
                         wu.Messenger.sendMessageToWU('closePopup');
                     });
                 }

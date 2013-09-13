@@ -1,13 +1,13 @@
 /* CSS Document */
 .msg_submit{
-	float: left;
 	width: 116px;
 	height: 41px;
-	margin: 5px 13px 0 132px;
 	background: url(images/sendsms.png);
 	border: none;
 	cursor: pointer;
 	text-indent: -9999px;
+    margin: 0 auto;
+    display: block;
 }
 
 .msg_submit:hover {
@@ -38,4 +38,11 @@ color: red;
 text-align: center;
 font-weight: bold;
 font-size: 16px;
+}
+.bronze{
+    color: #AA9984;
+}
+.textarea-med{
+    width: 98%;
+    border-radius: 4px;
 }
