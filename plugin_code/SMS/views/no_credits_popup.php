@@ -6,12 +6,14 @@
         <script src="../js/jquery.min.js"></script>
     </head>
     <script type="text/javascript">
-        var wuDomain = 'wutalent.co.uk';
+        var wuDomain = 'www.yutalent.com';
         window.wuAfterInit = function(wu){
             var wuDomain = wu.Options.getOption('domain');
             console.log('wuDomain' + wuDomain);
             wu.sendMessageToWU('credits/getProductID', {}, function(response){
                 console.log(response);
+                console.log(document.getElementById('credit-link').href);
+                document.getElementById('credit-link').href = '//' + wuDomain + '/a/cart/index/index/type/';
             });
         };
         window.wuAsyncInit = function(){
@@ -41,6 +43,7 @@
     <body>
         <div>
             <p class="error-message">You dont have any SMS credit</p>
+            <a href="#" class="update-btn" id="credit-link"><span>Buy Credit</span></a>
         </div>
     </body>
 </html>
