@@ -11,9 +11,6 @@
             var wuDomain = wu.Options.getOption('domain');
             wu.Messenger.sendMessageToWU('credits/getProductID', {}, function(response){
                 document.getElementById('credit-link').href = wuDomain + '/a/cart/index/index/type/' + response;
-//                document.getElementById('credit-link').onclick = function(){
-//                    location.href = this.href;
-//                };
             });
         };
         window.wuAsyncInit = function(){
@@ -44,7 +41,7 @@
     <body>
         <div>
             <p class="error-message">You dont have any SMS credit</p>
-            <a href="#" class="update-btn" id="credit-link"><span>Buy Credit</span></a>
+            <a href="#" class="update-btn" id="credit-link" target="_parent"><span>Buy Credit</span></a>
         </div>
     </body>
 </html>
