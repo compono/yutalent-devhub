@@ -10,7 +10,7 @@
         window.wuAfterInit = function(wu){
             var wuDomain = wu.Options.getOption('domain');
             wu.Messenger.sendMessageToWU('credits/getProductID', {}, function(response){
-                document.getElementById('credit-link').href = wuDomain + '/a/cart/index/index/type/' + response;
+                document.getElementById('credit-link').href = '//' + wuDomain + '/a/cart/index/index/type/' + response;
             });
         };
         window.wuAsyncInit = function(){
