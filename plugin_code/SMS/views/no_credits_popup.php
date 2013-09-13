@@ -11,9 +11,7 @@
             var wuDomain = wu.Options.getOption('domain');
             console.log('wuDomain' + wuDomain);
             wu.Messenger.sendMessageToWU('credits/getProductID', {}, function(response){
-                console.log(response);
-                console.log(document.getElementById('credit-link').href);
-                document.getElementById('credit-link').href = '//' + wuDomain + '/a/cart/index/index/type/';
+                document.getElementById('credit-link').href = '//' + wuDomain + '/a/cart/index/index/type/' + response;
             });
         };
         window.wuAsyncInit = function(){

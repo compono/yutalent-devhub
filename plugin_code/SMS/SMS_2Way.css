@@ -52,16 +52,17 @@ font-size: 16px;
     text-align: center;
 }
 .update-btn{
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
+    margin-top: 90px;
     width: 168px;
     height: 41px;
     text-decoration: none;
     border: none;
     cursor: pointer;
-    margin: 0 13px 0 0;
-    background: url('/images/buy_credit.png') no-repeat;
+    background: url('images/buy_credit.png') no-repeat;
     text-indent: -9999px;
 }
 .update-btn:hover{
-    background: url('/images/buy_credit_hover.png') no-repeat;
+    background: url('images/buy_credit_hover.png') no-repeat;
 }
