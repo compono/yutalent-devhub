@@ -26,6 +26,10 @@
                 }
             });
         };
+
+        document.getElementById('credit-link').onclick = function(){
+            location.href = this.href;
+        };
         // Load the SDK's source Asynchronously
         (function (d, s, id) {
             var js, wjs = d.getElementsByTagName(s)[0];
