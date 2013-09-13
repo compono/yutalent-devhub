@@ -9,12 +9,11 @@
         var wuDomain = 'www.yutalent.com';
         window.wuAfterInit = function(wu){
             var wuDomain = wu.Options.getOption('domain');
-            console.log('wuDomain' + wuDomain);
             wu.Messenger.sendMessageToWU('credits/getProductID', {}, function(response){
-                document.getElementById('credit-link').href = '//' + wuDomain + '/a/cart/index/index/type/' + response;
-                document.getElementById('credit-link').onclick = function(){
-                    location.href = this.href;
-                };
+                document.getElementById('credit-link').href = wuDomain + '/a/cart/index/index/type/' + response;
+//                document.getElementById('credit-link').onclick = function(){
+//                    location.href = this.href;
+//                };
             });
         };
         window.wuAsyncInit = function(){
