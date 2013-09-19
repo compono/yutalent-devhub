@@ -119,7 +119,7 @@ class MYPDF extends TCPDF {
         $this->writeHTMLCell(0, 0, 10, 10, '<table border="0"> <tr><th width="100%" align="center">
             <img height="' . $imageSize['h'] . 'px" width="' . $imageSize['w'] . 'px" src="' . $imagePath . '" alt="' . $companyName . '" border="0" />
                 </th></tr></table>', 0, 0, false, true, '', true);
-        $this->SetFont('baskerville', '', 14, '', true);
+        $this->SetFont('helvetica', '', 14, '', true);
         $this->writeHTMLCell(0, 0, 48, 10, '<table border="0"> <tr><th width="100%" align="center" class="company-name">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
         $this->writeHTMLCell(0, 0, 48, 18, '<table border="0"> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));
