@@ -46,13 +46,9 @@ list($imageWidth, $imageHeight) = @getimagesize($imagePath);
 $brandedFunctions = new BrandedFunctions;
 $imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 132);
 
-
-
 if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
-    $cvHTML.= '<table border="0">
-    <tr>
-        <th width="20%" height="120"></th>
-        </tr>
+    $cvHTML.='<table border="0">
+        <tr><th width="20%" height="120"></th></tr>
         <tr>
         <th width="20%" align="right"><h2>SUMMARY</h2></th>
         <th width="10%" align="right"></th>
@@ -65,49 +61,41 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     </table>';
 }
 if (!is_null($keySkills) && !empty($keySkills))
-    $cvHTML.=
-
-            '<table border="0">
-    <tr>
-        <th width="20%" align="right"><h2>KEY SKILLS</h2></th>
-        <th width="10%" align="right"></th>
-        <th width="60%" align="left"><span>' . $keySkills .
-            '</span></th>
-        <th width="10%" align="right"></th>
-    </tr>
-    </table>';
+    $cvHTML.='<table border="0">
+        <tr>
+            <th width="20%" align="right"><h2>KEY SKILLS</h2></th>
+            <th width="10%" align="right"></th>
+            <th width="60%" align="left"><span>' . $keySkills .
+                '</span></th>
+            <th width="10%" align="right"></th>
+        </tr>
+        </table>';
 
 
 if (!is_null($history) && !empty($history))
-    $cvHTML.=
-
-            '<table border="0">
-    <tr>
-        <th width="20%" align="right"><h2>WORK HISTORY</h2></th>
-        <th width="10%" align="right"></th>
-        <th width="60%" align="left"><span>' . $history .
-            '</span></th>
-       <th width="10%" align="right"></th>
-    </tr>
-    </table>';
+    $cvHTML.='<table border="0">
+        <tr>
+            <th width="20%" align="right"><h2>WORK HISTORY</h2></th>
+            <th width="10%" align="right"></th>
+            <th width="60%" align="left"><span>' . $history .
+                '</span></th>
+           <th width="10%" align="right"></th>
+        </tr>
+        </table>';
 
 
 if (!is_null($education) && !empty($education))
-    $cvHTML.=
-
-            '<table border="0">
-    <tr>
-        <th width="20%" align="right"><h2>EDUCATION</h2></th>
-        <th width="10%" align="right"></th>
-        <th width="60%" align="left"><span>' . $education .
-            '</span></th>
-        <th width="10%" align="right"></th>
-    </tr>
-    </table>';
+    $cvHTML.='<table border="0">
+        <tr>
+            <th width="20%" align="right"><h2>EDUCATION</h2></th>
+            <th width="10%" align="right"></th>
+            <th width="60%" align="left"><span>' . $education .
+                '</span></th>
+            <th width="10%" align="right"></th>
+        </tr>
+        </table>';
 
 // create new PDF document
-
-
 
 class MYPDF extends TCPDF {
 
@@ -136,7 +124,7 @@ class MYPDF extends TCPDF {
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
         $this->Cell(0, 0, $comProfile['profile']['address'] , 1, 1, 'C', 0, '', 0);
-        $this->Cell(0, 10, $comProfile['profile']['www'], 1, 1, 'C', 0, '', 1);
+        $this->Cell(0, 5, $comProfile['profile']['www'], 1, 1, 'C', 0, '', 1);
     }
 
 }
