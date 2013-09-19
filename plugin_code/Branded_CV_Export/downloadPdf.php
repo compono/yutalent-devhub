@@ -19,7 +19,11 @@ $currentUserProfile = json_decode(json_encode($currentUserProfile), true);
 $candidateName = $currentUserProfile['name'];
 $userCVDetail = $WU_API->sendMessageToWU('contacts/get-parsed-cv', array('id' => $id));
 $userCVDetail = json_decode(json_encode($userCVDetail), true);
-
+$summary = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['summary']);
+//$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
+$keySkills = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['key-skills']);
+$history = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['history']);
+$education = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['education']);
 $cvHTML = '<style>
 h2{color:#788184;font-size:0.6em;font-weight:normal;}
 span{color:#47616c;font-size:0.6em;font-weight:normal;}
