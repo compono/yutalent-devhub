@@ -120,12 +120,13 @@ class MYPDF extends TCPDF {
             <img height="' . $imageSize['h'] . 'px" width="' . $imageSize['w'] . 'px" src="' . $imagePath . '" alt="' . $companyName . '" border="0" />
                 </th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
-        $this->SetFont('times', '',8, '', true);
+        $this->SetFont('helvetica', '',8, '', true);
         $this->writeHTMLCell(0, 0, 0, 30, '<table border="0"> <tr><th width="100%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(71, 97, 108));
-        $this->SetFont('helvetica', '', 14, '', true);
-        $this->writeHTMLCell(0, 0, 0, 33, '<table border-bottom="1"> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
-        $style = array('width' => 0.3, 'phase' => 10, 'color' => array(125, 222, 222));
+        $this->SetFont('times', '', 14, '', true);
+        $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->Line(10, 280, 200, 280, $style);
+
 
     }
 
@@ -136,8 +137,8 @@ class MYPDF extends TCPDF {
         $this->SetY(-15);
         $style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));
         $this->Line(10, 280, 200, 280, $style);
-        $this->SetFont('helvetica', '', 14, '', true);
-        $this->SetTextColorArray(array(222, 222, 222));
+        $this->SetFont('helvetica', '', 8, '', true);
+        $this->SetTextColorArray(array(120, 129, 132));
         $this->Cell(0, 10, $comProfile['profile']['www'] . "    " . $comProfile['profile']['address'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
         //$this->cell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
     }
