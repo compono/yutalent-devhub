@@ -24,33 +24,39 @@ $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key
 $history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
 $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
 $cvHTML = '<style>
-.profile-info-box {display: block;font-family: \'ProximaNovaRegular\';font-size: 14px;margin-bottom: 33px;}	
-.profile-info-box h2 {color: #CB2027;font-family: \'ProximaNovaRegular\';font-size: 17px;font-weight: normal;margin-bottom: 17px;}
-.profile-info-box strong,.profile-info-box h5 {display: block;padding: 5px 0 0;width:600px;}
+h2{color:#ccc;font-size:2em;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
 $uploadImgPath = 'upload_image/';
-$file = tempnam($uploadImgPath, 'tcpdf').'.'.$ext;
-if(is_dir($uploadImgPath)){
-	chmod($uploadImgPath,0755);
-} else{
-	mkdir($uploadImgPath,0755) ;
-	chmod($uploadImgPath,0755);
+$file = tempnam($uploadImgPath, 'tcpdf') . '.' . $ext;
+if (is_dir($uploadImgPath)) {
+    chmod($uploadImgPath, 0755);
+} else {
+    mkdir($uploadImgPath, 0755);
+    chmod($uploadImgPath, 0755);
 }
-file_put_contents($file,file_get_contents($imagePath));
+file_put_contents($file, file_get_contents($imagePath));
 $imagePath = $file;
-if(!(@getimagesize($imagePath)))	$imagePath = 'images/wu-logo.png';// if image does not exist then provide default image
-list($imageWidth,$imageHeight) = @getimagesize($imagePath);
-$brandedFunctions	= new BrandedFunctions;
-$imageSize 		= $brandedFunctions->getAspectRatio($imageHeight,$imageWidth,43,132);
-if(/*!is_null($privateInfo) || */!is_null($summary) && !empty($summary))
-{
-	$cvHTML.= '<div class="profile-info-box">
-		<h2>Summary</h2>'.$summary.
-		//(!is_null($privateInfo) ? $privateInfo : '').
-		//(!is_null($summary) ? '</div><div class="profile-info-box" style="margin-bootm:0 !important">'.$summary : '').
-	'</div>';
+if (!(@getimagesize($imagePath)))
+    $imagePath = 'images/wu-logo.png'; // if image does not exist then provide default image
+list($imageWidth, $imageHeight) = @getimagesize($imagePath);
+$brandedFunctions = new BrandedFunctions;
+$imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 132);
+
+
+
+if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
+    $cvHTML.= '<h2>HTML TABLE:</h2>
+<table border="0">
+    <tr>
+        <th width="30" align="right"><h2>SUMMARY</h2></th>
+        <th width="150" align="left">' . $summary .
+            //(!is_null($privateInfo) ? $privateInfo : '').
+            //(!is_null($summary) ? '</div><div class="profile-info-box" style="margin-bootm:0 !important">'.$summary : '').
+            '</th>
+    </tr>
+    </table>';
 }
 if(!is_null($keySkills)  && !empty($keySkills))
 	$cvHTML.= '<div class="profile-info-box"><h2>Key skills</h2>'.$keySkills.'</div>';
