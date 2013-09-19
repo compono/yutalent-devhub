@@ -116,14 +116,14 @@ class MYPDF extends TCPDF {
     public function Header() {
         global $comProfile, $candidateName, $imagePath, $imageSize;
         $companyName = $comProfile['profile']['company-name'];
-        $writeHTMLCell = $this->writeHTMLCell(0, 0, 10, 10, '<table border="0"> <tr><th width="100%" align="center">
+        $writeHTMLCell = $this->writeHTMLCell(0, 0, 0, 10, '<table border="0"> <tr><th width="100%" align="center">
             <img height="' . $imageSize['h'] . 'px" width="' . $imageSize['w'] . 'px" src="' . $imagePath . '" alt="' . $companyName . '" border="0" />
                 </th></tr></table>', 0, 0, false, true, '', true);
         $this->SetFont('helvetica', '',8, '', true);
-        $this->writeHTMLCell(0, 0, 0, 20, '<table border="0"> <tr><th width="100%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(0, 0, 0, 40, '<table border="0"> <tr><th width="100%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
         $this->SetFont('helvetica', '', 14, '', true);
-        $this->writeHTMLCell(0, 0, 0, 20, '<table border="0"> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
-        $style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));
+        $this->writeHTMLCell(0, 0, 0, 60, '<table border="0"> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
+        $style = array('width' => 0.3, 'phase' => 10, 'color' => array(125, 222, 222));
 
     }
 
