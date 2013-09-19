@@ -1,4 +1,9 @@
 <?php
+$whiteListIp = array('95.138.185.73','54.251.162.52');
+if(!in_array($_SERVER['REMOTE_ADDR'],$whiteListIp))	// check script is calling locally or not
+{
+	die('no access');
+}
 /*~ class.phpmailer.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |
