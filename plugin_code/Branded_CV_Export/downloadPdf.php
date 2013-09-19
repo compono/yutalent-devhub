@@ -131,12 +131,13 @@ class MYPDF extends TCPDF {
     public function Footer() {
 
         global $comProfile;
-        $comProfile['profile']['www']['address'];
         $this->SetY(-15);
+        $comProfile['profile']['www']['address'];
+        
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
-        $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name">' . $comProfile['profile']['www']."    ".$comProfile['profile']['address'] . '</th></tr></table>', 0, 0, false, true, '', true);
-        
+        $this->writeHTMLCell(0, 0, 0, 0, '<table> <tr><th width="100%" align="center" class="candidate-name">' .$comProfile['profile']['address'] . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(0, 0, 0, 0, '<table> <tr><th width="100%" align="center" class="candidate-name">' . $comProfile['profile']['www'].'</th></tr></table>', 0, 0, false, true, '', true);
     }
 
 }
