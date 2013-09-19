@@ -117,7 +117,7 @@ class MYPDF extends TCPDF {
 		$this->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
 		$this->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
 		$style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));		
-		$this->Line(10, 30, 200, 30, $style);
+	
 	}
 
 
