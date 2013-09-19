@@ -25,8 +25,8 @@ $keySkills = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['key
 $history = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['history']);
 $education = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['education']);
 $cvHTML = '<style>
-h2{color:#788184;font-size:0.6em;font-weight:normal;}
-span{color:#47616c;font-size:0.6em;font-weight:normal;}
+h2{color:#788184;font-size:0.65em;font-weight:normal;}
+span{color:#47616c;font-size:0.65em;font-weight:normal;}
 strong{font-weight: 400;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
@@ -103,17 +103,17 @@ class MYPDF extends TCPDF {
     public function Header() {
         global $comProfile, $candidateName, $imagePath, $imageSize;
         $companyName = $comProfile['profile']['company-name'];
-        $writeHTMLCell = $this->writeHTMLCell(0, 0, 0, 10, '<table border="0"> <tr><th width="100%" align="center">
+        $writeHTMLCell = $this->writeHTMLCell(10, 0, 0, 10, '<table border="0"> <tr><th width="100%" align="center">
             <img height="' . $imageSize['h'] . 'px" width="' . $imageSize['w'] . 'px" src="' . $imagePath . '" alt="' . $companyName . '" border="0" />
                 </th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
         $this->SetFont('helvetica', '',8, '', true);
-        $this->writeHTMLCell(0, 0, 0, 30, '<table border="0"> <tr><th width="100%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(10, 0, 0, 30, '<table border="0"> <tr><th width="100%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(71, 97, 108));
         $this->SetFont('times', '', 16, '', true);
-        $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(10, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
-        $this->Line(74, 40, 124, 40, $style);
+        $this->Line(84, 40, 133.5, 40, $style);
     }
 
     // Page footer
