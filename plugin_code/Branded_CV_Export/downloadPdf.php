@@ -103,7 +103,7 @@ class MYPDF extends TCPDF {
     public function Header() {
         global $comProfile, $candidateName, $imagePath, $imageSize;
         $companyName = $comProfile['profile']['company-name'];
-        $writeHTMLCell = $this->writeHTMLCell(0, 0, 0, 10, '<table border="0"> <tr><th width="100%" align="center">
+        $writeHTMLCell = $this->writeHTMLCell(0, 0, 0, 10, '<table border="0"> <tr><th width="10%"></th><th width="90%" align="center">
             <img height="' . $imageSize['h'] . 'px" width="' . $imageSize['w'] . 'px" src="' . $imagePath . '" alt="' . $companyName . '" border="0" />
                 </th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
