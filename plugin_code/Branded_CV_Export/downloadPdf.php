@@ -126,7 +126,7 @@ class MYPDF extends TCPDF {
         $this->SetFont('times', '', 14, '', true);
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.3, 'phase' => 10, 'color' => array(71, 97, 108));
-        $this->Line(50, 40, 30, 40, $style);
+        $this->Line(105, 38, 40, 38, $style);
 
 
     }
