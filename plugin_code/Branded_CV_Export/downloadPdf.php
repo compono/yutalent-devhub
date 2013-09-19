@@ -27,8 +27,6 @@ $education = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['edu
 $cvHTML = '<style>
 h2{color:#788184;font-size:0.6em;font-weight:normal;}
 span{color:#47616c;font-size:0.6em;font-weight:normal;}
-strong{font-weight:normal;}
-.skills{text-transform: uppercase;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -53,7 +51,7 @@ $imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 13
 if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.= '<table border="0">
     <tr>
-        <th width="20%" height="140"></th>
+        <th width="20%" height="120"></th>
         </tr>
         <tr>
         <th width="20%" align="right"><h2>SUMMARY</h2></th>
@@ -73,7 +71,7 @@ if (!is_null($keySkills) && !empty($keySkills))
     <tr>
         <th width="20%" align="right"><h2>KEY SKILLS</h2></th>
         <th width="10%" align="right"></th>
-        <th width="60%" align="left"><span class="skills">' . $keySkills .
+        <th width="60%" align="left"><span>' . $keySkills .
             '</span></th>
         <th width="10%" align="right"></th>
     </tr>
@@ -126,7 +124,7 @@ class MYPDF extends TCPDF {
         $this->SetFont('times', '', 16, '', true);
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
-        $this->Line(75, 40, 125, 40, $style);
+        $this->Line(75, 40, 122, 40, $style);
     }
 
     // Page footer
@@ -134,12 +132,10 @@ class MYPDF extends TCPDF {
 
         global $comProfile;
         $this->SetY(-15);
-        $style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));
-        $this->Line(10, 280, 200, 280, $style);
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
-        $this->Cell(0, 10, $comProfile['profile']['www'] . "    " . $comProfile['profile']['address'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
-        //$this->cell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
+        $this->Cell(0, 10, $comProfile['profile'] . "    " . $comProfile['profile'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
+                $this->Cell(0, 10, $comProfile['www'] . "    " . $comProfile['address'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }
 
 }
