@@ -28,7 +28,7 @@ $cvHTML = '<style>
 h2{color:#788184;font-size:0.6em;font-weight:normal;}
 span{color:#47616c;font-size:0.6em;font-weight:normal;}
 strong{font-weight:normal;}
-company-name{font-size:0.4em;text-transform: uppercase;}
+.skills{text-transform: uppercase;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -53,7 +53,7 @@ $imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 13
 if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.= '<table border="0">
     <tr>
-        <th width="20%" height="100"></th>
+        <th width="20%" height="140"></th>
         </tr>
         <tr>
         <th width="20%" align="right"><h2>SUMMARY</h2></th>
@@ -73,7 +73,7 @@ if (!is_null($keySkills) && !empty($keySkills))
     <tr>
         <th width="20%" align="right"><h2>KEY SKILLS</h2></th>
         <th width="10%" align="right"></th>
-        <th width="70%" align="left"><span>' . $keySkills .
+        <th width="60%" align="left"><span class="skills">' . $keySkills .
             '</span></th>
         <th width="10%" align="right"></th>
     </tr>
@@ -87,9 +87,9 @@ if (!is_null($history) && !empty($history))
     <tr>
         <th width="20%" align="right"><h2>WORK HISTORY</h2></th>
         <th width="10%" align="right"></th>
-        <th width="70%" align="left"><span>' . $history .
+        <th width="60%" align="left"><span>' . $history .
             '</span></th>
-                                <th width="10%" align="right"></th>
+       <th width="10%" align="right"></th>
     </tr>
     </table>';
 
@@ -101,9 +101,9 @@ if (!is_null($education) && !empty($education))
     <tr>
         <th width="20%" align="right"><h2>EDUCATION</h2></th>
         <th width="10%" align="right"></th>
-        <th width="70%" align="left"><span>' . $education .
+        <th width="60%" align="left"><span>' . $education .
             '</span></th>
-                                <th width="10%" align="right"></th>
+        <th width="10%" align="right"></th>
     </tr>
     </table>';
 
@@ -126,7 +126,7 @@ class MYPDF extends TCPDF {
         $this->SetFont('times', '', 16, '', true);
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
-        $this->Line(75, 40, 120, 40, $style);
+        $this->Line(75, 40, 125, 40, $style);
     }
 
     // Page footer
