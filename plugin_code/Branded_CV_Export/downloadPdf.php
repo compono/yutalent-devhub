@@ -51,11 +51,12 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.= '<table border="0">
     <tr>
         <th width="20%" align="right"><h2>SUMMARY</h2></th>
-        <th width="10%" align="right"></th>
-        <th width="70%" align="left"><span>' . $summary . 
+        <th width="5%" align="right"></th>
+        <th width="60%" align="left"><span>'. $summary . 
             //(!is_null($privateInfo) ? $privateInfo : '').
-            //(!is_null($summary) ? '</div><div class="profile-info-box" style="margin-bootm:0 !important">'.$summary : '').
+            //(!is_null($summary) ? .$summary : '').
             '</span></th>
+                <th width="15%" align="right"></th>
     </tr>
     </table>';
 }
