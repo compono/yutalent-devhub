@@ -136,8 +136,8 @@ class MYPDF extends TCPDF {
         
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
-        $this->writeHTMLCell(0, 0, 0, 0, '<table> <tr><th width="100%" align="center" class="candidate-name">' .$comProfile['profile']['address'] . '</th></tr></table>', 0, 0, false, true, '', true);
-        $this->writeHTMLCell(0, 0, 0, 0, '<table> <tr><th width="100%" align="center" class="candidate-name">' . $comProfile['profile']['www'].'</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(0, 0, 0, 200, '<table> <tr><th width="100%" align="center" class="candidate-name">' .$comProfile['profile']['address'] . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(0, 0, 0, 220, '<table> <tr><th width="100%" align="center" class="candidate-name">' . $comProfile['profile']['www'].'</th></tr></table>', 0, 0, false, true, '', true);
     }
 
 }
