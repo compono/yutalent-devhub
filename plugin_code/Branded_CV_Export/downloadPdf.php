@@ -1,4 +1,5 @@
 <?php
+
 //$scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'].'&id='.$_REQUEST['id'];
 extract($_REQUEST);
 require_once 'config.inc.php';
@@ -10,22 +11,22 @@ $WU_API = new WU_API();
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
 //$WU_API->setRedirectUri($scriptUrl);
-$comProfile 		= $WU_API->sendMessageToWU('user/profile');
-$comProfile		= json_decode(json_encode($comProfile),true);
-$imagePath 		= $comProfile['profile']['company-logo']['medium'];
-$currentUserProfile 	= $WU_API->sendMessageToWU('contacts/get',array('id'=>$id));
-$currentUserProfile	= json_decode(json_encode($currentUserProfile),true);
-$candidateName 		= $currentUserProfile['name'];
-$userCVDetail 		= $WU_API->sendMessageToWU('contacts/get-parsed-cv',array('id'=>$id));
-$userCVDetail		= json_decode(json_encode($userCVDetail),true);
-$summary 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['summary']);
+$comProfile = $WU_API->sendMessageToWU('user/profile');
+$comProfile = json_decode(json_encode($comProfile), true);
+$imagePath = $comProfile['profile']['company-logo']['medium'];
+$currentUserProfile = $WU_API->sendMessageToWU('contacts/get', array('id' => $id));
+$currentUserProfile = json_decode(json_encode($currentUserProfile), true);
+$candidateName = $currentUserProfile['name'];
+$userCVDetail = $WU_API->sendMessageToWU('contacts/get-parsed-cv', array('id' => $id));
+$userCVDetail = json_decode(json_encode($userCVDetail), true);
+$summary = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['summary']);
 //$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
-$keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key-skills']);
-$history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
-$education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
+$keySkills = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['key-skills']);
+$history = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['history']);
+$education = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['education']);
 $cvHTML = '<style>
-h2{color:#788184;font-size:0.7em;font-weight:normal;}
-span{color:#47616c;font-size:0.7em;font-weight:normal;}
+h2{color:#788184;font-size:0.6em;font-weight:normal;}
+span{color:#47616c;font-size:0.6em;font-weight:normal;}
 strong{font-weight:normal;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
@@ -51,98 +52,100 @@ $imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 13
 if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.= '<table border="0">
     <tr>
-        <th width="20%" height="30%"></th>
-     </tr>
-     <tr>
+        <th width="20%" height="200"></th>
+        </tr>
+        <tr>
         <th width="20%" align="right"><h2>SUMMARY</h2></th>
         <th width="10%" align="right"></th>
-        <th width="60%" align="left"><span>'. $summary . 
+        <th width="60%" align="left"><span>' . $summary .
             //(!is_null($privateInfo) ? $privateInfo : '').
             //(!is_null($summary) ? .$summary : '').
             '</span></th>
-                <th width="10%" align="right"></th>
+          <th width="10%" align="right"></th>
     </tr>
     </table>';
 }
 if (!is_null($keySkills) && !empty($keySkills))
-    $cvHTML.= 
-    
-    '<table border="0">
+    $cvHTML.=
+
+            '<table border="0">
     <tr>
         <th width="20%" align="right"><h2>KEY SKILLS</h2></th>
         <th width="10%" align="right"></th>
-        <th width="70%" align="left"><span>'. $keySkills . 
+        <th width="70%" align="left"><span>' . $keySkills .
             '</span></th>
-                                <th width="10%" align="right"></th>
+        <th width="10%" align="right"></th>
     </tr>
     </table>';
-    
-    
+
+
 if (!is_null($history) && !empty($history))
-    $cvHTML.= 
-    
-        '<table border="0">
+    $cvHTML.=
+
+            '<table border="0">
     <tr>
         <th width="20%" align="right"><h2>WORK HISTORY</h2></th>
         <th width="10%" align="right"></th>
-        <th width="70%" align="left"><span>'. $history . 
+        <th width="70%" align="left"><span>' . $history .
             '</span></th>
                                 <th width="10%" align="right"></th>
     </tr>
     </table>';
-    
+
 
 if (!is_null($education) && !empty($education))
-    $cvHTML.= 
-    
-        '<table border="0">
+    $cvHTML.=
+
+            '<table border="0">
     <tr>
         <th width="20%" align="right"><h2>EDUCATION</h2></th>
         <th width="10%" align="right"></th>
-        <th width="70%" align="left"><span>'. $education . 
+        <th width="70%" align="left"><span>' . $education .
             '</span></th>
                                 <th width="10%" align="right"></th>
     </tr>
     </table>';
+
 // create new PDF document
+
+
 
 class MYPDF extends TCPDF {
 
-	public function Header()
-	{
-		global $comProfile,$candidateName,$imagePath,$imageSize;
-		$companyName = $comProfile['profile']['company-name'];		
-		$this->writeHTMLCell(0, 0, 10, 10, '<img height="'.$imageSize['h'].'px" width="'.$imageSize['w'].'px" src="'.$imagePath.'" alt="'.$companyName.'" border="0" />', 0, 0, false, true, '',true);
-		$this->SetFont('dejavusans', '', 14, '', true);
-		$this->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '',true);
-		$this->writeHTMLCell(0, 0, 48, 18, 'CV: '.$candidateName, 0, 0, false, true, '',true);
-		$style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));		
-	
-	}
+    public function Header() {
+        global $comProfile, $candidateName, $imagePath, $imageSize;
+        $companyName = $comProfile['profile']['company-name'];
+        $this->writeHTMLCell(0, 0, 10, 10, '<table border="0"> <tr><th width="100%" align="center">
+            <img height="' . $imageSize['h'] . 'px" width="' . $imageSize['w'] . 'px" src="' . $imagePath . '" alt="' . $companyName . '" border="0" />
+                </th></tr></table>', 0, 0, false, true, '', true);
+        $this->SetFont('dejavusans', '', 14, '', true);
+        $this->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '', true);
+        $this->writeHTMLCell(0, 0, 48, 18, 'CV: ' . $candidateName, 0, 0, false, true, '', true);
+        $style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));
 
+    }
 
-	// Page footer
-	public function Footer()
-	{
-		
-		global $comProfile;
-		$this->SetY(-15);
-		$style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));		
-		$this->Line(10, 280, 200, 280, $style);
-		$this->SetFont('dejavusans', '', 14, '', true);
-		$this->SetTextColorArray(array(222, 222, 222));
-		$this->Cell(0, 10, $comProfile['profile']['www']."    ".$comProfile['profile']['address'], 0, false, 'C', 0, '', 0, false, 'T', 'M');		
-		//$this->cell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
-		
-	}
+    // Page footer
+    public function Footer() {
+
+        global $comProfile;
+        $this->SetY(-15);
+        $style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));
+        $this->Line(10, 280, 200, 280, $style);
+        $this->SetFont('dejavusans', '', 14, '', true);
+        $this->SetTextColorArray(array(222, 222, 222));
+        $this->Cell(0, 10, $comProfile['profile']['www'] . "    " . $comProfile['profile']['address'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
+        //$this->cell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
+    }
+
 }
 
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('WuTalent');
-$pdf->SetTitle('CV-'.$candidateName);
-$pdf->SetSubject('CV-'.$candidateName);
+$pdf->SetTitle('CV-' . $candidateName);
+$pdf->SetSubject('CV-' . $candidateName);
 
 // set default header data
 $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
@@ -184,9 +187,10 @@ $pdf->AddPage();
 // Print text using writeHTMLCell()
 $pdf->SetDrawColor(0, 0, 0);
 $pdf->writeHTMLCell(0, 0, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
-if($imagePath != 'images/wu-logo.png')		@unlink($imagePath);
+if ($imagePath != 'images/wu-logo.png')
+    @unlink($imagePath);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-$pdf->Output('CV-'.$candidateName.'.pdf', 'I');
+$pdf->Output('CV-' . $candidateName . '.pdf', 'I');
 exit;
 ?>
