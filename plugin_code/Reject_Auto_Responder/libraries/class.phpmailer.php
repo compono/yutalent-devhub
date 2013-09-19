@@ -1,5 +1,5 @@
 <?php
-$whiteListIp = array('95.138.185.73','54.251.162.52');
+require_once('../config.inc.php');
 if(!in_array($_SERVER['REMOTE_ADDR'],$whiteListIp))	// check script is calling locally or not
 {
 	die('no access');
