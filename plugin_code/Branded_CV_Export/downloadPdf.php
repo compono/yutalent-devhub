@@ -24,7 +24,7 @@ $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key
 $history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
 $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
 $cvHTML = '<style>
-h2{color:#ccc;font-size:0.5em;}
+h2{color:#788184;font-size:1em;font-weight:normal;margin-right:2em;}span{color:#47616c;font-size:1em;font-weight:normal;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -50,13 +50,12 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.= '<table border="0">
     <tr>
         <th width="30%" align="right"><h2>SUMMARY</h2></th>
-        <th width="70%" align="left">' . $summary .
+        <th width="70%" align="left"><span>' . $summary . 
             //(!is_null($privateInfo) ? $privateInfo : '').
             //(!is_null($summary) ? '</div><div class="profile-info-box" style="margin-bootm:0 !important">'.$summary : '').
-            '</th>
+            '</span></th>
     </tr>
     </table>';
-}
 if(!is_null($keySkills)  && !empty($keySkills))
 	$cvHTML.= '<div class="profile-info-box"><h2>Key skills</h2>'.$keySkills.'</div>';
 if(!is_null($history)  && !empty($history))
