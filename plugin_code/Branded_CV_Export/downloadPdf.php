@@ -108,10 +108,10 @@ class MYPDF extends TCPDF {
                 </th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
         $this->SetFont('helvetica', '',8, '', true);
-        $this->writeHTMLCell(0, 0, 0, 30, '<table border="0"> <tr><th width="5%"></th><th width="95%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(0, 0, 0, 30, '<table border="0"> <tr><th width="100%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(71, 97, 108));
         $this->SetFont('times', '', 16, '', true);
-        $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="5%"></th><th width="95%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
         $this->Line(72.5, 40.5, 124.5, 40.5, $style);
     }
