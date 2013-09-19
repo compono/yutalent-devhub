@@ -26,6 +26,7 @@ $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['edu
 $cvHTML = '<style>
 h2{color:#788184;font-size:0.7em;font-weight:normal;}
 span{color:#47616c;font-size:0.7em;font-weight:normal;}
+strong{font-weight:normal;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -51,12 +52,12 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.= '<table border="0">
     <tr>
         <th width="20%" align="right"><h2>SUMMARY</h2></th>
-        <th width="5%" align="right"></th>
+        <th width="10%" align="right"></th>
         <th width="60%" align="left"><span>'. $summary . 
             //(!is_null($privateInfo) ? $privateInfo : '').
             //(!is_null($summary) ? .$summary : '').
             '</span></th>
-                <th width="15%" align="right"></th>
+                <th width="10%" align="right"></th>
     </tr>
     </table>';
 }
@@ -69,6 +70,7 @@ if (!is_null($keySkills) && !empty($keySkills))
         <th width="10%" align="right"></th>
         <th width="70%" align="left"><span>'. $keySkills . 
             '</span></th>
+                                <th width="10%" align="right"></th>
     </tr>
     </table>';
     
@@ -82,6 +84,7 @@ if (!is_null($history) && !empty($history))
         <th width="10%" align="right"></th>
         <th width="70%" align="left"><span>'. $history . 
             '</span></th>
+                                <th width="10%" align="right"></th>
     </tr>
     </table>';
     
@@ -95,6 +98,7 @@ if (!is_null($education) && !empty($education))
         <th width="10%" align="right"></th>
         <th width="70%" align="left"><span>'. $education . 
             '</span></th>
+                                <th width="10%" align="right"></th>
     </tr>
     </table>';
 // create new PDF document
