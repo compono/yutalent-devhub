@@ -51,7 +51,7 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.='<table border="0">
         <tr><th width="20%" height="120"></th></tr>
         <tr>
-        <th width="10%" align="right"><h2>SUMMARY</h2></th>
+        <th width="15%" align="right"><h2>SUMMARY</h2></th>
         <th width="10%" align="right"></th>
         <th width="65%" align="left"><span>' . $summary .
             //(!is_null($privateInfo) ? $privateInfo : '').
@@ -64,7 +64,7 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
 if (!is_null($keySkills) && !empty($keySkills))
     $cvHTML.='<table border="0">
         <tr>
-            <th width="10%" align="right"><h2>KEY SKILLS</h2></th>
+            <th width="15%" align="right"><h2>KEY SKILLS</h2></th>
             <th width="10%" align="right"></th>
             <th width="65%" align="left"><span>' . $keySkills .
                 '</span></th>
