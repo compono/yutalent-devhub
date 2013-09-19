@@ -24,7 +24,7 @@ $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key
 $history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
 $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
 $cvHTML = '<style>
-h2{color:#ccc;font-size:2em;}
+h2{color:#ccc;font-size:0.5em;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -47,11 +47,10 @@ $imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 13
 
 
 if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
-    $cvHTML.= '<h2>HTML TABLE:</h2>
-<table border="0">
+    $cvHTML.= '<table border="0">
     <tr>
-        <th width="30" align="right"><h2>SUMMARY</h2></th>
-        <th width="150" align="left">' . $summary .
+        <th width="30%" align="right"><h2>SUMMARY</h2></th>
+        <th width="70%" align="left">' . $summary .
             //(!is_null($privateInfo) ? $privateInfo : '').
             //(!is_null($summary) ? '</div><div class="profile-info-box" style="margin-bootm:0 !important">'.$summary : '').
             '</th>
