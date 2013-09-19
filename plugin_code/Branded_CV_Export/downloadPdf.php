@@ -50,9 +50,9 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.='<table border="0">
         <tr><th width="20%" height="120"></th></tr>
         <tr>
-        <th width="20%" align="right"><h2>SUMMARY</h2></th>
+        <th width="10%" align="right"><h2>SUMMARY</h2></th>
         <th width="10%" align="right"></th>
-        <th width="60%" align="left"><span>' . $summary .
+        <th width="70%" align="left"><span>' . $summary .
             //(!is_null($privateInfo) ? $privateInfo : '').
             //(!is_null($summary) ? .$summary : '').
             '</span></th>
@@ -63,9 +63,9 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
 if (!is_null($keySkills) && !empty($keySkills))
     $cvHTML.='<table border="0">
         <tr>
-            <th width="20%" align="right"><h2>KEY SKILLS</h2></th>
+            <th width="10%" align="right"><h2>KEY SKILLS</h2></th>
             <th width="10%" align="right"></th>
-            <th width="60%" align="left"><span>' . $keySkills .
+            <th width="70%" align="left"><span>' . $keySkills .
                 '</span></th>
             <th width="10%" align="right"></th>
         </tr>
@@ -75,9 +75,9 @@ if (!is_null($keySkills) && !empty($keySkills))
 if (!is_null($history) && !empty($history))
     $cvHTML.='<table border="0">
         <tr>
-            <th width="20%" align="right"><h2>WORK HISTORY</h2></th>
+            <th width="10%" align="right"><h2>WORK HISTORY</h2></th>
             <th width="10%" align="right"></th>
-            <th width="60%" align="left"><span>' . $history .
+            <th width="70%" align="left"><span>' . $history .
                 '</span></th>
            <th width="10%" align="right"></th>
         </tr>
@@ -87,9 +87,9 @@ if (!is_null($history) && !empty($history))
 if (!is_null($education) && !empty($education))
     $cvHTML.='<table border="0">
         <tr>
-            <th width="20%" align="right"><h2>EDUCATION</h2></th>
+            <th width="10%" align="right"><h2>EDUCATION</h2></th>
             <th width="10%" align="right"></th>
-            <th width="60%" align="left"><span>' . $education .
+            <th width="70%" align="left"><span>' . $education .
                 '</span></th>
             <th width="10%" align="right"></th>
         </tr>
@@ -109,17 +109,17 @@ class MYPDF extends TCPDF {
         $this->SetFont('helvetica', '',8, '', true);
         $this->writeHTMLCell(0, 0, 0, 30, '<table border="0"> <tr><th width="100%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(71, 97, 108));
-        $this->SetFont('times', 'B', 16, '', true);
+        $this->SetFont('times', '', 16, '', true);
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
-        $this->Line(74, 40, 122, 40, $style);
+        $this->Line(74, 40, 124, 40, $style);
     }
 
     // Page footer
     public function Footer() {
 
         global $comProfile;
-        $this->SetY(-15);
+        $this->SetY(-10);
         $comProfile['profile']['www']['address'];
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
