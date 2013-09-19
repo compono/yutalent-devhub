@@ -124,18 +124,19 @@ class MYPDF extends TCPDF {
         $this->SetFont('times', '', 16, '', true);
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
-        $this->Line(75, 40, 122, 40, $style);
+        $this->Line(75, 40, 121, 40, $style);
     }
 
     // Page footer
     public function Footer() {
 
         global $comProfile;
+        $comProfile['profile']['www'];
         $this->SetY(-15);
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
-        $this->Cell(0, 10, $comProfile['profile'] . "    " . $comProfile['profile'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
-                $this->Cell(0, 10, $comProfile['www'] . "    " . $comProfile['address'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
+        $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $comProfile['profile']['address'] . '</th></tr></table>', 0, 0, false, true, '', true);
+        
     }
 
 }
