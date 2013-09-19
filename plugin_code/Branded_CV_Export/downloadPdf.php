@@ -24,7 +24,7 @@ $keySkills 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['key
 $history 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['history']);
 $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['education']);
 $cvHTML = '<style>
-h2{color:#788184;font-size:1em;font-weight:normal;margin-right:2em;}span{color:#47616c;font-size:1em;font-weight:normal;}
+h2{color:#788184;font-size:0.7em;font-weight:normal;margin-right:0.7em;}span{color:#47616c;font-size:1em;font-weight:normal;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
