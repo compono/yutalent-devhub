@@ -27,6 +27,7 @@ $education = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['edu
 $cvHTML = '<style>
 h2{color:#788184;font-size:0.6em;font-weight:normal;}
 span{color:#47616c;font-size:0.6em;font-weight:normal;}
+strong{font-weight: 400;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -52,7 +53,7 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
         <tr>
         <th width="10%" align="right"><h2>SUMMARY</h2></th>
         <th width="10%" align="right"></th>
-        <th width="70%" align="left"><span>' . $summary .
+        <th width="65%" align="left"><span>' . $summary .
             //(!is_null($privateInfo) ? $privateInfo : '').
             //(!is_null($summary) ? .$summary : '').
             '</span></th>
@@ -65,7 +66,7 @@ if (!is_null($keySkills) && !empty($keySkills))
         <tr>
             <th width="10%" align="right"><h2>KEY SKILLS</h2></th>
             <th width="10%" align="right"></th>
-            <th width="70%" align="left"><span>' . $keySkills .
+            <th width="65%" align="left"><span>' . $keySkills .
                 '</span></th>
             <th width="10%" align="right"></th>
         </tr>
@@ -75,9 +76,9 @@ if (!is_null($keySkills) && !empty($keySkills))
 if (!is_null($history) && !empty($history))
     $cvHTML.='<table border="0">
         <tr>
-            <th width="10%" align="right"><h2>WORK HISTORY</h2></th>
+            <th width="15%" align="right"><h2>WORK HISTORY</h2></th>
             <th width="10%" align="right"></th>
-            <th width="70%" align="left"><span>' . $history .
+            <th width="65%" align="left"><span>' . $history .
                 '</span></th>
            <th width="10%" align="right"></th>
         </tr>
@@ -87,9 +88,9 @@ if (!is_null($history) && !empty($history))
 if (!is_null($education) && !empty($education))
     $cvHTML.='<table border="0">
         <tr>
-            <th width="10%" align="right"><h2>EDUCATION</h2></th>
+            <th width="15%" align="right"><h2>EDUCATION</h2></th>
             <th width="10%" align="right"></th>
-            <th width="70%" align="left"><span>' . $education .
+            <th width="65%" align="left"><span>' . $education .
                 '</span></th>
             <th width="10%" align="right"></th>
         </tr>
@@ -119,7 +120,7 @@ class MYPDF extends TCPDF {
     public function Footer() {
 
         global $comProfile;
-        $this->SetY(-10);
+        $this->SetY(-20);
         $comProfile['profile']['www']['address'];
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
