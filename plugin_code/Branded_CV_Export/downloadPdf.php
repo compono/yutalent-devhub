@@ -26,7 +26,7 @@ $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['edu
 $cvHTML = '<style>
 h2{color:#788184;font-size:0.7em;font-weight:normal;}
 span{color:#47616c;font-size:0.7em;font-weight:normal;}
-strong{font-size:2.7em;}
+strong{font-weight:300;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
