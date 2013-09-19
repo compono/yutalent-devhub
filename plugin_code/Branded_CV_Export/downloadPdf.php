@@ -26,7 +26,7 @@ $education 		= str_replace('/strong>',"/strong><br/>",$userCVDetail['html']['edu
 $cvHTML = '<style>
 h2{color:#788184;font-size:0.7em;font-weight:normal;}
 span{color:#47616c;font-size:0.7em;font-weight:normal;}
-strong{font-weight:light;}
+strong{font-weight:normal;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -51,7 +51,7 @@ $imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 13
 if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.= '<table border="0">
     <tr>
-        <th width="20%" height="10%"></th>
+        <th width="20%" height="30%"></th>
      </tr>
      <tr>
         <th width="20%" align="right"><h2>SUMMARY</h2></th>
