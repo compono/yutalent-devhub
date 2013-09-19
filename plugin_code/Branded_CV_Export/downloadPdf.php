@@ -59,12 +59,43 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     </tr>
     </table>';
 }
-if(!is_null($keySkills)  && !empty($keySkills))
-	$cvHTML.= '<div class="profile-info-box"><h2>Key skills</h2>'.$keySkills.'</div>';
-if(!is_null($history)  && !empty($history))
-	$cvHTML.= '<div class="profile-info-box"><h2>Work history</h2>'.$history.'</div>';
-if(!is_null($education)  && !empty($education))
-	$cvHTML.= '<div class="profile-info-box"><h2>Education</h2>'.$education.'</div>';
+if (!is_null($keySkills) && !empty($keySkills))
+    $cvHTML.= 
+    
+    '<table border="0">
+    <tr>
+        <th width="20%" align="right"><h2>KEY SKILLS</h2></th>
+        <th width="10%" align="right"></th>
+        <th width="70%" align="left"><span>'. $keySkills . 
+            '</span></th>
+    </tr>
+    </table>';
+    
+    
+if (!is_null($history) && !empty($history))
+    $cvHTML.= 
+    
+        '<table border="0">
+    <tr>
+        <th width="20%" align="right"><h2>WORK HISTORY</h2></th>
+        <th width="10%" align="right"></th>
+        <th width="70%" align="left"><span>'. $history . 
+            '</span></th>
+    </tr>
+    </table>';
+    
+
+if (!is_null($education) && !empty($education))
+    $cvHTML.= 
+    
+        '<table border="0">
+    <tr>
+        <th width="20%" align="right"><h2>EDUCATION</h2></th>
+        <th width="10%" align="right"></th>
+        <th width="70%" align="left"><span>'. $education . 
+            '</span></th>
+    </tr>
+    </table>';
 // create new PDF document
 
 class MYPDF extends TCPDF {
