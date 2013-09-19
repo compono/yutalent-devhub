@@ -28,6 +28,7 @@ $cvHTML = '<style>
 h2{color:#788184;font-size:0.6em;font-weight:normal;}
 span{color:#47616c;font-size:0.6em;font-weight:normal;}
 strong{font-weight:normal;}
+company-name{font-size:0.4em;text-transform: uppercase;}
 </style>';
 $filenameFromUrl = parse_url($imagePath);
 $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
@@ -118,9 +119,9 @@ class MYPDF extends TCPDF {
         $this->writeHTMLCell(0, 0, 10, 10, '<table border="0"> <tr><th width="100%" align="center">
             <img height="' . $imageSize['h'] . 'px" width="' . $imageSize['w'] . 'px" src="' . $imagePath . '" alt="' . $companyName . '" border="0" />
                 </th></tr></table>', 0, 0, false, true, '', true);
-        $this->SetFont('dejavusans', '', 14, '', true);
-        $this->writeHTMLCell(0, 0, 48, 10, $companyName, 0, 0, false, true, '', true);
-        $this->writeHTMLCell(0, 0, 48, 18, 'CV: ' . $candidateName, 0, 0, false, true, '', true);
+        $this->SetFont('baskerville', '', 14, '', true);
+        $this->writeHTMLCell(0, 0, 48, 10, '<table border="0"> <tr><th width="100%" align="center" class="company-name">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
+        $this->writeHTMLCell(0, 0, 48, 18, '<table border="0"> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));
 
     }
@@ -132,7 +133,7 @@ class MYPDF extends TCPDF {
         $this->SetY(-15);
         $style = array('width' => 0.3, 'phase' => 10, 'color' => array(222, 222, 222));
         $this->Line(10, 280, 200, 280, $style);
-        $this->SetFont('dejavusans', '', 14, '', true);
+        $this->SetFont('helvetica', '', 14, '', true);
         $this->SetTextColorArray(array(222, 222, 222));
         $this->Cell(0, 10, $comProfile['profile']['www'] . "    " . $comProfile['profile']['address'], 0, false, 'C', 0, '', 0, false, 'T', 'M');
         //$this->cell(0, 0, 10, 10, $comProfile['profile']['address'].' '.$comProfile['profile']['www'], 0, 0, false, true, 'M',true);
