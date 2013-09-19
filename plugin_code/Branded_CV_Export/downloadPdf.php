@@ -53,7 +53,7 @@ $imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 13
 if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.= '<table border="0">
     <tr>
-        <th width="20%" height="200"></th>
+        <th width="20%" height="100"></th>
         </tr>
         <tr>
         <th width="20%" align="right"><h2>SUMMARY</h2></th>
@@ -123,12 +123,10 @@ class MYPDF extends TCPDF {
         $this->SetFont('helvetica', '',8, '', true);
         $this->writeHTMLCell(0, 0, 0, 30, '<table border="0"> <tr><th width="100%" align="center">' . $companyName . '</th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(71, 97, 108));
-        $this->SetFont('times', '', 14, '', true);
+        $this->SetFont('times', '', 16, '', true);
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="100%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
-$this->Line(80, 40, 120, 40, $style);
-
-
+        $this->Line(75, 40, 120, 40, $style);
     }
 
     // Page footer
