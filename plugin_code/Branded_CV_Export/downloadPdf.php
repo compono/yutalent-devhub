@@ -131,7 +131,7 @@ class MYPDF extends TCPDF {
     public function Footer() {
 
         global $comProfile;
-        $this->SetY(-15);
+        $this->SetY(-5);
         $comProfile['profile']['www']['address'];
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
