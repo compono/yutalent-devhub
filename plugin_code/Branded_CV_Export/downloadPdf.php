@@ -56,6 +56,7 @@ if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
             '</span></th>
     </tr>
     </table>';
+}
 if(!is_null($keySkills)  && !empty($keySkills))
 	$cvHTML.= '<div class="profile-info-box"><h2>Key skills</h2>'.$keySkills.'</div>';
 if(!is_null($history)  && !empty($history))
