@@ -96,7 +96,7 @@ class MYPDF extends TCPDF {
     public function Header() {
         global $comProfile, $candidateName, $imagePath, $imageSize;
         $companyName = $comProfile['profile']['company-name'];
-        $writeHTMLCell = $this->writeHTMLCell(0, 0, 0, 10, '<table border="0"> <tr><th width="5%"></th><th width="95%" align="center">
+        $writeHTMLCell = $this->writeHTMLCell(0, 0, 0, 10, '<table border="0"> <tr><th width="4%"></th><th width="96%" align="center">
             <img height="' . $imageSize['h'] . 'px" width="' . $imageSize['w'] . 'px" src="' . $imagePath . '" alt="' . $companyName . '" border="0" />
                 </th></tr></table>', 0, 0, false, true, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
@@ -106,7 +106,7 @@ class MYPDF extends TCPDF {
         $this->SetFont('times', '', 16, '', true);
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="5%"></th><th width="95%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
-        $this->Line(77.5, 40.5, 129.5, 40.5, $style);
+        $this->Line(77.5, 41, 129.5, 41, $style);
     }
 
     // Page footer
