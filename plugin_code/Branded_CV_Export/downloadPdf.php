@@ -124,7 +124,7 @@ class MYPDF extends TCPDF {
         $this->SetFont('helvetica', '', 8, '', true);
         $this->SetTextColorArray(array(120, 129, 132));
         $this->Cell(0, 0, $comProfile['profile']['address'] , 0, 0, false, true, '', true);
-        $this->Cell(0, 3, $comProfile['profile']['www'], 0, 0, false, true, '', true));
+        $this->Cell(0, 3, $comProfile['profile']['www'] , 0, 0, false, true, '', true));
     }
 
 }
