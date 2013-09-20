@@ -113,6 +113,7 @@ window.wuAfterInit = function(wu)
 			{
 				//$('#full-description').val(formData['mailContent'].replace(/\<br\s*\/\>/g,"\n"));
 				$('a#enable-disable-editor').html('enable editor');
+				$('a#enable-disable-editor').addClass('disabled');
 			}
 		}
 		else
