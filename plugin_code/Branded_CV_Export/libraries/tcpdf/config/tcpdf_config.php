@@ -121,7 +121,7 @@ define ('PDF_UNIT', 'mm');
 /**
  * Header margin.
  */
-define ('PDF_MARGIN_HEADER', 105);
+define ('PDF_MARGIN_HEADER', 5);
 
 /**
  * Footer margin.
