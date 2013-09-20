@@ -34,10 +34,10 @@ $ext = pathinfo($filenameFromUrl['path'], PATHINFO_EXTENSION);
 $uploadImgPath = 'upload_image/';
 $file = tempnam($uploadImgPath, 'tcpdf') . '.' . $ext;
 if (is_dir($uploadImgPath)) {
-    chmod($uploadImgPath, 0666);
+    chmod($uploadImgPath, 0755);
 } else {
-    mkdir($uploadImgPath, 0666);
-    chmod($uploadImgPath, 0666);
+    mkdir($uploadImgPath, 0755);
+    chmod($uploadImgPath, 0755);
 }
 file_put_contents($file, file_get_contents($imagePath));
 $imagePath = $file;
