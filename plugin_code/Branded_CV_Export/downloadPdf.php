@@ -168,7 +168,7 @@ $pdf->AddPage();
 // Set some content to print
 // Print text using writeHTMLCell()
 $pdf->SetDrawColor(0, 0, 0);
-$pdf->writeHTMLCell(0, 100, 10, 30, $cvHTML, 0, 1, 0, true, '', true);
+$pdf->writeHTMLCell(0, 0, 10, 130, $cvHTML, 0, 1, 0, true, '', true);
 if ($imagePath != 'images/wu-logo.png')
     @unlink($imagePath);
 // Close and output PDF document
