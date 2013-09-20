@@ -140,7 +140,8 @@ $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$topheader = 40; //Just an example, new top margin in current TCPDF units.
+$pdf->SetMargins(PDF_MARGIN_LEFT, $topheader, PDF_MARGIN_RIGHT);
 $pdf->SetHeaderMargin(0);
 $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
@@ -164,8 +165,7 @@ $pdf->SetFont('dejavusans', '', 14, '', true);
 // Add a page
 // This method has several options, check the source code documentation for more information.
 $pdf->AddPage();
-$html = '<div style="text-align:center">The words &#8220;<span dir="rtl">&#1502;&#1494;&#1500; [mazel] &#1496;&#1493;&#1489; [tov]</span>&#8221; mean &#8220;Congratulations!&#8221;</div>';
-$pdf->writeHTML($html, true, false, true, false, '');
+
 // Set some content to print
 // Print text using writeHTMLCell()
 $pdf->SetDrawColor(0, 0, 0);
