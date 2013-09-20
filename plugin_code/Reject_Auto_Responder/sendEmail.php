@@ -18,7 +18,6 @@ if(!empty($fromEmail) && !empty($fromName) && !empty($hostServer) && !empty($use
 		$body = str_replace('{name}',ucwords($name),TEST_SMTP_MAIL_BODY);
 		$subject = TEST_SMTP_CONNCTION;
 	}	
-	$body.= $remoteIp.$_SERVER['REMOTE_ADDR'];
 	$sendEmail = new SmtpMail($userName,$password,$toEmail,$fromEmail,$fromName,$subject,$body,$hostServer,$port,$smtpNumber);
 	$sendEmail->sendEmail();
 }
