@@ -140,8 +140,7 @@ $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-$topheader = 40; //Just an example, new top margin in current TCPDF units.
-$pdf->SetMargins(PDF_MARGIN_LEFT, $topheader, PDF_MARGIN_RIGHT);
+$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
 $pdf->SetHeaderMargin(0);
 $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
