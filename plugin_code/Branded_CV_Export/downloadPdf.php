@@ -107,7 +107,7 @@ class MYPDF extends TCPDF {
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="5%"></th><th width="95%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
         $this->Line(77.5, 41, 129.5, 41, $style);
-        $this->writeHTMLCell(0, 0, 0, 42, '<table border="0"> <tr><th width="100%" height="30%" align="center"></th></tr></table>', 0, 0, false, true, '', true);
+        $this->Cell(0, 3, 0, 42, 'C', 0, '', 1);
     }
 
     // Page footer
