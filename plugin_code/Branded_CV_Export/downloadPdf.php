@@ -140,7 +140,7 @@ $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-$pdf->SetMargins(PDF_MARGIN_LEFT, 55, PDF_MARGIN_RIGHT);
+$pdf->SetMargins(PDF_MARGIN_LEFT, 65, PDF_MARGIN_RIGHT);
 $pdf->SetHeaderMargin(0);
 $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
@@ -168,7 +168,7 @@ $pdf->AddPage();
 // Set some content to print
 // Print text using writeHTMLCell()
 $pdf->SetDrawColor(0, 0, 0);
-$pdf->writeHTMLCell(0, 0, 10, 55, $cvHTML, 0, 1, 0, true, '', true);
+$pdf->writeHTMLCell(0, 0, 10, 65, $cvHTML, 0, 1, 0, true, '', true);
 if ($imagePath != 'images/wu-logo.png')
     @unlink($imagePath);
 // Close and output PDF document
