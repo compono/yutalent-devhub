@@ -17,4 +17,4 @@ if(in_array($_SERVER['REMOTE_ADDR'],$whiteListIp))	// check script is calling lo
 	}
 }
 else 
-	die('no access');
+	die('no access'.$_SERVER['REMOTE_ADDR'].json_encode($whiteListIp));
