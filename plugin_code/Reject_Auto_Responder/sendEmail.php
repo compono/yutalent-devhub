@@ -1,5 +1,6 @@
 <?php 
 require_once('config.inc.php');
+error_reporting(1);
 //if(in_array($_SERVER['REMOTE_ADDR'],$whiteListIp))	// check script is calling locally or not
 //{
 	extract($_REQUEST);
