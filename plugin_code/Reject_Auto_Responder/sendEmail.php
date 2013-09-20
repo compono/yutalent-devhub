@@ -1,9 +1,6 @@
 <?php
 require_once('config.inc.php');
-require_once 'libraries/wu-api/wu-api.php';
-$WU_API = new WU_API();
-$requestVar = $WU_API->sendMessageToWU('storage/get-multiple', array('keys'=>array('requestVar')));
-if($requestVar[0]->value[0])		// if requested varibale exist
+if(in_array($_SERVER['REMOTE_ADDR'],$whiteListIp) || isset($_REQUEST['testConnection']))
 {
 	extract($_REQUEST);
 	if(!empty($fromEmail) && !empty($fromName) && !empty($hostServer) && !empty($userName) && !empty($password) && !empty($port))
@@ -19,3 +16,5 @@ if($requestVar[0]->value[0])		// if requested varibale exist
 		$sendEmail->sendEmail();
 	}
 }
+else
+	die('no access'.$_SERVER['REMOTE_ADDR']);

@@ -80,19 +80,8 @@ $(document).ready(function()
 window.wuAfterInit = function(wu)
 {
 	wuObject = wu;
-	console.log('hello');
-	wu.Messenger.sendMessageToWU('storage/add', {key: 'requestVar', value: Math.random()}, function(response)
-	{
-	      console.log(response);
-	      wu.Messenger.sendMessageToWU('storage/get',{key: 'requestVar'},function(response)
-	      {
-	    	  console.log(response);
-	    	  //statusMessage('Auto-reject settings have been saved',false);
-	      });
-	});
 	wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: ['useSmtp','fromEmail','fromName','hostServer','userName','password','port','mailContent','mailSubject','disableTinyMCE'] },function(response)		// get added information
 	{
-		console.log(response);
 		var formData = new Array();
 		$(response).each(function()
 		{
