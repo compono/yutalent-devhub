@@ -1,6 +1,6 @@
 <?php
 require_once('config.inc.php');
-if(!in_array($_SERVER['REMOTE_ADDR'],$whiteListIp) || isset($_REQUEST['testConnection']))	// check ip exist if not is it called for test connection
+if(!in_array($_SERVER['REMOTE_ADDR'],$whiteListIp) || !(isset($_REQUEST['testConnection'])))	// check ip exist if not is it called for test connection
 {	
 	// ip ip not exist then search the ip parent
 	$remoteIp = explode('.',$_SERVER['REMOTE_ADDR']);
