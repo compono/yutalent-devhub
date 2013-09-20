@@ -2,9 +2,8 @@
 require_once('config.inc.php');
 require_once 'libraries/wu-api/wu-api.php';
 $WU_API = new WU_API();
-$comProfile = $WU_API->sendMessageToWU('user/profile');
-//$requestVar = $WU_API->sendMessageToWU('storage/get-multiple', array('requestVar'));
-print_r($comProfile);die;
+$requestVar = $WU_API->sendMessageToWU('storage/get-multiple', array('requestVar'));
+print_r($requestVar);die;
 
 extract($_REQUEST);
 if(!empty($fromEmail) && !empty($fromName) && !empty($hostServer) && !empty($userName) && !empty($password) && !empty($port))
