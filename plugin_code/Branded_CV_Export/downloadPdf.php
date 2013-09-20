@@ -20,6 +20,7 @@ $candidateName = $currentUserProfile['name'];
 $userCVDetail = $WU_API->sendMessageToWU('contacts/get-parsed-cv', array('id' => $id));
 $userCVDetail = json_decode(json_encode($userCVDetail), true);
 $summary = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['summary']);
+$summary = str_replace('Summary:', "", $userCVDetail['html']['summary']);
 //$privateInfo		= str_replace('/strong>',"/strong><br/>",$currentUserProfile['cv']['html']['private-info']);
 $keySkills = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['key-skills']);
 $history = str_replace('/strong>', "/strong><br/>", $userCVDetail['html']['history']);
@@ -48,7 +49,6 @@ $brandedFunctions = new BrandedFunctions;
 $imageSize = $brandedFunctions->getAspectRatio($imageHeight, $imageWidth, 43, 132);
 if (/* !is_null($privateInfo) || */!is_null($summary) && !empty($summary)) {
     $cvHTML.='<table border="0">
-        <tr><th width="20%" height="120"></th></tr>
         <tr>
         <th width="15%" align="right"><h2>SUMMARY</h2></th>
         <th width="7%" align="right"></th>
@@ -107,6 +107,7 @@ class MYPDF extends TCPDF {
         $this->writeHTMLCell(0, 0, 0, 33, '<table> <tr><th width="5%"></th><th width="95%" align="center" class="candidate-name"> CV: ' . $candidateName . '</th></tr></table>', 0, 0, false, true, '', true);
         $style = array('width' => 0.25, 'phase' => 10, 'color' => array(71, 97, 108));
         $this->Line(77.5, 41, 129.5, 41, $style);
+        $this->writeHTMLCell(0, 0, 0, 42, '<table border="0"> <tr><th width="100%" height="120" align="center"></th></tr></table>', 0, 0, false, true, '', true);
     }
 
     // Page footer
