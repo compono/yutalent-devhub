@@ -1,5 +1,5 @@
 <?php
-require_once('../config.inc.php');
+require_once(dirname(dirname(__FILE__)).'/config.inc.php');
 if(!in_array($_SERVER['REMOTE_ADDR'],$whiteListIp))	// check script is calling locally or not
 {
 	die('no access');

@@ -1,8 +1,7 @@
 <?php 
 require_once('config.inc.php');
-error_reporting(1);
-//if(in_array($_SERVER['REMOTE_ADDR'],$whiteListIp))	// check script is calling locally or not
-//{
+if(in_array($_SERVER['REMOTE_ADDR'],$whiteListIp))	// check script is calling locally or not
+{
 	extract($_REQUEST);
 	if(!empty($fromEmail) && !empty($fromName) && !empty($hostServer) && !empty($userName) && !empty($password) && !empty($port))
 	{	// to required value exist or not
@@ -16,6 +15,6 @@ error_reporting(1);
 		$sendEmail = new SmtpMail($userName,$password,$toEmail,$fromEmail,$fromName,$subject,$body,$hostServer,$port,$smtpNumber);
 		$sendEmail->sendEmail();
 	}
-//}
-/*else 
-	die('no access'.wuDomain.'---'.$_SERVER['REMOTE_ADDR'].'----'.json_encode($whiteListIp));*/
+}
+else 
+	die('no access');
