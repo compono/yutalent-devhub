@@ -1,9 +1,4 @@
 <?php
-require_once(dirname(dirname(__FILE__)).'/config.inc.php');
-if(!in_array($_SERVER['REMOTE_ADDR'],$whiteListIp))	// check script is calling locally or not
-{
-	die('no access');
-}
 /*~ class.phpmailer.php
 .---------------------------------------------------------------------------.
 |  Software: PHPMailer - PHP email class                                    |

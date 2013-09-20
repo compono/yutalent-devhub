@@ -1,5 +1,4 @@
 <?php
-$whiteListIp = array('95.138.185.73','54.251.162.52');	// ips for wutalent and yutalent
 /* get parent domain name dynamically */
 $wuDomain = '';
 $domainName = $_SERVER['SERVER_NAME'];
