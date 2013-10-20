@@ -1,5 +1,5 @@
-## wu:talent contributor agreement
-To work with our developer community, <a href="http://www.clahub.com/agreements/oneworldmarket/wutalent-devhub"> you need to first sign the Contributor License Agreement</a>.
+## yu:talent contributor agreement
+To work with our developer community, <a href="http://www.clahub.com/agreements/oneworldmarket/yutalent-devhub"> you need to first sign the Contributor License Agreement</a>.
 
 ### You need to agree to that
 
@@ -13,6 +13,6 @@ To work with our developer community, <a href="http://www.clahub.com/agreements/
 
 ### Documentation, support and howto's
 
-All our documentation, our support (via the Issues area) and howto guides are found in the [wu:talent API Documentation repository](https://github.com/oneworldmarket/wutalent-api).
+All our documentation, our support (via the Issues area) and howto guides are found in the [yu:talent API Documentation repository](https://github.com/oneworldmarket/yutalent-api).
 
 

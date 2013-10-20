@@ -125,7 +125,7 @@ class MYPDF extends TCPDF {
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('WuTalent');
+$pdf->SetAuthor('yu:talent');
 $pdf->SetTitle('CV-' . $candidateName);
 $pdf->SetSubject('CV-' . $candidateName);
 

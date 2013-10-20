@@ -4,11 +4,11 @@ So developers know how we like to work, we have created a plugin template for yo
 
 Use this as a start point before you begin to develop your plugin.
 
-Remember you have to <a href="http://www.clahub.com/agreements/oneworldmarket/wutalent-devhub"> agree and sign the Contributor License Agreement</a> before we can accept any code work from you.
+Remember you have to <a href="http://www.clahub.com/agreements/oneworldmarket/yutalent-devhub"> agree and sign the Contributor License Agreement</a> before we can accept any code work from you.
 
 ### Our plugin template logic and rules
 
-- All plugin options are kept centrally in the config.inc.php but you will NEVER INCLUDE SENSITIVE DATA such as passwords, API keys, or any other data that could compromise the security of oneworldmarket ltd, its partners or other developers in any way within this file.
+- All plugin options are kept centrally in the config.inc.php but you will NEVER INCLUDE SENSITIVE DATA such as passwords, API keys, or any other data that could compromise the security of yutalent ltd, its partners or other developers in any way within this file.
 
 - All external libraries and any other code reference material is filed away in the libraries folder
 
