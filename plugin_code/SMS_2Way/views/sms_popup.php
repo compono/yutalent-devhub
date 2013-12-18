@@ -153,7 +153,6 @@ if(isset($_POST['msg_hide']))
 
                 wu.Messenger.sendMessageToWU('contacts/get', {id: wu.Options.getOption('request')['id'] }, function(response){
                     mobile = (response.phone.profile.mobile).replace(/[^0-9]/g, '').replace(/^0+/, '');
-                    console.log("mobile:" + mobile);
                 });
 
                 wu.addSmsOutboundNote = function( message ){
@@ -166,7 +165,7 @@ if(isset($_POST['msg_hide']))
                         }
                     );
 
-                      wu.Messenger.sendMessageToWU('storage/add', {key: 'mobile_' + mobile, value: wu.Options.getOption('request')['id']},
+                      wu.Messenger.sendMessageToWU('storage/add', {'key': 'mobile_' + mobile, 'value': wu.Options.getOption('request')['id']},
                          function(response)
                          {
                             console.log('mobile_' + mobile);
