@@ -136,7 +136,7 @@ if(isset($_POST['msg_hide']))
 		//$results = $api->checkNumber($phones);			
 		//print_r($results);
 		
-        $resp = $sms->sendText($mob_no, 'yu test', $message, $is_unicode );
+        //$resp = $sms->sendText($mob_no, 'yu test', $message, $is_unicode );
 		
 		//Fetching message id from response
 		//$key = array_search($mob_no, $resp['messages']);
@@ -153,6 +153,7 @@ if(isset($_POST['msg_hide']))
 
                 wu.Messenger.sendMessageToWU('contacts/get', {id: wu.Options.getOption('request')['id'] }, function(response){
                     mobile = (response.phone.profile.mobile).replace(/[^0-9]/g, '').replace(/^0+/, '');
+                    console.log("mobile:" + mobile);
                 });
 
                 wu.addSmsOutboundNote = function( message ){
