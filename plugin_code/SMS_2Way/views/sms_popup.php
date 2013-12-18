@@ -136,7 +136,7 @@ if(isset($_POST['msg_hide']))
 		//$results = $api->checkNumber($phones);			
 		//print_r($results);
 		
-        //$resp = $sms->sendText($mob_no, 'yu test', $message, $is_unicode );
+        $resp = $sms->sendText($mob_no, 'yu test', $message, $is_unicode );
 		
 		//Fetching message id from response
 		//$key = array_search($mob_no, $resp['messages']);
