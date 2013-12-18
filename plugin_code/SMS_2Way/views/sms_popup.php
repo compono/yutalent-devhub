@@ -175,7 +175,7 @@ if(isset($_POST['msg_hide']))
                     wu.Messenger.sendMessageToWU('timeline/add', {
                             "contact_id": wu.Options.getOption('request')['id'],
                             "type":"plugin_sms",
-                            "interview_title": "sms int"
+                            "interview_title": "SMS sent"
                         },
                         function(resp){
                             console.log('timeline');

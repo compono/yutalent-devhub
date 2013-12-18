@@ -1,6 +1,6 @@
 <?php
 
-//header_status(500);
+header_status(200);
 
 if (!isset($_GET['accountId'])) 
 {
@@ -27,15 +27,25 @@ $WU_API->setAccountId($accountId);
 
 $contactId = $WU_API->sendMessageToWU('storage/get', array('key' => 'mobile_'.$msg->from));
 
-print_r($contactId);
-print_r(error_get_last());
+$note = $WU_API->sendMessageToWU('notes/add', array(
+    'contact_id' => $contactId,
+    'received' => 'true',
+    'type' => 'plugin_sms',
+    'subject' => 'Inbound SMS',
+    'message' => $msg->text
+    ));
 
-//$contactId = $WU_API->sendMessageToWU('contacts/get', array('id' => 445)); //get contact by mobile number
+$timeline = $WU_API->sendMessageToWU('timeline/add', array(
+    'contact_id' => $contactId,
+    'type'=> 'plugin_sms',
+    'interview_title' => "SMS sent"
+    ));
+
+print_r($note.'::'.$timeline.'::');
+print_r(error_get_last());
 
 //TODO: add notes
 //TODO: add timeline
-
-//header_status(200);
 
 
 function header_status($statusCode)
