@@ -16,8 +16,8 @@ else $domain = $_GET['domain'];
 
 define('WU_DOMAIN', $domain);
 
-require_once('./config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
+require_once('./config.inc.php');
 require_once('./libraries/nexmoAPI/NexmoInbound.php');
 require_once('./libraries/wu-api/wu-api.php');
 
