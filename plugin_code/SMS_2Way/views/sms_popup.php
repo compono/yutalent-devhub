@@ -168,7 +168,7 @@ if(isset($_POST['msg_hide']))
                       wu.Messenger.sendMessageToWU('storage/add', {'key': 'mobile_' + mobile, 'value': wu.Options.getOption('request')['id']},
                          function(response)
                          {
-                            console.log('storage/add: mobile_' + mobile ', value: ' + wu.Options.getOption('request')['id']);
+                            console.log('storage/add: mobile_' + mobile + ', value: ' + wu.Options.getOption('request')['id']);
                             console.log(response);
                          });
 
