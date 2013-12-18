@@ -1,0 +1,68 @@
+/* CSS Document */
+.msg_submit{
+	width: 116px;
+	height: 41px;
+	background: url(images/sendsms.png);
+	border: none;
+	cursor: pointer;
+	text-indent: -9999px;
+    margin: 0 auto;
+    display: block;
+}
+
+.msg_submit:hover {
+	background: url(images/sendsmshover.png);
+}
+
+#char_count {
+	color: #AA9984;
+	font-size: 12px;
+	float: left;
+	text-align: center;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.err{
+	color:#FF0000;
+	margin: 0px;
+}
+
+.success_msg{
+	color:#549227;
+	margin:0px;
+	display:none;
+}
+.valid_err{
+color: red;
+text-align: center;
+font-weight: bold;
+font-size: 16px;
+}
+.bronze{
+    color: #AA9984;
+}
+.textarea-med{
+    width: 98%;
+    border-radius: 4px;
+}
+.error-message{
+    font-size: 17px;
+    color: #cb2027;
+    text-align: center;
+}
+.update-btn{
+    display: block;
+    margin: 0 auto;
+    margin-top: 90px;
+    width: 168px;
+    height: 41px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    background: url('images/buy_credit.png') no-repeat;
+    text-indent: -9999px;
+}
+.update-btn:hover{
+    background: url('images/buy_credit_hover.png') no-repeat;
+}
