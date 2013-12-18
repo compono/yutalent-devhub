@@ -14,11 +14,9 @@ if (!isset($_GET['domain']))
 }
 else $domain = $_GET['domain'];
 
-///define('__DIR__', '/home/yasiekk1/domains/jasikowski.pl/public_html/2way/libraries/wu-api');
-
 define('WU_DOMAIN', $domain);
 
-require_once('../config.inc.php');
+require_once('./config.inc.php');
 require_once('/home/developers_sandbox/SMS_2Way_config.php');
 require_once('./libraries/nexmoAPI/NexmoInbound.php');
 require_once('./libraries/wu-api/wu-api.php');
@@ -30,6 +28,7 @@ $WU_API->setAccountId($accountId);
 $contactId = $WU_API->sendMessageToWU('storage/get', array('key' => 'mobile_'.$msg->from));
 
 print_r($contactId);
+print_r(error_get_last());
 
 //$contactId = $WU_API->sendMessageToWU('contacts/get', array('id' => 445)); //get contact by mobile number
 
