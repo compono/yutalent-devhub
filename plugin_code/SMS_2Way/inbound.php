@@ -27,6 +27,10 @@ $WU_API->setAccountId($accountId);
 
 $contactId = $WU_API->sendMessageToWU('storage/get', array('key' => 'mobile_'.$msg->from));
 
+if (isset($contactId))
+    $contactId = $contact[0];
+else die('Contact ID not found');
+
 $note = $WU_API->sendMessageToWU('notes/add', array(
     'contact_id' => $contactId,
     'received' => 'true',
