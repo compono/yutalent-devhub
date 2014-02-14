@@ -14,7 +14,10 @@
 </head>
 <body>
 	<div id="content">
-	  <?php /* Form for get xero key from user*/
+	  <?php 
+	  if($_REQUEST['xero_consumer_key'] != '') $_POST['xero_consumer_key'] = $_REQUEST['xero_consumer_key'];
+	  if($_REQUEST['xero_consumer_secret'] != '') $_POST['xero_consumer_secret'] = $_REQUEST['xero_consumer_secret'];
+	  /* Form for get xero key from user*/
 		require_once(dirname(__FILE__) . '/views/keyForm.php');
 		if(isset($_POST['xero_consumer_key']) or isset($_POST['xero_consumer_secret']))	// if user has posted submit the form
 		{
