@@ -16,6 +16,7 @@ window.wuAfterInit = function(wu) {
 
 	        wu.Messenger.sendMessageToWU('storage/get-multiple',{ keys: form_keys }, function(response) {
 	            console.log('get after save', response);
+	            $('#xero_api_settings').submit();
 	        });
 	    });
 	});
