@@ -6,7 +6,7 @@
             <label class="bronze-info goLeft " for="xero_consumer_key">Consumer Key</label>
         </span>
         <span class="margin-right-60">
-            <input type="text" name="xero_consumer_key" id="apikey" value="<?php echo $_POST['xero_consumer_key']; ?>" class="default-field goLeft "/>
+            <input type="text" name="xero_consumer_key" id="xero_consumer_key" value="<?php echo $_POST['xero_consumer_key']; ?>" class="default-field goLeft "/>
         </span>
     </div>
     <div class="clearfix"></div>
