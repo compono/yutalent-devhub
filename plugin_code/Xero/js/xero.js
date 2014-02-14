@@ -1,7 +1,7 @@
 window.wuAsyncInit = function () {
 	WU.init({
 		domain: wuDomain,
-		signed_request: '<?php echo $_REQUEST['signed_request'] ?>',
+		signed_request: $('#signed_request').val(),
 		height: '100%',
 		'afterInit': function(wu){
 			if( typeof window.wuAfterInit == 'function' ) {
