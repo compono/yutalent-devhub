@@ -20,7 +20,7 @@
             </span>
         </div>
         <div class="clearfix"></div>
-        <input type="hidden" name="signed_request" id="signed_request" value="<?php echo $_REQUEST['signed_request']; ?>" />     
+        <input type="hidden" name="signed_request" value="<?php echo $_REQUEST['signed_request']; ?>" />     
         <div class="form-element">
             <span class="goLeft">
                 <input class="update-btn goLeft" id="submit-api" type="button" value="UPDATE"/>
