@@ -22,3 +22,7 @@ button.ui-multiselect span.value{color:#AA9984 !important}
 .successMessage {color: green;margin-left: 31%;margin-top: -18px;padding-bottom: 18px;position: relative;}
 .form-element {margin: 10px 0;}
 .form-element .label-holder {float:left;margin-top:7px;width: 200px;}
+.intro {margin: 10px 0;}
+.success, .error {
+	margin: 10px 0;
+}

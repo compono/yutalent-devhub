@@ -36,17 +36,17 @@ if (!$_REQUEST['yu_contact_id']) {
 					if (isset($contact['phone']['profile']['normal']) and $contact['phone']['profile']['normal']) {
 						$contact_xml .= "<Phone>";
 							$contact_xml .= "<PhoneType>DEFAULT</PhoneType>";
-					        $contact_xml .= "<PhoneNumber>{$contact['phone']['profile']['normal']}</PhoneNumber>";
-					        $contact_xml .= "<PhoneAreaCode></PhoneAreaCode>";
-					        $contact_xml .= "<PhoneCountryCode></PhoneCountryCode>";
+							$contact_xml .= "<PhoneNumber>{$contact['phone']['profile']['normal']}</PhoneNumber>";
+							$contact_xml .= "<PhoneAreaCode></PhoneAreaCode>";
+							$contact_xml .= "<PhoneCountryCode></PhoneCountryCode>";
 						$contact_xml .= "</Phone>";
 					}
 					if (isset($contact['phone']['profile']['mobile']) and $contact['phone']['profile']['mobile']) {
 						$contact_xml .= "<Phone>";
 							$contact_xml .= "<PhoneType>MOBILE</PhoneType>";
-					        $contact_xml .= "<PhoneNumber>{$contact['phone']['profile']['mobile']}</PhoneNumber>";
-					        $contact_xml .= "<PhoneAreaCode></PhoneAreaCode>";
-					        $contact_xml .= "<PhoneCountryCode></PhoneCountryCode>";
+							$contact_xml .= "<PhoneNumber>{$contact['phone']['profile']['mobile']}</PhoneNumber>";
+							$contact_xml .= "<PhoneAreaCode></PhoneAreaCode>";
+							$contact_xml .= "<PhoneCountryCode></PhoneCountryCode>";
 						$contact_xml .= "</Phone>";
 					}
 					$contact_xml .= "</Phones>";
