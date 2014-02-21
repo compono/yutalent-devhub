@@ -238,7 +238,7 @@ class XeroOAuth {
 		// method handling
 		switch ($this->method) {
 			case 'POST' :
-				
+				$this->request_params = array();
 				break;
 			default :
 				// GET, DELETE request so convert the parameters to a querystring
