@@ -74,7 +74,7 @@
 	border:0px solid #000000;
 	text-align:center;
 	border-width:0px 0px 1px 1px;
-	font-size:14px;
+	font-size:12px;
 	font-family:Arial;
 	font-weight:bold;
 	color:#000000;
@@ -94,4 +94,46 @@
 }
 .invoices th {
 	font-size: 12px;
+}
+
+#invoice_form {
+	border: 2px solid black;
+	padding: 10px;
+	display: none;
+}
+
+#invoice_form input[type=text] {
+	width: 120px;
+}
+
+#invoice_form h2 {
+	text-align: center;
+}
+
+#invoice_add_table {
+	margin: 5px 0;
+}
+
+#add_invoice {
+	float: right;
+}
+
+#invoice_form .invoice_qty,
+#invoice_form .invoice_price {
+	width: 80px !important;
+	text-align: right;
+}
+
+#invoice_form .invoice_desc {
+	width: 300px !important;
+}
+
+#add_invoice_item {
+	display: block;
+	margin: 0 auto;
+}
+
+#save_as_draft,
+#save_invoice {
+	float: right;
 }

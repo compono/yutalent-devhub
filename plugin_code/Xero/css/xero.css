@@ -26,3 +26,6 @@ button.ui-multiselect span.value{color:#AA9984 !important}
 .success, .error {
 	margin: 10px 0;
 }
+#add_invoice {
+	float: right;
+}
