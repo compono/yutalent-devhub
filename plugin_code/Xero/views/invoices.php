@@ -4,37 +4,22 @@
 			<input type="button" id="add_invoice" value="Add invoice" />
 			<table class="invoices" border=1>
 				<tr>
-					<td>Name</td>
+					<td>Download</td>
 					<td>Date</td>
 					<td>Due Date</td>
 					<td>Status</td>
-					<td>Line Amount Types</td>
-					<td>Sub Total</td>
-					<td>Total Tax</td>
-					<td>Total</td>
-					<td>Updated Date</td>
-					<td>Currency Code</td>
-					<td>Fully Paid On Date</td>
-					<td>Type</td>
 					<td>Amount Due</td>
 					<td>Amount Paid</td>
 				</tr>
 				<?php foreach ($invoices_arr->Invoice as $invoice) : ?>
+					<?php $currency_code = (string) $invoice->CurrencyCode; ?>
 					<tr>
-						<td><?php echo (string) $invoice->Contact->Name; ?></td>
-						<td><?php echo (string) $invoice->Date; ?></td>
-						<td><?php echo (string) $invoice->DueDate; ?></td>
+						<td><a href="xdownload_pdf.php?invoice_id=<?php echo (string) $invoice->InvoiceID; ?>" class="download_invoice">Download</a></td>
+						<td><?php echo date('j M, Y', strtotime((string) $invoice->Date)); ?></td>
+						<td><?php echo date('j M, Y', strtotime((string) $invoice->DueDate)); ?></td>
 						<td><?php echo (string) $invoice->Status; ?></td>
-						<td><?php echo (string) $invoice->LineAmountTypes; ?></td>
-						<td><?php echo (string) $invoice->SubTotal; ?></td>
-						<td><?php echo (string) $invoice->TotalTax; ?></td>
-						<td><?php echo (string) $invoice->Total; ?></td>
-						<td><?php echo (string) $invoice->UpdatedDateUTC; ?></td>
-						<td><?php echo (string) $invoice->CurrencyCode; ?></td>
-						<td><?php echo (string) $invoice->FullyPaidOnDate; ?></td>
-						<td><?php echo (string) $invoice->Type; ?></td>
-						<td><?php echo (string) $invoice->AmountDue; ?></td>
-						<td><?php echo (string) $invoice->AmountPaid; ?></td>
+						<td><?php echo get_currency_symbol($currency_code) . (string) $invoice->AmountDue; ?></td>
+						<td><?php echo get_currency_symbol($currency_code) . (string) $invoice->AmountPaid; ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</table>

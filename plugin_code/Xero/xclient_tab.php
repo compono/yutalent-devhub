@@ -2,6 +2,7 @@
 
 require_once(dirname(__FILE__) . '/config.inc.php'); 
 require_once(dirname(__FILE__) . '/xapp_init.php');
+require_once(dirname(__FILE__) . '/utils.php');
 
 //invoice ajax data
 if ($_POST['invoice']) {
@@ -130,6 +131,3 @@ if ($_POST['invoice']) {
 	}
 	require_once(dirname(__FILE__) . '/views/footer.php'); 
 }
-
-
-

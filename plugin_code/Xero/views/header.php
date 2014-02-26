@@ -25,6 +25,7 @@
 <body>
 <form>
 	<input type="hidden" name="signed_request" id="signed_request" value="<?php echo $_REQUEST['signed_request']; ?>" />
-	<input type="hidden" name="xero_consumer_key" id="xero_consumer_key" value="<?php echo $_REQUEST['xero_consumer_key']; ?>" />
+	<input type="hidden" name="xero_consumer_key" id="xero_consumer_key" value="<?php echo $_GET['xero_consumer_key']; ?>" />
+	<input type="hidden" name="xero_consumer_secret" id="xero_consumer_secret" value="<?php echo $_GET['xero_consumer_secret']; ?>" />
 	<input type="hidden" name="yu_contact_id" id="yu_contact_id" value="<?php echo $_REQUEST['yu_contact_id']; ?>" />
 </form>

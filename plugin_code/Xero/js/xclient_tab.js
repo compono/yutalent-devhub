@@ -50,6 +50,17 @@ $(document).ready(function(){
 		$('#invoice_status').val('DRAFT');
 		submit_invoice();
 	});
+
+	$('.download_invoice').click(function(e){
+		e.preventDefault();
+
+		//saving keys to cookies, so we will not show them in the address bar
+		setCookie('xero_consumer_key', $('#xero_consumer_key').val(), 1);
+		setCookie('xero_consumer_secret', $('#xero_consumer_secret').val(), 1);
+
+		var win = window.open($(this).attr('href'), '_blank');
+  		win.focus();
+	});
 });
 
 function submit_invoice() {
