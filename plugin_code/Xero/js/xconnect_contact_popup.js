@@ -4,7 +4,10 @@ window.wuAfterInit = function(wu) {
 		var value = $('#select_xero_contact_id').val();
 		
 		wu.Messenger.sendMessageToWU('storage/add', {key: key, value: value}, function(response){
-	        $('#content').html('<p>Connection saved.</p>');
-	    });
+			$('#content').html('<p>Connection saved.</p>');
+			window.setTimeout(function(){
+				wu.Messenger.sendMessageToWU('refresh');
+			}, 1000);
+		});
 	});
 }

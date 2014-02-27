@@ -6,5 +6,11 @@ window.wuAfterInit = function(wu) {
 	$('#add_new_xero').click(function(){
 		wu.Messenger.sendMessageToWU('event/popup', {popup : 'add'});
 	});
+
+	$('#unlink_contact').click(function(){
+		wu.Messenger.sendMessageToWU('event/unlink', {}, function(response){
+			wu.Messenger.sendMessageToWU('refresh');
+		});
+	});
 }
 

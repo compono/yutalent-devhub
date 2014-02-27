@@ -29,3 +29,4 @@ button.ui-multiselect span.value{color:#AA9984 !important}
 #add_invoice {
 	float: right;
 }
+#content.small {width: auto;}

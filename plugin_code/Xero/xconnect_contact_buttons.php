@@ -13,7 +13,13 @@ if (!$_REQUEST['xero_contact_id']) {
 	$init = init_app($_REQUEST['xero_consumer_key'], $_REQUEST['xero_consumer_secret']);
 	if ($init['success']) {
 		$xero_contact_name = get_contact_name_by_id($_REQUEST['xero_contact_id']);
-		echo '<p>Contact connected to '.$xero_contact_name.'</p>';
+		if (!$xero_contact_name) {
+			//looks like the contact was deleted in xero, so deleting the connection
+			echo '<p>Looks like contact was deleted in xero. Unlinking contact.</p>';
+			echo '<script type="text/javascript" src="js/xunlink_contact.js"></script>';
+		} else {
+			require_once(dirname(__FILE__) . '/views/contactConnected.php'); 
+		}
 	}
 }
 require_once(dirname(__FILE__) . '/views/footer.php'); 

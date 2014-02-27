@@ -86,7 +86,7 @@ function init_app($xero_consumer_key, $xero_consumer_secret) {
 function get_contact_name_by_id($xero_contact_id) {
 	global $XeroOAuth;
 
-	$result = false;
+	$result = null;
 
 	$response = $XeroOAuth->request('GET', $XeroOAuth->url('Contacts', 'core'), array('where' => 'ContactID = Guid("'.$xero_contact_id.'")'));
 	if ($XeroOAuth->response['code'] == 200) {
@@ -96,6 +96,8 @@ function get_contact_name_by_id($xero_contact_id) {
 			$result = $contact->Contacts->Contact->Name;
 		}
 		$result = (string) $result;
+	} else {
+		$result = false;
 	}
 
 	return $result;

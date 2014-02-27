@@ -4,5 +4,8 @@ window.wuAfterInit = function(wu) {
 	
 	wu.Messenger.sendMessageToWU('storage/add', {key: key, value: value}, function(response){
         $('#content').html('<p>Contact successfully saved.</p>');
+        window.setTimeout(function(){
+        	wu.Messenger.sendMessageToWU('refresh');
+        }, 1000);
     });
 }

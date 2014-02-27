@@ -105,13 +105,20 @@ if ($_POST['invoice']) {
 		$xero_contact_id = $_REQUEST['xero_contact_id'];
 		$init = $init = init_app($_REQUEST['xero_consumer_key'], $_REQUEST['xero_consumer_secret']);
 		if ($init['success']) { 
+			$xero_contact_name = get_contact_name_by_id($xero_contact_id);
+			if (!$xero_contact_name) {
+				//looks like the contact was deleted in xero, so deleting the connection
+				echo '<p>Looks like contact was deleted in xero. Unlinking contact.</p>';
+				echo '<script type="text/javascript" src="js/xunlink_contact.js"></script>';
+				die();
+			}
+
 			//invoices
 			$response = $XeroOAuth->request('GET', $XeroOAuth->url('Invoices', 'core'), array('where' => 'Contact.ContactID = Guid("'.$xero_contact_id.'")'));
 			if ($XeroOAuth->response['code'] == 200) {
 				
 				$invoices = $XeroOAuth->parseResponse($XeroOAuth->response['response'], $XeroOAuth->response['format']);
 				$invoices_arr = $invoices->Invoices;
-				$xero_contact_name = get_contact_name_by_id($xero_contact_id);
 
 				//accounts
 				$response = $XeroOAuth->request('GET', $XeroOAuth->url('Accounts', 'core'), array());
