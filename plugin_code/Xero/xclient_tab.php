@@ -41,11 +41,6 @@ if ($_POST['invoice']) {
 				$invoice_xml .= '</ContactID>';
 			$invoice_xml .= '</Contact>';
 		}
-		if ($_POST['invoice']['account']) {
-			$invoice_xml .= '<AccountCode>';
-				$invoice_xml .= $_POST['invoice']['account'];
-			$invoice_xml .= '</AccountCode>';
-		}
 		if (is_array($_POST['invoice']['item']) and $_POST['invoice']['item']) {
 			$invoice_xml .= '<LineItems>';
 				foreach ($_POST['invoice']['item'] as $line_item) {
@@ -66,7 +61,11 @@ if ($_POST['invoice']) {
 								$invoice_xml .= $line_item['price'];
 							$invoice_xml .= '</UnitAmount>';
 						}
-						
+						if ($_POST['invoice']['account']) {
+							$invoice_xml .= '<AccountCode>';
+								$invoice_xml .= $_POST['invoice']['account'];
+							$invoice_xml .= '</AccountCode>';
+						}
 					$invoice_xml .= '</LineItem>';
 				}
 			$invoice_xml .= '</LineItems>';
@@ -81,10 +80,15 @@ if ($_POST['invoice']) {
 			);
 		} else {
 			$error = $XeroOAuth->response['code'] . ' ' . $XeroOAuth->response['response'];
-
 			$exception = simplexml_load_string($XeroOAuth->response['response']);
-			if (isset($exception->Message)) {
-				$error = (string) $exception->Message;
+			$errors_arr = get_all_validation_errors($exception);
+
+			//validation errors array
+			if (is_array($errors_arr) and count($errors_arr)) {
+				$error = '';
+				foreach ($errors_arr as $key => $value) {
+					$error .= $value . "\n";
+				}
 			}
 
 			$result = array(

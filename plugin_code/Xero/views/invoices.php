@@ -12,12 +12,16 @@
 					<td>Amount Paid</td>
 				</tr>
 				<?php foreach ($invoices_arr->Invoice as $invoice) : ?>
-					<?php $currency_code = (string) $invoice->CurrencyCode; ?>
+					<?php 
+						$currency_code = (string) $invoice->CurrencyCode; 
+						$invoice_date = (string) $invoice->Date;
+						$invoice_due_date = (string) $invoice->DueDate;
+					?>
 					<tr>
 						<td><a href="xdownload_pdf.php?invoice_id=<?php echo (string) $invoice->InvoiceID; ?>" class="download_invoice">Download</a></td>
-						<td><?php echo date('j M, Y', strtotime((string) $invoice->Date)); ?></td>
-						<td><?php echo date('j M, Y', strtotime((string) $invoice->DueDate)); ?></td>
-						<td><?php echo (string) $invoice->Status; ?></td>
+						<td><?php if ($invoice_date) echo date('j M, Y', strtotime($invoice_date)); ?></td>
+						<td><?php if ($invoice_due_date) echo date('j M, Y', strtotime($invoice_due_date)); ?></td>
+						<td><?php echo ucfirst(mb_strtolower((string) $invoice->Status)); ?></td>
 						<td><?php echo get_currency_symbol($currency_code) . (string) $invoice->AmountDue; ?></td>
 						<td><?php echo get_currency_symbol($currency_code) . (string) $invoice->AmountPaid; ?></td>
 					</tr>
@@ -25,7 +29,10 @@
 			</table>
 		</div>
 	<?php else : ?>
-		<p>No invoices for this client yet.</p>
+		<div id="invoices_list">
+			<input type="button" id="add_invoice" value="Add invoice" />
+			<p>No invoices for this client yet.</p>
+		</div>
 	<?php endif; ?>
 </div>
 <div id="invoice_form">
@@ -44,12 +51,12 @@
 			<option value="ACCREC">Sales invoice</option>
 			<option value="ACCPAY">Bill</option>
 		</select>
-		<!-- <label for="invoice_account">Account</label>
-		<select id="invoice_account" name="invoice[account]" required> -->
-			<?php //foreach ($accounts->Accounts->Account as $account) : ?>
-				<!-- <option value="<?php //echo $account->AccountID; ?>"><?php //echo $account->Name; ?></option> -->
-			<?php //endforeach; ?>
-		<!-- </select> -->
+		<label for="invoice_account">Account</label>
+		<select id="invoice_account" name="invoice[account]" required>
+			<?php foreach ($accounts->Accounts->Account as $account) : ?>
+				<option value="<?php echo $account->Code; ?>"><?php echo $account->Name; ?></option>
+			<?php endforeach; ?>
+		</select> 
 		<table class="invoices" id="invoice_add_table">
 			<tr>
 				<td>Item Description</td>
@@ -68,7 +75,7 @@
 		</table>
 		<input type="button" id="add_invoice_item" value="Add item" />
 		<input type="button" id="cancel_invoice" value="Cancel">
-		<!-- <input type="button" id="save_invoice" value="Save invoice"> -->
+		<input type="button" id="save_invoice" value="Save invoice">
 		<input type="button" id="save_as_draft" value="Save as draft">
 	</form>
 </div>

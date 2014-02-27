@@ -23,7 +23,7 @@
 	?>
 </head>
 <body>
-<form>
+<form id="settings_form" method="post">
 	<input type="hidden" name="signed_request" id="signed_request" value="<?php echo $_REQUEST['signed_request']; ?>" />
 	<input type="hidden" name="xero_consumer_key" id="xero_consumer_key" value="<?php echo $_GET['xero_consumer_key']; ?>" />
 	<input type="hidden" name="xero_consumer_secret" id="xero_consumer_secret" value="<?php echo $_GET['xero_consumer_secret']; ?>" />

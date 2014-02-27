@@ -102,3 +102,32 @@ function get_contact_name_by_id($xero_contact_id) {
 
 	return $result;
 }
+
+/**
+ * Get all the validation errors form the xero response (recursive)
+ * @param obj|array $obj - XML object from xero response or piece of it 
+ * @param array $validation_error - array of validation errors (to keep the errors from previous iteration)
+ * @return array - array of errors
+ */
+
+function get_all_validation_errors($obj, $validation_errors = array()) {
+	global $validation_errors;
+
+	if (is_array($obj)) {
+		foreach ($obj as $obj_piece) {
+			get_all_validation_errors($obj_piece, $validation_errors);
+		}
+	} 
+
+	if (is_object($obj)) {
+		if (isset($obj->Message)) {
+			$validation_errors[] = (string) $obj->Message;
+		}
+		$obj_vars = get_object_vars($obj);
+		foreach ($obj_vars as $value) {
+			get_all_validation_errors($value, $validation_errors);
+		}
+	}
+
+	return $validation_errors;
+}
