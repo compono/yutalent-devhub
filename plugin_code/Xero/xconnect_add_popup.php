@@ -52,6 +52,37 @@ if (!$_REQUEST['yu_contact_id']) {
 					$contact_xml .= "</Phones>";
 				}
 
+				$address = '';
+				if ($contact['address']['profile']) {
+					$address = $contact['address']['profile'];
+				} elseif ($contact['address']['company']) {
+					$address = $contact['address']['company'];
+				}
+
+				$address_lines = explode("%0A", $address);
+
+				if ($address) {
+					$address_type = 'STREET';
+					if (preg_match('/\s*((P(OST)?.?\s*(O(FF(ICE)?))?.?\s+(B(IN|OX))?)|B(IN|OX))/is', $address)) {
+						$address_type = 'POBOX';
+					}
+					$contact_xml .= '<Addresses>';
+						$contact_xml .= '<Address>';
+							$contact_xml .= '<AddressType>';
+								$contact_xml .= $address_type;
+							$contact_xml .= '</AddressType>';
+							foreach ($address_lines as $address_line_key => $address_line) {
+								if ($address_line_key >= 3) {
+									break;
+								}
+								$contact_xml .= '<AddressLine'.($address_line_key + 1).'>';
+									$contact_xml .= $address_line;
+								$contact_xml .= '</AddressLine'.($address_line_key + 1).'>';
+							}
+						$contact_xml .= '</Address>';
+					$contact_xml .= '</Addresses>';
+				}
+
 				$contact_xml .= 
 					"</Contact>
 				</Contacts>";
