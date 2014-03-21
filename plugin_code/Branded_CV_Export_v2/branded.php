@@ -1,11 +1,11 @@
 <?php
-$scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
-require_once 'config.inc.php';
-require_once 'libraries/wu-api/wu-api.php';
-$WU_API = new WU_API();
+
+require_once(dirname(__FILE__) . '/bootstrap.php'); 
+
 // this is optional, but if you use query parameters in your script,
 // then better to set it right, as oauth server will return additional parameters into script
 // and then redirect uri will differ from the url which requested access token
+$scriptUrl = ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $_SERVER['HTTP_HOST'].'/'.$_SERVER['PHP_SELF'];
 $WU_API->setRedirectUri($scriptUrl);
 $error = $WU_API->getParam('error');	// get error parmeter 
 if(!is_null($error))			// if error paramter is exist

@@ -35,7 +35,7 @@ class WU_API
 
         if( defined('WU_DOMAIN') && !$this->_domain )
         {
-            $this->_domain = WU_DOMAIN;
+            $this->_domain = HTTP_SSL.'://'.WU_DOMAIN;
         }
 
         $this->_oauth = new oauth_client_class();

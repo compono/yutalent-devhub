@@ -1,11 +1,7 @@
 <?php
-$wuDomain = '';
-$domain_parts = explode('.', $_SERVER['HTTP_HOST']);
-$domain_parts[0] = 'www';
-$wuDomain = implode('.', $domain_parts);
-$wuDomain=((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on")?'https':'http') . '://' . $wuDomain;
 
-define('WU_DOMAIN', $wuDomain);
+define('HTTP_SSL','https');
+define("WU_DOMAIN","www.yutalent.co.uk");
 define('WU_ID', '');
 define('WU_SECRET', '');
 
@@ -15,3 +11,8 @@ define('LIVEDOCS_PASSWORD', '');
 
 define('TEMPLATES_DIR', dirname(__FILE__) . '/templates/');
 define('DEFAULT_CV_TEMPLATE', 'Default_CV_template.docx');
+
+define('UPLOAD_MAX_FILESIZE', 2 * 1024 * 1024); //2MB
+define('ALLOWED_FILE_EXTENSIONS', 'docx|doc|pdf|rtf');
+
+define('ORIG_FILE_NAME_KEY', 'cv_export_template_original_file_name');

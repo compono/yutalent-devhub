@@ -1,0 +1,38 @@
+.errorConatiner{margin-top: -9px;padding: 0 8px 8px;text-align: left;}
+.error{color:#CB2027;font-family:'ProximaNovaRegular';font-size: 17px;font-weight: normal;margin-bottom: 5px;}
+#content{padding: 0 25px 25px; width: 95%;}
+
+.file_upload_outter {
+	text-align: center;
+	overflow: hidden;
+	width: 260px;
+	height: 40px;
+	background: url('../images/upload_button.png') no-repeat center center;
+	cursor: pointer;
+}
+
+#cv_template {
+	margin-top: -50px; 
+	margin-left:-410px; 
+	-moz-opacity: 0; 
+	filter: alpha(opacity=0); 
+	opacity: 0; 
+	font-size: 150px; 
+	height: 100px;
+}
+
+.mb-15 {
+	margin-bottom: 15px;
+}
+
+.mb-25 {
+	margin-bottom: 25px;
+}
+
+.mb-50 {
+	margin-bottom: 50px;
+}
+
+.ml-130 {
+	margin-left: 130px;
+}
