@@ -6,17 +6,24 @@ function search_file($user_id) {
 	global $WU_API;
 
 	$result = false;
+	$extensions = explode('|', ALLOWED_FILE_EXTENSIONS);
 
-	if (is_file(TEMPLATES_DIR . $user_id) || filesize(TEMPLATES_DIR . $user_id)) {
-		$orig_file_name = $WU_API->sendMessageToWU('storage/get', array('key' => ORIG_FILE_NAME_KEY));
-		
-		if ($orig_file_name[0]) {
-			$result = array(
-				'path' => TEMPLATES_DIR . $user_id,
-				'orig_file_name' => $orig_file_name[0]
-			);
+	foreach ($extensions as $extension) {
+		if (is_file(TEMPLATES_PATH . $user_id . '.' . $extension) && filesize(TEMPLATES_PATH . $user_id . '.' . $extension)) {
+			$orig_file_name = $WU_API->sendMessageToWU('storage/get', array('key' => ORIG_FILE_NAME_KEY));
+			
+			if ($orig_file_name[0]) {
+				$result = array(
+					'file' => $user_id . '.' . $extension,
+					'path' => TEMPLATES_PATH . $user_id . '.' . $extension,
+					'orig_file_name' => $orig_file_name[0]
+				);
+			}
+			break;
 		}
 	}
+
+	
 
 	return $result;
 }
@@ -34,7 +41,8 @@ function save_file($user_id) {
 		$size = $_FILES['cv_template']['size'];
 		$error = $_FILES['cv_template']['error'];
 		$tmp_name = $_FILES['cv_template']['tmp_name'];
-		$save_to = TEMPLATES_DIR . $user_id;
+		$extension = mb_strtolower(end(explode('.', $orig_name)));
+		$save_to = TEMPLATES_PATH . $user_id . '.' . $extension;
 
 		if ($error === 0) {
 			if ($size > UPLOAD_MAX_FILESIZE) {
@@ -44,7 +52,6 @@ function save_file($user_id) {
 				);
 				return $result;
 			} else {
-				$extension = end(explode('.', $orig_name));
 				if (in_array($extension, explode('|', ALLOWED_FILE_EXTENSIONS))) {
 					if (move_uploaded_file($tmp_name, $save_to)) {
 						$result = array(
@@ -54,9 +61,6 @@ function save_file($user_id) {
 
 						$WU_API->sendMessageToWU('storage/add', array('key' => ORIG_FILE_NAME_KEY, 'value' => $orig_name));
 					} else {
-
-						var_dump($tmp_name);
-						var_dump($save_to);
 						$result = array(
 							'success' => false,
 							'error' => 'Error moving file'
@@ -85,9 +89,68 @@ function save_file($user_id) {
 function delete_file($user_id) {
 	global $WU_API;
 
-	if (is_file(TEMPLATES_DIR . $user_id)) {
-		unlink(is_file(TEMPLATES_DIR . $user_id));
+	$extensions = explode('|', ALLOWED_FILE_EXTENSIONS);
+
+	foreach ($extensions as $extension) {
+		if (is_file(TEMPLATES_PATH . $user_id . '.' . $extension)) {
+			unlink(TEMPLATES_PATH . $user_id . '.' . $extension);
+		}
 	}
 
 	$WU_API->sendMessageToWU('storage/add', array('key' => ORIG_FILE_NAME_KEY, 'value' => ''));
+}
+
+function download_file($filename, $orig_name) {
+	$mime_types = array(
+		'pdf' => 'application/pdf',
+		'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+		'doc' => 'application/msword',
+		'rtf' => 'application/rtf'
+	);
+
+	$extension = mb_strtolower(end(explode('.', $orig_name)));
+
+	header("Content-Type: " . $mime_types[$extension]);
+	header("Content-Transfer-Encoding: Binary");
+	header('Content-disposition: attachment; filename="' . $orig_name . '"'); 
+	echo readfile(TEMPLATES_PATH . $filename);
+}
+
+function br2nl($str) {
+	$str = preg_replace("/(\r\n|\n|\r)/", "", $str);
+	return preg_replace("=<br */?>=i", "\n", $str);
+}
+
+function clean_output_LD($str) {
+	return strip_tags(str_replace(array('/strong>', '&nbsp;'), array("/strong>\n", ' '), br2nl($str)));
+}
+
+function clean_output_OO($str) {
+	return $str;
+}
+
+function merge_html($filename, $replace) {
+	$result = false;
+
+	$file = file_get_contents($filename);
+	if ($file) {
+		foreach ($replace as $replace_key => $replace_value) {
+			$file = str_replace('«' . $replace_key . '»', $replace_value, $file);
+		}
+
+		if (file_put_contents($filename, $file) !== false) {
+			$result = true;
+		}
+	}
+	return $result;
+}
+
+function delete_directory($dir) {
+	if (!file_exists($dir)) return true;
+	if (!is_dir($dir)) return unlink($dir);
+	foreach (scandir($dir) as $item) {
+		if ($item == '.' || $item == '..') continue;
+		if (!delete_directory($dir.DIRECTORY_SEPARATOR.$item)) return false;
+	}
+	return rmdir($dir);
 }
