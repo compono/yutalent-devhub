@@ -6,8 +6,8 @@ window.wuAfterInit = function(wu) {
 		wu.Messenger.sendMessageToWU('storage/add-multiple',{
 			append: false,
 			pairs: {
-				xero_consumer_key: $('#xero_consumer_key').val(),
-				xero_consumer_secret: $('#xero_consumer_secret').val()
+				xero_consumer_key: $('#xero_consumer_key_input').val(),
+				xero_consumer_secret: $('#xero_consumer_secret_input').val()
 			}
 		}, 
 		function(response) {
