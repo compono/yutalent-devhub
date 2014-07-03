@@ -143,40 +143,48 @@ class WU_API
         return array();
     }
 
-    public function sendMessageToWU($method, $params = array())
-    {
-        $params['method'] = $method;
+	public function sendMessageToWU($method, $params = array(), $method_type = 'GET')
+	{
+		$params['method'] = $method;
 
-        if( $this->getToken() )
-        {
-            $this->_oauth->StoreAccessToken( array( 'value' => $this->getToken() ) );
-        }
+		if( $this->getToken(false) )
+		{
+			$this->_oauth->StoreAccessToken( array( 'value' => $this->getToken(false) ) );
+		}
 
-        $success = $this->_oauth->Process();
-        $success = $this->_oauth->Finalize($success);
+		$success = $this->_oauth->Process();
+		$success = $this->_oauth->Finalize($success);
 
-        if( $success )
-        {
-            $success = $this->_oauth->CallAPI(
-                $this->_domain . '/c/oauth/v1?' . http_build_query($params),
-                'GET', array(), array('FailOnAccessError'=>true), $response);
+		if( $success )
+		{
+			if( strtoupper($method_type) == 'GET' )
+			{
+				$success = $this->_oauth->CallAPI(
+					$this->_domain . '/c/oauth/v1?' . http_build_query($params),
+					$method_type, array(), array('FailOnAccessError'=>true), $response);
+			}
+			else
+			{
+				$success = $this->_oauth->CallAPI(
+					$this->_domain . '/c/oauth/v1',
+					$method_type, $params, array('FailOnAccessError'=>true), $response);
+			}
 
-            if( !$success )
-            {
-                $this->_oauth->Output();
-                die('Error calling the API');
-            }
-            else
-            {
-                return $response;
-            }
-        }
-        else
-        {
-            $this->_oauth->Output();
-            die('Authentication error');
-        }
-    }
+			if( !$success )
+			{
+				return $response;
+			}
+			else
+			{
+				return $response;
+			}
+		}
+		else
+		{
+			$this->_oauth->Output();
+			die('Authentication error');
+		}
+	}
 
     public function getAllParams()
     {

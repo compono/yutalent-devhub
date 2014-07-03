@@ -7601,7 +7601,7 @@ class TCPDF {
 					header("Cache-control: private");
 					TCPDF_STATIC::sendOutputData($this->getBuffer(), $this->bufferlen);
 				} else {
-					echo $this->getBuffer();wuplugin-general-image
+					echo $this->getBuffer();
 				}
 				break;
 			}

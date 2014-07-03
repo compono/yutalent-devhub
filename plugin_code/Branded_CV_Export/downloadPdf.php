@@ -173,6 +173,19 @@ if ($imagePath != 'images/wu-logo.png')
     @unlink($imagePath);
 // Close and output PDF document
 // This method has several options, check the source code documentation for more information.
-$pdf->Output('CV-' . $candidateName . '.pdf', 'I');
+$filename = 'CV-' . $candidateName;
+$file = $pdf->Output($filename . '.pdf', 'S');
+
+$saveFile = $WU_API->sendMessageToWU('contacts/add-file',
+	array(
+		'id' => $id,
+		'file_name' => $filename . ' ' . date('Y-m-d H:i:s') . '.pdf',
+		'file_content' => base64_encode($file)
+	), 'POST'
+);
+
+header("Content-disposition: attachment; filename=" . $filename . '.pdf');
+header("Content-type: application/pdf");
+echo $file;
 exit;
 ?>
